@@ -45,11 +45,18 @@ public class SplashScreen extends AppCompatActivity {
                             finish();
                         }
                     }*/
+
+                    Intent i = new Intent(SplashScreen.this, MembershipPage.class);
+                    startActivity(i);
+                    finish();
+
+                }else {
+                    Intent i = new Intent(SplashScreen.this, IntroSlider.class);
+                    startActivity(i);
+                    finish();
                 }
 
-                Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(i);
-                finish();
+
 
 
 
