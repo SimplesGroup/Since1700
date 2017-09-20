@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import since.since1700.Login.LoginActivity;
+
 /**
  * Created by Kuppusamy on 9/14/2017.
  */
@@ -46,7 +48,7 @@ public class SplashScreen extends AppCompatActivity {
                         }
                     }*/
 
-                    Intent i = new Intent(SplashScreen.this, MembershipPage.class);
+                    Intent i = new Intent(SplashScreen.this, LoginActivity.class);
                     startActivity(i);
                     finish();
 
