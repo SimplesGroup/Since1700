@@ -54,7 +54,7 @@ public class ChooseyourInterest extends AppCompatActivity {
     RecyclerView recyclerView_select_yourinterest;
     public static final String mypreference = "mypref";
     TextView textview_chooseyour_interest_title;
-    private final String TAG_REQUEST = "MY_TAG";
+
     RequestQueue requestQueue;
     int requestcount=1;
     String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
