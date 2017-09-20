@@ -1,7 +1,9 @@
 package since.since1700;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +29,10 @@ TextView textview_membership_tile,textview_firstdescription,textview_seconddescr
         sharedpreferences =  getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
 
+        String fontPath = "fonts/OpenSans-Regular.ttf";
+        final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
+
+
         textview_membership_tile=(TextView)findViewById(R.id.textview_membership);
         textview_firstdescription=(TextView)findViewById(R.id.textview_firstdescription);
         textview_seconddescription=(TextView)findViewById(R.id.textview_seconddescription);
@@ -36,6 +42,15 @@ TextView textview_membership_tile,textview_firstdescription,textview_seconddescr
         textview_apply_member_description=(TextView)findViewById(R.id.textview_applymembership_description);
 
         button_applyformembership=(Button)findViewById(R.id.button_applymembership);
+
+        textview_membership_tile.setTypeface(opensansfont);
+        textview_firstdescription.setTypeface(opensansfont);
+        textview_seconddescription.setTypeface(opensansfont);
+        textview_invite_member_title.setTypeface(opensansfont);
+        textview__invite_member_description.setTypeface(opensansfont);
+        textview_apply_membership_title.setTypeface(opensansfont);
+        textview_apply_member_description.setTypeface(opensansfont);
+        button_applyformembership.setTypeface(opensansfont);
 
         textview_membership_tile.setText("Membership & Privileges");
         textview_firstdescription.setText("This is a section of our privilege partners, offering benefits "+
@@ -54,6 +69,8 @@ TextView textview_membership_tile,textview_firstdescription,textview_seconddescr
         button_applyformembership.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent next=new Intent(getApplicationContext(),ChooseyourInterest.class);
+                startActivity(next);
 
             }
         });

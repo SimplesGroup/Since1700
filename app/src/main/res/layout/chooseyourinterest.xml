@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="15dp"
+                android:background="@drawable/membershipgradient"
+                android:id="@+id/textview_chooseyourinterest"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+<RelativeLayout
+    android:paddingBottom="50dp"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recylerview_chooseyour_interest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false">
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_alignParentBottom="true"
+
+        android:padding="7dp"
+        android:background="@color/sandal"
+        android:id="@+id/button_next"
+        android:layout_width="match_parent"
+
+        android:textColor="@android:color/black"
+
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
