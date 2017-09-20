@@ -23,6 +23,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -221,10 +222,12 @@ String id,productname,productimage;
     static  class Itemviewholder extends RecyclerView.ViewHolder{
         ImageButton selectbutton;
         NetworkImageView productimage;
+        ImageView hoverimage;
         TextView productitle;
         public Itemviewholder(View itemView) {
             super(itemView);
             productimage=(NetworkImageView)itemView.findViewById(R.id.product_category_image);
+            hoverimage=(ImageView)itemView.findViewById(R.id.hoverimage);
             productitle=(TextView)itemView.findViewById(R.id.product_category_name);
             selectbutton=(ImageButton) itemView.findViewById(R.id.select_item_imagebutton);
         }
@@ -334,7 +337,11 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             final Itemviewholder userViewHolder = (Itemviewholder) holder;
             ItemModel itemModel=productlist.get(position);
         final int    pos = position;
+
+            String fontPath = "fonts/OpenSans-Regular.ttf";
+            final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
              userViewHolder.productitle.setText(itemModel.getProductname());
+            userViewHolder.productitle.setTypeface(opensansfont);
             userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
 
 
@@ -345,9 +352,11 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         if (productlist.get(pos).getSelected()) {
             userViewHolder.selectbutton.setVisibility(View.INVISIBLE);
+            userViewHolder.hoverimage.setVisibility(View.INVISIBLE);
             productlist.get(pos).setSelected(false);
         } else {
             Toast.makeText(getApplicationContext(), productlist.get(pos).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
+            userViewHolder.hoverimage.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setBackgroundResource(R.mipmap.tickblue);
             productlist.get(pos).setSelected(true);
@@ -358,9 +367,11 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onClick(View v) {
         if (productlist.get(pos).getSelected()) {
+            userViewHolder.hoverimage.setVisibility(View.INVISIBLE);
             userViewHolder.selectbutton.setVisibility(View.INVISIBLE);
             productlist.get(pos).setSelected(false);
         } else {
+            userViewHolder.hoverimage.setVisibility(View.VISIBLE);
             Toast.makeText(getApplicationContext(), productlist.get(pos).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
             userViewHolder.selectbutton.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setBackgroundResource(R.mipmap.tickblue);
