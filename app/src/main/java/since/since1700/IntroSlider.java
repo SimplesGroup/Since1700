@@ -20,6 +20,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import since.since1700.Login.LoginActivity;
+
 /**
  * Created by Kuppusamy on 9/18/2017.
  */
@@ -133,7 +135,7 @@ public class IntroSlider extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(getApplicationContext(), MembershipPage.class));
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
 

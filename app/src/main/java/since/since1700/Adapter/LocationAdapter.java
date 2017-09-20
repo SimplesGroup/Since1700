@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,12 +43,14 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
      public Button checkbutton;
+        LinearLayout countrylayout;
 
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.listTitle);
             checkbutton = (Button) view.findViewById(R.id.btn_check);
+            countrylayout = (LinearLayout) view.findViewById(R.id.countrylayout);
 
         }
     }
@@ -60,18 +65,47 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
        final LocationModel comment = modellist.get(position);
 
         holder.title.setText(comment.getLocation());
-        holder.checkbutton.setClickable(modellist.get(position).isSelected());
+        holder.countrylayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        holder.checkbutton.setTag(modellist.get(position));
+
+                if (modellist.get(position).isSelected()) {
+                    holder.checkbutton.setVisibility(View.INVISIBLE);
+                    modellist.get(position).setSelected(false);
+                } else {
+                   // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
+                    holder.checkbutton.setVisibility(View.VISIBLE);
+                    holder.checkbutton.setBackgroundResource(R.mipmap.tickblue);
+                    modellist.get(position).setSelected(true);
+                }
+            }
+        });
+        holder.checkbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (modellist.get(position).isSelected()) {
+                    holder.checkbutton.setVisibility(View.INVISIBLE);
+                    modellist.get(position).setSelected(false);
+                } else {
+                   // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
+                    holder.checkbutton.setVisibility(View.VISIBLE);
+                    holder.checkbutton.setBackgroundResource(R.mipmap.tickblue);
+                    modellist.get(position).setSelected(true);
+                }
+            }
+        });
 
 
     }
-
+    public List<LocationModel> getCountryist() {
+        return modellist;
+    }
 
     @Override
     public int getItemCount() {

@@ -31,8 +31,8 @@
                 android:id="@+id/signin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="0.50"
                 android:background="#00000000"
@@ -43,8 +43,8 @@
                 android:id="@+id/signup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="0.50"
                 android:background="#00000000"
@@ -129,6 +129,7 @@
                     android:layout_marginRight="50dp"
                     android:layout_marginTop="30dp"
                     android:text="Sign in"
+                    android:background="#64aeadad"
                     android:textAllCaps="true"
                     android:textColor="#000000" />
 
@@ -143,6 +144,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="0dp"
                         android:layout_marginTop="30dp"
+                        android:layout_weight="0.50"
                         android:background="#000000" />
 
                     <TextView
@@ -159,11 +161,12 @@
                         android:textSize="15dp" />
 
                     <View
-                        android:layout_width="100dp"
+                        android:layout_width="90dp"
                         android:layout_height="0.5dp"
                         android:layout_marginLeft="0dp"
-                        android:layout_marginRight="50dp"
+                        android:layout_marginRight="100dp"
                         android:layout_marginTop="30dp"
+                        android:layout_weight="0.50"
                         android:background="#000000" />
                 </LinearLayout>
 
@@ -181,16 +184,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:background="#ffffff"
-                        android:src="@drawable/fb" />
+                        android:src="@mipmap/fb" />
 
 
 
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/gmail"
+                        android:src="@mipmap/gmail"
                         android:background="#ffffff"
                         android:layout_marginLeft="30dp"
                         />
@@ -312,6 +315,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="20dp"
                     android:text="Create An account"
+                    android:background="#64aeadad"
                     android:textAllCaps="true"
                     android:textColor="#000000"
                     android:paddingBottom="10dp"/>

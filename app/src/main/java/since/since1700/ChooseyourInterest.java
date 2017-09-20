@@ -155,7 +155,7 @@ GetData();
 
             for (int i = 0; i < feedArray.length(); i++) {
                 JSONObject obj = (JSONObject) feedArray.get(i);
-ItemModel model=new ItemModel();
+                ItemModel model=new ItemModel();
                 model.setId(obj.getString("id"));
                 String image = obj.isNull("productimage") ? null : obj
                         .getString("productimage");
@@ -163,7 +163,7 @@ ItemModel model=new ItemModel();
                 model.setProductname(obj.getString("producttitle"));
                 productlist.add(model);
             }
-productAdapter.notifyDataSetChanged();
+            productAdapter.notifyDataSetChanged();
         } catch (JSONException e) {
 
         }
@@ -338,7 +338,7 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
 
 
-userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
+   userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
@@ -354,7 +354,7 @@ userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
         }
     }
 });
-userViewHolder.selectbutton.setOnClickListener(new View.OnClickListener() {
+   userViewHolder.selectbutton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         if (productlist.get(pos).getSelected()) {
