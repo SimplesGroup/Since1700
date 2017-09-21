@@ -52,10 +52,6 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
             title = (TextView) view.findViewById(R.id.listTitle);
             checkbutton = (Button) view.findViewById(R.id.btn_check);
             countrylayout = (LinearLayout) view.findViewById(R.id.countrylayout);
-            String fontPath = "fonts/OpenSans-Regular.ttf";
-            final Typeface opensansfont = Typeface.createFromAsset(context.getAssets(), fontPath);
-
-            title.setTypeface(opensansfont);
 
         }
     }
@@ -75,6 +71,11 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
        final LocationModel comment = modellist.get(position);
 
         holder.title.setText(comment.getLocation());
+        String fontPath = "fonts/OpenSans-Regular.ttf";
+//        final Typeface opensansfont = Typeface.createFromAsset(context.getAssets(), fontPath);
+
+       // holder.title.setTypeface(opensansfont);
+
 
         holder.countrylayout.setOnClickListener(new View.OnClickListener() {
             @Override

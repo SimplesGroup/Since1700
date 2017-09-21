@@ -10,10 +10,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.squareup.picasso.Picasso;
 
 import since.since1700.Fragment.BrandsFragment;
 import since.since1700.Fragment.ContactFragment;
@@ -29,14 +35,23 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     public static final String mypreference = "mypref";
     public static final String colorcode = "colorCode";
-
+    ImageView profile;
     ImageButton feed_btn,brands_btn,shop_btn,events_btn,contact_btn;
+    Toolbar toolbar;
 
     String colorcodes;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.main_activity);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
         sharedpreferences =  getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
 
@@ -51,12 +66,16 @@ public class MainActivity extends AppCompatActivity {
         events_btn=(ImageButton)findViewById(R.id.btn_event);
         contact_btn=(ImageButton)findViewById(R.id.btn_contact);
 
+        profile = (ImageView) findViewById(R.id.profilePic);
+        Picasso.with(this)
+                .load("http://simpli-city.in//gloclAPI//image//03072017193744_1878332239_glocl_posted_image.jpg")
+                .into(profile);
 
 
         feed_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                feed_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
@@ -84,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         brands_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                brands_btn.setBackgroundResource(R.drawable.bluebutton);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
@@ -114,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //  if(myprofileid!=null) {
+                shop_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
@@ -145,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
         events_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                events_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
@@ -174,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
         contact_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contact_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);

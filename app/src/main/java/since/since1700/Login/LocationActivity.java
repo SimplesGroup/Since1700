@@ -79,7 +79,6 @@ public class LocationActivity extends AppCompatActivity {
         choosecolor.setTypeface(opensansfont);
         next.setTypeface(opensansfont);
 
-        Log.e("BUTTONLIST", String.valueOf(color.get(0)));
 
         black.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +124,7 @@ public class LocationActivity extends AppCompatActivity {
                 editor.putString(colorcode, "blue");
                 editor.commit();
 
-                if(colorcodes.length()==0){
+              /*  if(colorcodes.length()==0){
 
                 }else {
                     if(colorcodes.equalsIgnoreCase("blue")){
@@ -143,7 +142,7 @@ public class LocationActivity extends AppCompatActivity {
 
                         }
                     }
-                }
+                }*/
 
             }
         });
