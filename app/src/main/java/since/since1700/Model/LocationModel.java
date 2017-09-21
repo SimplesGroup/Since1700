@@ -8,6 +8,15 @@ public  class LocationModel {
 
     private String location;
     private boolean isSelected;
+    private  boolean colorSelection;
+
+    public boolean isColorSelection() {
+        return colorSelection;
+    }
+
+    public void setColorSelection(boolean colorSelection) {
+        this.colorSelection = colorSelection;
+    }
 
     public String getLocation() {
         return location;

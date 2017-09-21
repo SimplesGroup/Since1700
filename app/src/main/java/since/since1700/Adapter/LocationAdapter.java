@@ -70,13 +70,14 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
        final LocationModel comment = modellist.get(position);
 
         holder.title.setText(comment.getLocation());
+
         holder.countrylayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
                 if (modellist.get(position).isSelected()) {
-                    holder.checkbutton.setVisibility(View.INVISIBLE);
+                    holder.checkbutton.setVisibility(View.VISIBLE);
+                    holder.checkbutton.setBackgroundResource(R.drawable.unchecked);
                     modellist.get(position).setSelected(false);
                 } else {
                    // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
@@ -90,7 +91,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
             @Override
             public void onClick(View v) {
                 if (modellist.get(position).isSelected()) {
-                    holder.checkbutton.setVisibility(View.INVISIBLE);
+                    holder.checkbutton.setVisibility(View.VISIBLE);
+                    holder.checkbutton.setBackgroundResource(R.drawable.unchecked);
                     modellist.get(position).setSelected(false);
                 } else {
                    // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();

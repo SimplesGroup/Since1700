@@ -77,25 +77,28 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="50dp">
+            android:layout_marginBottom="60dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
-                android:src="@drawable/black"/>
+                android:background="@drawable/black"
+                android:id="@+id/btn_black"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/red"
-                android:layout_marginLeft="30dp"/>
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/red"
+                android:id="@+id/btn_red"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
                 android:background="@drawable/blue"
-                android:layout_marginLeft="30dp"
+                android:id="@+id/btn_blue"
                 />
 
         </LinearLayout>
@@ -104,7 +107,6 @@
 </ScrollView>
     <Button
         android:layout_alignParentBottom="true"
-
         android:padding="7dp"
         android:background="@color/sandal"
         android:id="@+id/btn_next"
