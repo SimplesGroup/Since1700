@@ -19,6 +19,7 @@ TextView textview_membership_tile,textview_firstdescription,textview_seconddescr
     SharedPreferences sharedpreferences;
 
     public static final String mypreference = "mypref";
+    public static final String colorcode = "colorCode";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

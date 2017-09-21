@@ -83,7 +83,7 @@ public class LocationActivity extends AppCompatActivity {
 
 
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(colorcode, "#000000");
+                editor.putString(colorcode, "blue");
                 editor.commit();
 
             }
@@ -94,7 +94,7 @@ public class LocationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 red.setBackgroundResource(R.mipmap.tickblue);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(colorcode, "#000000");
+                editor.putString(colorcode, "blue");
                 editor.commit();
 
             }
@@ -106,7 +106,7 @@ public class LocationActivity extends AppCompatActivity {
 
                 blue.setBackgroundResource(R.mipmap.tickblue);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(colorcode, "#000000");
+                editor.putString(colorcode, "blue");
                 editor.commit();
 
             }
