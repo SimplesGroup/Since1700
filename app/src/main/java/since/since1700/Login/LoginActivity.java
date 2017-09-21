@@ -2,6 +2,7 @@ package since.since1700.Login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -59,6 +60,16 @@ public class LoginActivity extends AppCompatActivity {
         passwordsignin.setHint("************");
         passwordsignup.setHint("************");
         logincode.setHint("Your Login Code");
+
+        String fontPath = "fonts/OpenSans-Regular.ttf";
+        final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
+
+        username.setTypeface(opensansfont);
+        emailsignin.setTypeface(opensansfont);
+        emailsignup.setTypeface(opensansfont);
+        passwordsignin.setTypeface(opensansfont);
+        passwordsignup.setTypeface(opensansfont);
+        logincode.setTypeface(opensansfont);
 
         signin.setBackgroundResource(R.drawable.bluebutton);
         signup.setBackgroundColor(00000000);

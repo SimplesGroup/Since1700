@@ -3,6 +3,7 @@ package since.since1700.Login;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -38,6 +40,8 @@ public class LocationActivity extends AppCompatActivity {
     Button black,red,blue;
     public static final String mypreference = "mypref";
     SharedPreferences sharedpreferences;
+    String colorcodes;
+    TextView chooselocation,choosecolor;
 
     public static final String colorcode = "colorCode";
     @Override
@@ -56,14 +60,24 @@ public class LocationActivity extends AppCompatActivity {
         recyclerView.setAdapter(locationadapter);
 
         next = (Button) findViewById(R.id.btn_next);
+        chooselocation = (TextView)findViewById(R.id.chooselocation);
+        choosecolor = (TextView)findViewById(R.id.choosecolor);
 
         black = (Button)findViewById(R.id.btn_black);
         red = (Button)findViewById(R.id.btn_red);
         blue = (Button)findViewById(R.id.btn_blue);
 
-        color.add(black);
-        color.add(red);
-        color.add(blue);
+        String fontPath = "fonts/OpenSans-Regular.ttf";
+        final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
+
+
+
+        black.setTypeface(opensansfont);
+        red.setTypeface(opensansfont);
+        blue.setTypeface(opensansfont);
+        chooselocation.setTypeface(opensansfont);
+        choosecolor.setTypeface(opensansfont);
+        next.setTypeface(opensansfont);
 
         Log.e("BUTTONLIST", String.valueOf(color.get(0)));
 
@@ -72,7 +86,7 @@ public class LocationActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 black.setBackgroundResource(R.mipmap.tickblue);
-               if(modellist.get(0).isColorSelection()) {
+             /*  if(modellist.get(0).isColorSelection()) {
                    black.setVisibility(View.VISIBLE);
                    black.setBackgroundResource(R.drawable.black);
                    modellist.get(0).setColorSelection(false);
@@ -81,7 +95,7 @@ public class LocationActivity extends AppCompatActivity {
                    black.setVisibility(View.VISIBLE);
                    black.setBackgroundResource(R.mipmap.tickblue);
                    modellist.get(0).setColorSelection(true);
-               }
+               }*/
 
 
                 SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -110,6 +124,26 @@ public class LocationActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString(colorcode, "blue");
                 editor.commit();
+
+                if(colorcodes.length()==0){
+
+                }else {
+                    if(colorcodes.equalsIgnoreCase("blue")){
+                        Log.e("Msg","hihihi");
+                        chooselocation.setBackgroundResource(R.drawable.bluebutton);
+                        choosecolor.setBackgroundResource(R.drawable.bluebutton);
+                    }else {
+                        if(colorcodes.equals("#626262")){
+                            chooselocation.setBackgroundResource(R.drawable.bluebutton);
+                            choosecolor.setBackgroundResource(R.drawable.bluebutton);
+
+                        }else{
+                            chooselocation.setBackgroundResource(R.drawable.bluebutton);
+                            choosecolor.setBackgroundResource(R.drawable.bluebutton);
+
+                        }
+                    }
+                }
 
             }
         });
