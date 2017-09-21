@@ -2,6 +2,7 @@ package since.since1700.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,6 +52,10 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
             title = (TextView) view.findViewById(R.id.listTitle);
             checkbutton = (Button) view.findViewById(R.id.btn_check);
             countrylayout = (LinearLayout) view.findViewById(R.id.countrylayout);
+            String fontPath = "fonts/OpenSans-Regular.ttf";
+            final Typeface opensansfont = Typeface.createFromAsset(context.getAssets(), fontPath);
+
+            title.setTypeface(opensansfont);
 
         }
     }
