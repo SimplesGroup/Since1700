@@ -2,6 +2,7 @@ package since.since1700;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -117,6 +118,8 @@ GetData();
                 Toast.makeText(getApplicationContext(),
                         "Selected items: \n" + data, Toast.LENGTH_LONG)
                         .show();
+                Intent in=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(in);
             }
         });
 

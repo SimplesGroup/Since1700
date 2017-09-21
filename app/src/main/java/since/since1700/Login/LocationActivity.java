@@ -1,6 +1,7 @@
 package since.since1700.Login;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.Adapter.LocationAdapter;
+import since.since1700.ChooseyourInterest;
 import since.since1700.Model.LocationModel;
 import since.since1700.R;
 
@@ -136,6 +138,8 @@ public class LocationActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Selected items: \n" + data, Toast.LENGTH_LONG)
                         .show();
+                Intent intent=new Intent(getApplicationContext(), ChooseyourInterest.class);
+                startActivity(intent);
             }
         });
 

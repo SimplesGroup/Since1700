@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:layout_above="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:animateLayoutChanges="true">
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+
+        android:layout_alignParentBottom="true">
+        <ImageButton android:id="@+id/btn_feed"
+
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:src="@mipmap/feed"
+            android:background="@drawable/buttonselector"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            />
+
+        <ImageButton android:id="@+id/btn_brands"
+
+            android:background="@drawable/buttonselector"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/brands"
+            android:gravity="center_horizontal"
+            />
+        <ImageButton android:id="@+id/btn_shop"
+
+
+            android:background="@drawable/buttonselector"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/shop"
+            android:gravity="center_horizontal" />
+        <ImageButton android:id="@+id/btn_event"
+
+            android:background="@drawable/buttonselector"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/event"
+            android:gravity="center_horizontal"
+            />
+
+        <ImageButton android:id="@+id/btn_contact"
+            android:layout_weight="1"
+            android:background="@drawable/buttonselector"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/contact"
+            android:gravity="center_horizontal"
+            />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
