@@ -56,11 +56,13 @@
 
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_toLeftOf="@+id/profilePic"
                 android:layout_gravity="center"
                 android:id="@+id/filter"
+                android:padding="0dp"
+                android:layout_marginRight="10dp"
                 android:src="@mipmap/filter" />
 
             <de.hdodenhof.circleimageview.CircleImageView
