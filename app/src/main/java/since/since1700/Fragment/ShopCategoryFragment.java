@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Adapter.CategoryAdapter;
+import since.since1700.Adapter.LocationAdapter;
 import since.since1700.R;
 
 /**
@@ -30,6 +34,9 @@ public class ShopCategoryFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     ImageView filter;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private CategoryAdapter categoryadapter;
     @Nullable
     public static ShopCategoryFragment newInstance() {
         ShopCategoryFragment fragment = new ShopCategoryFragment();
@@ -55,6 +62,12 @@ public class ShopCategoryFragment extends Fragment {
 
         tabLayout = (TabLayout) view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        mLayoutManager=new LinearLayoutManager(getActivity());
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(mLayoutManager);
+        categoryadapter = new CategoryAdapter(getActivity());
+        recyclerView.setAdapter(categoryadapter);
         return view;
     }
 
@@ -66,6 +79,7 @@ public class ShopCategoryFragment extends Fragment {
         adapter.addFragment(new ShopOnSaleFragment(), "Jet");
         adapter.addFragment(new ShopOnSaleFragment(), "Jewellery");
         adapter.addFragment(new ShopOnSaleFragment(), "Home");
+
 
         viewPager.setAdapter(adapter);
     }

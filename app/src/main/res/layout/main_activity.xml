@@ -21,73 +21,66 @@
         local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         >
 
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_alignParentTop="true"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="22dp"
-        android:layout_gravity="left|center_vertical"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_gravity="left|center_vertical"
 
-        android:layout_weight=".10"
-        android:src="@mipmap/search"
-        />
-    <ImageView
+                android:layout_weight=".10"
+                android:src="@mipmap/search"
+                />
+            <ImageView
 
-        android:layout_width="0dp"
-        android:layout_height="22dp"
-        android:layout_gravity="left|center_vertical"
-        android:layout_weight=".16"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight=".16"
 
-        />
-    <TextView
+                />
+            <TextView
 
-        android:gravity="center_vertical"
-        android:textAlignment="center"
-        android:id="@+id/tv_header_title"
-        android:layout_width="0dp"
-        android:layout_weight=".47"
-        android:layout_height="match_parent"
-
-
-        android:text="Since1700"
-        android:textColor="#ffffff"
-        android:textSize="18dp" />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="28dp"
-        android:layout_toLeftOf="@+id/profilePic"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="7dp"
-        android:id="@+id/filter"
-        android:background="@android:color/transparent"
-        android:layout_weight="0.09"
-        android:src="@mipmap/filter" />
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilePic"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_centerVertical="true"
-
-        android:layout_weight="0.18"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="right|center"
-        android:layout_marginTop="0dp"/>
-</LinearLayout>
+                android:gravity="center_vertical"
+                android:textAlignment="center"
+                android:id="@+id/tv_header_title"
+                android:layout_width="0dp"
+                android:layout_weight=".47"
+                android:layout_height="match_parent"
 
 
+                android:text="Since1700"
+                android:textColor="#ffffff"
+                android:textSize="18dp" />
 
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_toLeftOf="@+id/profilePic"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="7dp"
+                android:id="@+id/filter"
+                android:background="@android:color/transparent"
+                android:layout_weight="0.09"
+                android:src="@mipmap/filter" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePic"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
 
-
-
-
+                android:layout_weight="0.18"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|center"
+                android:layout_marginTop="0dp"/>
+        </LinearLayout>
     </android.support.v7.widget.Toolbar>
     <RelativeLayout
         android:layout_width="match_parent"

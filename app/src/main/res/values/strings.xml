@@ -3,4 +3,27 @@
     <string name="next">NEXT</string>
     <string name="start">GOT IT</string>
 
+    <array name="spinner_value">
+        <item>"Simples"</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"10"</item>
+        <item>"15"</item>
+        <item>"20"</item>
+    </array>
+    <array name="spinner">
+        <item>"Simplicity"</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"10"</item>
+        <item>"15"</item>
+        <item>"20"</item>
+    </array>
+
 </resources>
