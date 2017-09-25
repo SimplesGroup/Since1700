@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Adapter.CategoryAdapter;
 import since.since1700.R;
 
 /**
