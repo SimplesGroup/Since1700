@@ -155,7 +155,7 @@ Log.e("JSON",response.toString());
         }
     }
 
-public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter{
 
     Context context;
     List<HomeModel> feedimageList=new ArrayList<HomeModel>();
