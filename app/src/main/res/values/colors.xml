@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#fdfbfb</color>
+    <color name="colorAccent">#3690f1</color>
     <color name="mytransparent">#00000000 </color>
     <color name="sandal">#eae8e8</color>
     <!-- dots inactive colors -->

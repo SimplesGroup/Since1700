@@ -7,22 +7,20 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -97,6 +95,24 @@ GetData();
         recyclerView_select_yourinterest.setAdapter(productAdapter);
 
 
+        productAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                Log.e("haint", "Load More");
+
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("haint", "Load More 2");
+                        GetData();
+
+
+                        productAdapter.setLoaded();
+                    }
+                }, 2000);
+            }
+        });
 
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,18 +262,15 @@ String id,productname,productimage;
     }
 public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
-    LayoutInflater inflater;
+
 
     ImageLoader mImageLoader;
     private final int VIEW_TYPE_ITEM = 1;
     private final int VIEW_TYPE_LOADING = 3;
-    MediaPlayer mediaPlayer;
     boolean loading;
     OnLoadMoreListener onLoadMoreListener;
-    private final int VIEW_TYPE_PHOTOSTORY = 2;
     private int visibleThreshold = 5;
     private int lastVisibleItem, totalItemCount;
-    Context context;
     private  int currentvisiblecount;
     public  List<ItemModel> productlist;
 

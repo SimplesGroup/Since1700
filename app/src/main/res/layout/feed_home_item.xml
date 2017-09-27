@@ -19,10 +19,8 @@
                 android:id="@+id/feedImage"
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:clickable="true"
-                android:scaleType="fitXY" />
+                android:scaleType="centerCrop" />
 
 
 
