@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -69,15 +71,16 @@ import since.since1700.R;
         recyclerView.setAdapter(homeadapter);
 
         requestQueue= Volley.newRequestQueue(getActivity());
-
+        handler = new Handler();
         GetData();
 
         homeadapter.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
                 //add null , so the adapter will check view_type and show progress bar at bottom
-                feedimageList.add(null);
-                homeadapter.notifyItemInserted(feedimageList.size() - 1);
+            //
+                // feedimageList.add(null);
+//                homeadapter.notifyItemInserted(feedimageList.size() - 1);
 
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -88,7 +91,8 @@ import since.since1700.R;
                         //add items one by one
                         int start = feedimageList.size();
                         int end = start + 5;
-
+                      //  GetData();
+                        homeadapter.notifyItemInserted(feedimageList.size());
                         for (int i = start + 1; i <= end; i++) {
                             GetData();
                             homeadapter.notifyItemInserted(feedimageList.size());
@@ -165,7 +169,7 @@ public class HomeAdapter extends RecyclerView.Adapter{
     private int visibleThreshold = 5;
     private int lastVisibleItem, totalItemCount;
     private boolean loading;
-    public ImageView feedimage;
+
 
 
     public HomeAdapter(Context context,List<HomeModel> list,RecyclerView recyclerView) {
@@ -203,7 +207,7 @@ public class HomeAdapter extends RecyclerView.Adapter{
 
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    /*public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
         public MyViewHolder(View view) {
@@ -212,7 +216,7 @@ public class HomeAdapter extends RecyclerView.Adapter{
 
 
         }
-    }
+    }*/
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -238,15 +242,22 @@ public class HomeAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
-        final HomeModel model = feedimageList.get(position);
-        feedimage = (ImageView) recyclerView.findViewById(R.id.feedImage);
 
-       feedimage.setImageURI(Uri.parse(model.getFeedimage()));
+
+        if (holder instanceof MyViewHolder) {
+
+            final HomeModel model = feedimageList.get(position);
+
+            ((MyViewHolder) holder).feedimage.setImageURI(Uri.parse(model.getFeedimage()));
+
+
+        } else {
+            ((ProgressViewHolder) holder).progressBar.setIndeterminate(true);
+        }
+
 
     }
-    public List<HomeModel> getFeedImageList() {
-        return feedimageList;
-    }
+
 
     @Override
     public int getItemCount() {
@@ -260,7 +271,17 @@ public class HomeAdapter extends RecyclerView.Adapter{
     public void setLoaded() {
         loading = false;
     }
+    public  class MyViewHolder extends RecyclerView.ViewHolder {
+        public ImageView feedimage;
 
+
+
+        public MyViewHolder(View v) {
+            super(v);
+            feedimage = (ImageView) v.findViewById(R.id.feedImage);
+
+        }
+    }
 
     public  class ProgressViewHolder extends RecyclerView.ViewHolder {
         public ProgressBar progressBar;
