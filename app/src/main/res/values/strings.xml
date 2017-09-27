@@ -26,4 +26,19 @@
         <item>"20"</item>
     </array>
 
+    <string name="drawer_open"></string>
+    <string name="drawer_close"></string>
+
+    <string name="nav_item_home">Home</string>
+    <string name="nav_item_friends">Friends</string>
+    <string name="nav_item_notifications">Messages</string>
+
+
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_friends</item>
+        <item>@string/nav_item_notifications</item>
+    </string-array>
+
+
 </resources>

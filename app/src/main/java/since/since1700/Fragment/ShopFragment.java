@@ -11,10 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v7.widget.Toolbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Fragment.ShopFragments.ShopCategoryFragment;
+import since.since1700.Fragment.ShopFragments.ShopHomeFragment;
+import since.since1700.Fragment.ShopFragments.ShopOnSaleFragment;
+import since.since1700.Fragment.ShopFragments.ShopPopularFragment;
 import since.since1700.R;
 
 /**

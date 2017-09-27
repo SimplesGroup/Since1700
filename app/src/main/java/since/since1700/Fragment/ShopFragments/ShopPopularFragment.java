@@ -1,4 +1,4 @@
-package since.since1700.Fragment;
+package since.since1700.Fragment.ShopFragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,10 +13,10 @@ import since.since1700.R;
  * Created by Sandhiya on 9/21/2017.
  */
 
-public class ShopOnSaleFragment extends Fragment {
+public class ShopPopularFragment extends Fragment {
     @Nullable
-    public static ShopOnSaleFragment newInstance() {
-        ShopOnSaleFragment fragment = new ShopOnSaleFragment();
+    public static ShopPopularFragment newInstance() {
+        ShopPopularFragment fragment = new ShopPopularFragment();
         return fragment;
     }
 

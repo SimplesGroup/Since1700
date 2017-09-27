@@ -1,7 +1,9 @@
-package since.since1700.Fragment;
+package since.since1700.Fragment.ShopFragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.net.Uri;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -12,17 +14,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -32,6 +33,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.CustomVolleyRequest;
 import since.since1700.OnLoadMoreListener;
 import since.since1700.R;
 
@@ -51,6 +53,7 @@ import since.since1700.R;
     String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
     private boolean loading;
     protected Handler handler;
+    ProgressDialog pdialog;
 
 
 
@@ -72,15 +75,20 @@ import since.since1700.R;
 
         requestQueue= Volley.newRequestQueue(getActivity());
         handler = new Handler();
+
+        pdialog = new ProgressDialog(getActivity());
+        pdialog.show();
+        pdialog.setContentView(R.layout.custom_progressdialog);
+        pdialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         GetData();
 
-        homeadapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+      /*  homeadapter.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
                 //add null , so the adapter will check view_type and show progress bar at bottom
             //
-                // feedimageList.add(null);
-//                homeadapter.notifyItemInserted(feedimageList.size() - 1);
+              //   feedimageList.add(null);
+              // homeadapter.notifyItemInserted(feedimageList.size() - 1);
 
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -90,6 +98,8 @@ import since.since1700.R;
                         homeadapter.notifyItemRemoved(feedimageList.size());
                         //add items one by one
                         int start = feedimageList.size();
+
+                        Log.d("SIZEEEEEEE", String.valueOf(start));
                         int end = start + 5;
                       //  GetData();
                         homeadapter.notifyItemInserted(feedimageList.size());
@@ -97,18 +107,29 @@ import since.since1700.R;
                             GetData();
                             homeadapter.notifyItemInserted(feedimageList.size());
                         }
-                        homeadapter.setLoaded();
+                        //homeadapter.setLoaded();
                         //or you can add all at once but do not forget to call mAdapter.notifyDataSetChanged();
                     }
                 }, 2000);
 
             }
-        });
+        });*/
 
 
         return view;
     }
 
+
+   public void dissmissDialog() {
+       // TODO Auto-generated method stub
+       if (pdialog != null) {
+           if (pdialog.isShowing()) {
+               pdialog.dismiss();
+           }
+           pdialog = null;
+       }
+
+   }
 
     private void GetData() {
         //Adding the method to the queue by calling the method getDataFromServer
@@ -123,7 +144,7 @@ import since.since1700.R;
             public void onResponse(JSONObject response) {
 
                 if (response != null) {
-Log.e("JSON",response.toString());
+                    dissmissDialog();
                     ParseJsonFeed(response);
                 }
             }
@@ -150,7 +171,7 @@ Log.e("JSON",response.toString());
                 String image = obj.isNull("productimage") ? null : obj
                         .getString("productimage");
                 model.setFeedimage(image);
-
+                Log.e("JSON",model.getFeedimage().toString());
                 feedimageList.add(model);
             }
             homeadapter.notifyDataSetChanged();
@@ -159,17 +180,26 @@ Log.e("JSON",response.toString());
         }
     }
 
-public class HomeAdapter extends RecyclerView.Adapter{
+    static class LoadingViewHolder extends RecyclerView.ViewHolder {
+        public ProgressBar progressBar;
+
+        public LoadingViewHolder(View itemView) {
+            super(itemView);
+            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar1);
+        }
+    }
+
+public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     Context context;
     List<HomeModel> feedimageList=new ArrayList<HomeModel>();
     private OnLoadMoreListener onLoadMoreListener;
-    private final int VIEW_ITEM = 1;
-    private final int VIEW_PROG = 0;
+    private final int VIEW_TYPE_ITEM = 1;
+    private final int VIEW_TYPE_LOADING = 3;
     private int visibleThreshold = 5;
     private int lastVisibleItem, totalItemCount;
     private boolean loading;
-
+    ImageLoader mImageLoader;
 
 
     public HomeAdapter(Context context,List<HomeModel> list,RecyclerView recyclerView) {
@@ -204,19 +234,8 @@ public class HomeAdapter extends RecyclerView.Adapter{
                         }
                     });
         }
-
     }
 
-    /*public class MyViewHolder extends RecyclerView.ViewHolder {
-
-
-        public MyViewHolder(View view) {
-            super(view);
-            feedimage = (ImageView) view.findViewById(R.id.feedImage);
-
-
-        }
-    }*/
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -224,19 +243,15 @@ public class HomeAdapter extends RecyclerView.Adapter{
         Log.e("HOMEEEEEEEEE", "SSSSSSS");
 
 
-        RecyclerView.ViewHolder vh;
-        if (viewType == VIEW_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(
-                    R.layout.feed_home_item, parent, false);
 
-            vh = new MyViewHolder(v);
-        } else {
-            View v = LayoutInflater.from(parent.getContext()).inflate(
-                    R.layout.progressbar_item, parent, false);
-
-            vh = new ProgressViewHolder(v);
+        if (viewType == VIEW_TYPE_ITEM) {
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.feed_home_item, parent, false);
+            return new MyViewHolder(view);
+        } else if (viewType == VIEW_TYPE_LOADING) {
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_loading_item, parent, false);
+            return new LoadingViewHolder(view);
         }
-        return vh;
+        return  null;
     }
 
     @Override
@@ -247,16 +262,21 @@ public class HomeAdapter extends RecyclerView.Adapter{
         if (holder instanceof MyViewHolder) {
 
             final HomeModel model = feedimageList.get(position);
+            if (mImageLoader == null)
+                mImageLoader = CustomVolleyRequest.getInstance(getActivity()).getImageLoader();
+            final MyViewHolder userViewHolder = (MyViewHolder) holder;
+            //((MyViewHolder) holder).feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
+userViewHolder.feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
+           // ((MyViewHolder) holder).home= model;
 
-            ((MyViewHolder) holder).feedimage.setImageURI(Uri.parse(model.getFeedimage()));
-
-
-        } else {
+        }
+       else {
             ((ProgressViewHolder) holder).progressBar.setIndeterminate(true);
         }
 
 
     }
+
 
 
     @Override
@@ -267,18 +287,25 @@ public class HomeAdapter extends RecyclerView.Adapter{
     public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
         this.onLoadMoreListener = onLoadMoreListener;
     }
+    @Override
+    public int getItemViewType(int position) {
+        return feedimageList.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
+    }
 
     public void setLoaded() {
         loading = false;
     }
     public  class MyViewHolder extends RecyclerView.ViewHolder {
-        public ImageView feedimage;
+        public NetworkImageView feedimage;
+
+
 
 
 
         public MyViewHolder(View v) {
             super(v);
-            feedimage = (ImageView) v.findViewById(R.id.feedImage);
+           feedimage = (NetworkImageView) v.findViewById(R.id.feedImage);
+
 
         }
     }
@@ -297,6 +324,16 @@ public class HomeAdapter extends RecyclerView.Adapter{
     public  class HomeModel {
 
         String feedimage;
+
+
+        public HomeModel() {
+
+        }
+
+
+
+
+
 
         public String getFeedimage() {
             return feedimage;
