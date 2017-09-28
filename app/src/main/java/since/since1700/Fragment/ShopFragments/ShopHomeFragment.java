@@ -64,8 +64,9 @@ import since.since1700.R;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.feed_shop_home_fragment, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
+        View view = inflater.inflate(R.layout.shop_home_fragment, container, false);
 
         mLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);

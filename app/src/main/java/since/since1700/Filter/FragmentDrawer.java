@@ -83,6 +83,8 @@ public class FragmentDrawer extends Fragment {
 
         mDrawerListView = (ExpandableListView) layout.findViewById(R.id.lvExp);
         close = (Button)layout.findViewById(R.id.close);
+
+
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -247,8 +249,8 @@ public class FragmentDrawer extends Fragment {
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-                super.onDrawerSlide(drawerView, slideOffset);
-//                toolbar.setAlpha(1 - slideOffset / 2);
+                super.onDrawerSlide(drawerView, 1);
+             //toolbar.setAlpha(1 - slideOffset / 2);
             }
         };
 

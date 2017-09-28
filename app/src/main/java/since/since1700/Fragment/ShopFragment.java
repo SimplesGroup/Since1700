@@ -37,7 +37,7 @@ public class ShopFragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.feed_shop_fragment,container,false);
+        View view=inflater.inflate(R.layout.shop_fragment,container,false);
         /*toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
         getActivity().setSupportActionBar(toolbar);
@@ -52,7 +52,7 @@ public class ShopFragment extends Fragment {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new ShopHomeFragment(), "Home");
         adapter.addFragment(new ShopCategoryFragment(), "Category");
         adapter.addFragment(new ShopPopularFragment(), "Popular");
@@ -82,7 +82,6 @@ public class ShopFragment extends Fragment {
         public void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
-
 
         }
 

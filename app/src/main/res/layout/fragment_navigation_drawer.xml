@@ -13,22 +13,21 @@
         android:id="@+id/linearLayout2">
         <ImageView
             android:id="@+id/tv_header_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="0dp"
-            android:padding="10dp"
-            android:layout_weight="0.1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
             android:src="@mipmap/filter" />
 
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.8"
             android:text="Filters"
+            android:layout_marginRight="10dp"
             android:textAlignment="textEnd"
             android:textColor="#fff" />
 

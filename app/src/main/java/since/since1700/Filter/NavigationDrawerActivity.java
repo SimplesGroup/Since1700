@@ -45,22 +45,23 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Fragm
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_navigation);
 
-         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+       //  mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        setSupportActionBar(mToolbar);
+       // setSupportActionBar(mToolbar);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("");
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
+       // getSupportActionBar().setTitle("");
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayout recyclerLayout = (LinearLayout) findViewById(R.id.recycler_layout);
 
         /*albumEnglishList = new ArrayList<>();
         adapter = new HomeAdapterEnglish(this, albumEnglishList);*/
 
-        drawerFragment = (FragmentDrawer)
-                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment = (FragmentDrawer) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
+
+
 
         /*profile = (ImageView) findViewById(R.id.profilePic);
         Picasso.with(this)

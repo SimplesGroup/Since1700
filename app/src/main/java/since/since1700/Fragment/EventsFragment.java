@@ -15,10 +15,11 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import since.since1700.Fragment.ShopFragments.ShopCategoryFragment;
-import since.since1700.Fragment.ShopFragments.ShopHomeFragment;
-import since.since1700.Fragment.ShopFragments.ShopOnSaleFragment;
-import since.since1700.Fragment.ShopFragments.ShopPopularFragment;
+import since.since1700.Fragment.EventsFragments.EventFeaturedFragment;
+import since.since1700.Fragment.EventsFragments.EventLuxuryFragment;
+import since.since1700.Fragment.EventsFragments.EventMusicFragment;
+import since.since1700.Fragment.EventsFragments.EventSportsFragment;
+import since.since1700.Fragment.EventsFragments.EventUpcomingFragment;
 import since.since1700.R;
 
 /**
@@ -38,23 +39,24 @@ public class EventsFragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.feed_event_fragment,container,false);
+        View view=inflater.inflate(R.layout.event_fragment,container,false);
 
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
+        ViewPagerAdapter  adapter = new ViewPagerAdapter(getChildFragmentManager());
         tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+        tabLayout.setTabsFromPagerAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         return view;
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(new ShopHomeFragment(), "Upcoming");
-        adapter.addFragment(new ShopCategoryFragment(), "Featured");
-        adapter.addFragment(new ShopPopularFragment(), "Music");
-        adapter.addFragment(new ShopOnSaleFragment(), "Sports");
-        adapter.addFragment(new ShopOnSaleFragment(), "Luxury");
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter.addFragment(new EventUpcomingFragment(), "Upcoming");
+        adapter.addFragment(new EventFeaturedFragment(), "Featured");
+        adapter.addFragment(new EventMusicFragment(), "Music");
+        adapter.addFragment(new EventSportsFragment(), "Sports");
+        adapter.addFragment(new EventLuxuryFragment(), "Luxury");
 
         viewPager.setAdapter(adapter);
     }
