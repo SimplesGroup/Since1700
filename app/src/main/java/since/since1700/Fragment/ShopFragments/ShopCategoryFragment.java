@@ -82,14 +82,14 @@ public class ShopCategoryFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         filter = (ImageView) getActivity().findViewById(R.id.filter);
-        filter.setOnClickListener(new View.OnClickListener() {
+       /* filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Successssss", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(getActivity(), NavigationDrawerActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         setupViewPager(viewPager);
         requestQueue= Volley.newRequestQueue(getActivity());

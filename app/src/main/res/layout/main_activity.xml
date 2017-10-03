@@ -161,7 +161,119 @@ android:layout_below="@+id/toolbar"
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_layout"
+        android:visibility="gone"
+        android:background="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:background="@drawable/bluebutton"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/linearLayout2">
+            <ImageView
+                android:id="@+id/tv_header_title"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:src="@mipmap/filter" />
 
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Filters"
+                android:layout_marginRight="10dp"
+                android:textAlignment="textEnd"
+                android:textColor="#fff" />
 
+        </LinearLayout>
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="11dp"
+            android:choiceMode="singleChoice"
+            android:divider="#ffffff"
+            android:dividerHeight="0dp"
+            android:groupIndicator="@null"
+            android:indicatorRight="?android:attr/expandableListPreferredItemIndicatorLeft"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="11dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout">
+            <Button
+                android:id="@+id/close"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/close"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/forget_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="3dp"
+                android:text="Close"
+                android:textAlignment="center"
+                android:textSize="12dp"
+                android:textColor="#000000"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+   <!-- <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/footer">
+
+        <fragment
+        android:id="@+id/fragment_navigation_drawer"
+        android:layout_width="@dimen/nav_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        app:itemIconTint="@drawable/bluebutton"
+        android:name="since.since1700.Filter.FragmentDrawer"
+        app:layout="@layout/fragment_navigation_drawer"
+        tools:layout="@layout/fragment_navigation_drawer"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="12dp" />
+
+
+    </android.support.v4.widget.DrawerLayout>
+-->
 </RelativeLayout>

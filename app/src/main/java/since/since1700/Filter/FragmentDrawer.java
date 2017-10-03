@@ -1,8 +1,5 @@
 package since.since1700.Filter;
 
-/**
- * Created by Ravi on 29/07/15.
- */
 
 import android.content.Context;
 import android.content.Intent;
@@ -128,7 +125,8 @@ public class FragmentDrawer extends Fragment {
                 Log.e("POSITIONNNN", String.valueOf(groupPosition));
                     /*Fragment fragment = new HerbesAndSpicesEnglish();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    FragmentTransaction fragmentTransaction =
+                     fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.container_body, fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
@@ -242,6 +240,7 @@ public class FragmentDrawer extends Fragment {
             }
 
             @Override
+
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 getActivity().invalidateOptionsMenu();
@@ -255,14 +254,17 @@ public class FragmentDrawer extends Fragment {
         };
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        mDrawerLayout.post(new Runnable() {
+        mDrawerLayout.post(
+                new Runnable() {
             @Override
             public void run() {
                 mDrawerToggle.syncState();
             }
         });
-
     }
+
+   /* public void setDrawerListener(OnClickListener onClickListener) {
+    }*/
 
     public static interface ClickListener {
         public void onClick(View view, int position);
@@ -279,7 +281,8 @@ public class FragmentDrawer extends Fragment {
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
-                public boolean onSingleTapUp(MotionEvent e) {
+                public boolean onSingleTapUp(MotionEvent e)
+                {
                     return true;
                 }
 
