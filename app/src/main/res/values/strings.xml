@@ -40,5 +40,8 @@
         <item>@string/nav_item_notifications</item>
     </string-array>
 
-
+    <array name="language">
+        <item>"English"</item>
+        <item>"தமிழ்"</item>
+    </array>
 </resources>

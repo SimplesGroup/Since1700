@@ -239,6 +239,7 @@ public class FragmentDrawer extends Fragment {
                 getActivity().invalidateOptionsMenu();
             }
 
+
             @Override
 
             public void onDrawerClosed(View drawerView) {

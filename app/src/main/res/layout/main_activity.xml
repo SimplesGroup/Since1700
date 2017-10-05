@@ -171,9 +171,18 @@ android:layout_below="@+id/toolbar"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:orientation="vertical">
-        <LinearLayout
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:weightSum="1"
             android:background="@drawable/bluebutton"
             android:layout_marginLeft="0dp"
@@ -200,9 +209,10 @@ android:layout_below="@+id/toolbar"
 
         </LinearLayout>
 
+
         <ExpandableListView
             android:id="@+id/lvExp"
-            android:layout_height="wrap_content"
+            android:layout_height="433dp"
             android:layout_width="match_parent"
             android:layout_marginLeft="11dp"
             android:choiceMode="singleChoice"
@@ -214,66 +224,233 @@ android:layout_below="@+id/toolbar"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginStart="11dp" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:orientation="vertical"
-            android:id="@+id/linearLayout">
-            <Button
-                android:id="@+id/close"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:background="@drawable/close"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
 
-            <TextView
-                android:id="@+id/forget_password"
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="3dp"
-                android:text="Close"
-                android:textAlignment="center"
-                android:textSize="12dp"
-                android:textColor="#000000"/>
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/close"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/close" />
+
+                <TextView
+                    android:id="@+id/forget_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Close"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+            </LinearLayout>
 
         </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
-   <!-- <android.support.v4.widget.DrawerLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="250dp"
         android:layout_height="match_parent"
-        android:id="@+id/drawer_layout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar"
-        android:layout_above="@+id/footer">
-
-        <fragment
-        android:id="@+id/fragment_navigation_drawer"
-        android:layout_width="@dimen/nav_drawer_width"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        app:itemIconTint="@drawable/bluebutton"
-        android:name="since.since1700.Filter.FragmentDrawer"
-        app:layout="@layout/fragment_navigation_drawer"
-        tools:layout="@layout/fragment_navigation_drawer"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/profile_layout"
+        android:visibility="gone"
+        android:background="@android:color/white"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="12dp" />
+        android:orientation="vertical">
 
 
-    </android.support.v4.widget.DrawerLayout>
--->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:gravity="top"
+                    android:orientation="vertical"
+                   >
+
+                    <ImageView
+                        android:id="@+id/profileimage"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="0dp"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/profilename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Karan Bhangay"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/viewprofile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="View Profile"
+                        android:textColor="#000000"
+                        android:textSize="12dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:background="@drawable/roundcorner"
+                        />
+
+
+
+                </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/privilages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Privilages"
+                        android:textSize="15dp"
+                        android:textAlignment="center"
+                        android:background="#efeded"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/auctions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:text="Auctions"
+                        android:background="#f9f5f5"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/cart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="Cart"
+                        android:background="#efeded"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/myrewards"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="My Rewards"
+                        android:textAlignment="center"
+                        android:background="#f9f5f5"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/blog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:text="Blog"
+                        android:background="#efeded"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/aboutus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:text="About Us"
+                        android:background="#f9f5f5"
+                        android:padding="10dp"
+                        android:textSize="15dp"
+                        />
+                    <TextView
+                        android:id="@+id/terms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:text="Terms &amp; Conditions"
+                        android:background="#efeded"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        />
+
+
+                    <Button
+                        android:id="@+id/close"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/close" />
+
+                    <TextView
+                        android:id="@+id/forget_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="3dp"
+                        android:text="Close"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
 </RelativeLayout>
