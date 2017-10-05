@@ -1,13 +1,11 @@
 package since.since1700;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,12 +15,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.squareup.picasso.Picasso;
 
-import since.since1700.Fragment.BrandsFragment;
-import since.since1700.Fragment.ContactFragment;
 import since.since1700.Fragment.EventsFragment;
 import since.since1700.Fragment.FeedFragment;
 import since.since1700.Fragment.ShopFragment;
