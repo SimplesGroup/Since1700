@@ -2,6 +2,7 @@ package since.since1700.Fragment.EventsFragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ import java.util.List;
 
 import since.since1700.CustomVolleyRequest;
 import since.since1700.Fragment.ShopFragments.ShopHomeFragment;
+import since.since1700.IntroSlider;
 import since.since1700.OnLoadMoreListener;
 import since.since1700.R;
 
@@ -267,6 +269,14 @@ public class EventUpcomingFragment extends Fragment {
                 //((MyViewHolder) holder).feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
                 userViewHolder.feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
                 // ((MyViewHolder) holder).home= model;
+
+                userViewHolder.feedimage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(),EventDetailPageActivity.class);
+                        startActivity(i);
+                    }
+                });
 
             }
             else {

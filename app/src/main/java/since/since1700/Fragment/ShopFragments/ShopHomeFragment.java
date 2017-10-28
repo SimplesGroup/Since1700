@@ -322,7 +322,7 @@ userViewHolder.feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
 
 }
 
-    public  class HomeModel {
+    public static class HomeModel {
 
         String feedimage;
 

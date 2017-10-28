@@ -2,6 +2,7 @@ package since.since1700.Fragment.FeedFragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -37,6 +38,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.DetailPage;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.OnLoadMoreListener;
@@ -297,7 +299,13 @@ public class Featured extends Fragment {
                 userViewHolder.productitle.setTypeface(opensansfont);
                 userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
 
-
+                userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), DetailPage.class);
+                        startActivity(i);
+                    }
+                });
 
             }else {
                 if (holder instanceof LoadingViewHolder) {

@@ -3,45 +3,8 @@
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_marginBottom="4dp"
     android:background="@android:color/white"
-    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/product_category_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="0dp"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:text="Luxury Events"
-            android:background="#e6e4e4"/>
-        <TextView
-            android:id="@+id/product_category_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="0dp"
-            android:textStyle="bold"
-            android:text="Go Glam Shopping - September"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
-        <TextView
-            android:id="@+id/product_category_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="0dp"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:text="Aug 22,2017" />
-    </LinearLayout>
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -57,7 +20,17 @@
             android:scaleType="centerCrop" />
 
 
-
+        <TextView
+            android:id="@+id/product_category_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/black"
+            android:text="Rolls Royce"
+            android:textSize="18sp"
+            />
         <LinearLayout
 
             android:layout_width="wrap_content"
@@ -105,7 +78,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/buttonroundcorner"
-                android:text="RSVP"
+                android:text="Claim"
                 android:textAllCaps="false" />
         </LinearLayout>
         <LinearLayout

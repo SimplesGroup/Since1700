@@ -1,0 +1,168 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bluebutton"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#ffffff"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+        </android.support.v7.widget.Toolbar>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+           >
+
+
+            <ImageView
+                android:id="@+id/profilePic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/buttonroundcorner"
+                android:scaleType="fitXY"/>
+
+           <ImageView
+                android:id="@+id/camera"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/profilePic"
+                android:layout_alignRight="@+id/profilePic"
+                android:src="@mipmap/camera"
+               android:layout_marginRight="2dp"
+                android:layout_marginBottom="0dp"/>
+
+            <!-- <ImageView
+                 android:id="@+id/camera"
+                 android:layout_width="25dp"
+                 android:layout_height="19dp"
+                 android:layout_marginLeft="0dp"
+                 android:layout_marginTop="80dp"
+                 android:src="@drawable/photo" />-->
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="5dp"
+            android:text="Karan Bhangay"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="22dp"
+            android:textStyle="bold"/>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMinWidth="0dp"
+            app:tabMode="scrollable"
+            android:background="#ffffff"
+            app:tabGravity="fill"
+            app:tabTextColor="#000000"
+            app:tabIndicatorHeight="1dp"
+            app:tabPaddingStart="10dp"
+            app:tabPaddingEnd="10dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            app:tabIndicatorColor="#0213a6"
+            app:tabSelectedTextColor="#000000"
+            android:showDividers="none"
+            app:tabTextAppearance="@style/TabLayoutStyle"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_weight="1.02" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_feed"
+
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buttonselector"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/feed" />
+
+        <ImageButton
+            android:id="@+id/btn_brands"
+
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buttonselector"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/brands" />
+
+        <ImageButton
+            android:id="@+id/btn_shop"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buttonselector"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/shop" />
+
+        <ImageButton
+            android:id="@+id/btn_event"
+
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buttonselector"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/event" />
+
+        <ImageButton
+            android:id="@+id/btn_contact"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:background="@drawable/buttonselector"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/contact" />
+
+
+    </LinearLayout>
+</LinearLayout>

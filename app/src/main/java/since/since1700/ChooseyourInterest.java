@@ -105,10 +105,10 @@ GetData();
                     @Override
                     public void run() {
                         Log.e("haint", "Load More 2");
-                        GetData();
+                    //    GetData();
 
 
-                        productAdapter.setLoaded();
+                        //productAdapter.setLoaded();
                     }
                 }, 2000);
             }

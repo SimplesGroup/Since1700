@@ -3,45 +3,8 @@
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_marginBottom="4dp"
     android:background="@android:color/white"
-    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/product_category_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="0dp"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:text="Luxury Events"
-            android:background="#e6e4e4"/>
-        <TextView
-            android:id="@+id/product_category_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="0dp"
-            android:textStyle="bold"
-            android:text="Go Glam Shopping - September"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
-        <TextView
-            android:id="@+id/product_category_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="0dp"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:text="Aug 22,2017" />
-    </LinearLayout>
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,15 +19,50 @@
             android:minHeight="200dp"
             android:scaleType="centerCrop" />
 
+        <TextView
+            android:id="@+id/product_category_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/white"
+
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/product_category_image"
+            android:orientation="horizontal">
 
 
+        <ImageButton
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/morephptos"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/morephotos" />
+            <TextView
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:id="@+id/morephptos_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+
+                android:layout_marginTop="5dp"
+                android:paddingBottom="10dp"
+                android:textColor="@android:color/white"/>
+</LinearLayout>
         <LinearLayout
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/product_category_image"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
 
             <ImageButton
@@ -73,9 +71,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginLeft="5dp"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="15dp"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/whiteheart" />
 
@@ -83,30 +81,17 @@
 
                 android:id="@+id/sharebutton"
                 android:layout_width="wrap_content"
-                android:minWidth="50dp"
-                android:maxHeight="55dp"
-                android:layout_height="25dp"
+                android:minWidth="60dp"
+                android:maxHeight="65dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:textSize="12sp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginBottom="2dp"
                 android:background="@drawable/buttonroundcorner"
                 android:text="Share"
                 android:textAllCaps="false" />
 
-            <Button
 
-                android:id="@+id/rsvp"
-                android:layout_width="wrap_content"
-                android:minWidth="50dp"
-                android:maxHeight="55dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
-                android:textSize="12sp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/buttonroundcorner"
-                android:text="RSVP"
-                android:textAllCaps="false" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginBottom="11dp"
@@ -122,9 +107,10 @@
 
 
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="5dp"
+                android:layout_margin="5dp"
                 android:layout_marginBottom="2dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="15dp"
+
                 android:id="@+id/likebutton_counts"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
@@ -144,9 +130,9 @@
 
 
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="5dp"
+                android:layout_margin="5dp"
                 android:layout_marginBottom="2dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="15dp"
 
                 android:id="@+id/sharebutton_counts"
                 android:layout_width="26dp"

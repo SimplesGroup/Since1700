@@ -269,7 +269,7 @@ public class Favourites extends Fragment {
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             RecyclerView.ViewHolder viewHolder = null;
             if (viewType == VIEW_TYPE_ITEM) {
-                View view = LayoutInflater.from(getActivity()).inflate(R.layout.feed_item_mainfeed_list, parent, false);
+                View view = LayoutInflater.from(getActivity()).inflate(R.layout.favourites_mainfeed_list, parent, false);
                 return  new Itemviewholder(view);
             } else if (viewType == VIEW_TYPE_LOADING) {
                 View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_loading_item, parent, false);
