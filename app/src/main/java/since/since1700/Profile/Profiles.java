@@ -19,9 +19,9 @@ import since.since1700.R;
 public class Profiles extends Fragment {
 
     Button home,back,back1,back2,back3,back4;
-    TextView  address, address2, dob, dob1,language, notification, notification1,color,color1,country;
-    TextView language1;
-    Spinner country1;
+    TextView  address, address2, dob, dob1,language, notification, notification1,color,country;
+
+    Spinner country1,language1,color1;
     @Nullable
     public static Profiles newInstance() {
         Profiles fragment = new Profiles();
@@ -47,16 +47,14 @@ public class Profiles extends Fragment {
         country = (TextView) rootView.findViewById(R.id.country);
         country1 = (Spinner) rootView.findViewById(R.id.country1);
         color = (TextView) rootView.findViewById(R.id.color);
-        color1 = (TextView) rootView.findViewById(R.id.color1);
+        color1 = (Spinner) rootView.findViewById(R.id.color1);
         language = (TextView) rootView.findViewById(R.id.language);
-        language1 = (TextView) rootView.findViewById(R.id.language1);
+        language1 = (Spinner) rootView.findViewById(R.id.language1);
         notification = (TextView) rootView.findViewById(R.id.notification);
 
         back = (Button)rootView.findViewById(R.id.back);
         back1 = (Button)rootView.findViewById(R.id.back1);
-        back2 = (Button)rootView.findViewById(R.id.back2);
-        back3 = (Button)rootView.findViewById(R.id.back3);
-        back4 = (Button)rootView.findViewById(R.id.back4);
+
 
         address.setText("Address");
         address2.setText("II Floor, Sasha Building");
@@ -64,7 +62,6 @@ public class Profiles extends Fragment {
         dob1.setText("09/10/1986");
         country.setText("Country");
         language.setText("Language");
-        language1.setText("English");
         notification.setText("Notification");
         color.setText("Color");
 

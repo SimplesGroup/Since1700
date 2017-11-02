@@ -68,7 +68,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_item, null);
         }
-
+        
        /* String splash = "fonts/LATO-REGULAR.TTF";
         final Typeface tf = Typeface.createFromAsset(context.getAssets(), splash);*/
 
@@ -109,6 +109,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_group, null);
+        }
+
+        if (listPosition % 2 == 0) {
+            convertView.setBackgroundResource(R.color.gray);
+        } else {
+            convertView.setBackgroundResource(R.color.lightgray);
         }
         TextView listTitleTextView = (TextView) convertView
                 .findViewById(R.id.listTitle);

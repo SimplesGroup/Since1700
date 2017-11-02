@@ -42,6 +42,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
         mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
         studentRepo = new StudentRepo(this);
         cursor=studentRepo.getStudentList();
@@ -110,8 +111,10 @@ public class SearchActivity extends AppCompatActivity {
 
             SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
             MenuItem searchViewItem = menu.findItem(R.id.action_search);
+        searchViewItem.expandActionView();
+        final SearchView searchViewAndroidActionBar = (SearchView) MenuItemCompat.getActionView(searchViewItem);
 
-            final SearchView searchViewAndroidActionBar = (SearchView) MenuItemCompat.getActionView(searchViewItem);
+
             searchViewAndroidActionBar.setOnQueryTextListener(new SearchView.OnQueryTextListener()  {
 
                 @Override
@@ -147,4 +150,5 @@ public class SearchActivity extends AppCompatActivity {
         return true;
 
     }
+
 }

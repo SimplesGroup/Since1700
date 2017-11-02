@@ -27,14 +27,15 @@
         android:layout_height="wrap_content">
         <ImageButton
             android:layout_width="0dp"
-            android:layout_weight=".50"
-            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:layout_height="100dp"
             android:src="@mipmap/whatsapp"
-            android:id="@+id/wharsapp"/>
+            android:id="@+id/wharsapp"
+            />
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight=".50"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:src="@mipmap/callus"
             android:id="@+id/callus"/>
     </LinearLayout>
@@ -46,13 +47,13 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight=".50"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:src="@mipmap/message"
             android:id="@+id/sms"/>
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight=".50"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp "
             android:src="@mipmap/mailus"
             android:id="@+id/emailus"/>
     </LinearLayout>

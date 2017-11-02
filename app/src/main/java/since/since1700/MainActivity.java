@@ -69,15 +69,13 @@ import since.since1700.Profile.ProfileActivity;
 import since.since1700.Search.CustomAdapter;
 import since.since1700.Search.SearchActivity;
 import since.since1700.Search.StudentRepo;
-import android.view.GestureDetector;
-
 import android.view.GestureDetector.OnGestureListener;
 
 /**
  * Created by Kuppusamy on 9/21/2017.
  */
 
-public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
+public class MainActivity extends AppCompatActivity implements OnGestureListener,FragmentDrawer.FragmentDrawerListener{
     SharedPreferences sharedpreferences;
     public static final String mypreference = "mypref";
     public static final String colorcode = "colorCode";
@@ -125,12 +123,15 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         sharedpreferences =  getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
+
         colorcodes=sharedpreferences.getString(colorcode,"");
         //   colorcodes = colorcodes.replaceAll("\\D+","");
        Log.e("ColorCodes",colorcodes+"hihi");
         String fontPath = "fonts/OpenSans-Regular.ttf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
         mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+
+        gestureDetector = new GestureDetector(MainActivity.this, MainActivity.this);
        feed_btn=(ImageButton)findViewById(R.id.btn_feed);
         brands_btn=(ImageButton)findViewById(R.id.btn_brands);
         shop_btn=(ImageButton)findViewById(R.id.btn_shop);
@@ -181,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 Bundle b = new Bundle();
 
 //Add your data to bundle
+
                 b.putString("pos", pos);
                 i.putExtras(b);
                 startActivity(i);
@@ -278,7 +280,12 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             }
         });
 
+/*
+if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == View.VISIBLE)
+{
 
+}
+*/
 
        /* mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -376,11 +383,16 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         feed_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feed_btn.setBackgroundResource(R.drawable.bluebutton);
+                feed_btn.setImageResource(R.mipmap.feedwhite);
+               // feed_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
+                brands_btn.setImageResource(R.mipmap.brands);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
+                shop_btn.setImageResource(R.mipmap.shop);
                 events_btn.setBackgroundResource(R.color.mytransparent);
+                events_btn.setImageResource(R.mipmap.event);
                contact_btn.setBackgroundResource(R.color.mytransparent);
+               contact_btn.setImageResource(R.mipmap.contact);
                 Fragment selectedFragment = null;
                 selectedFragment = FeedFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -403,11 +415,18 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         brands_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                brands_btn.setImageResource(R.mipmap.brandswhite);
                 brands_btn.setBackgroundResource(R.drawable.bluebutton);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
                 contact_btn.setBackgroundResource(R.color.mytransparent);
+
+                feed_btn.setImageResource(R.mipmap.feed);
+                shop_btn.setImageResource(R.mipmap.shop);
+                events_btn.setImageResource(R.mipmap.event);
+                contact_btn.setImageResource(R.mipmap.contact);
+
                 Fragment selectedFragment = null;
                 selectedFragment = BrandsFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -434,11 +453,18 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             @Override
             public void onClick(View v) {
                 //  if(myprofileid!=null) {
+                shop_btn.setImageResource(R.mipmap.shopwhite);
                 shop_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
                 contact_btn.setBackgroundResource(R.color.mytransparent);
+
+                feed_btn.setImageResource(R.mipmap.feed);
+                brands_btn.setImageResource(R.mipmap.brands);
+                events_btn.setImageResource(R.mipmap.event);
+                contact_btn.setImageResource(R.mipmap.contact);
+
 
                 Fragment selectedFragment = null;
                 selectedFragment = ShopFragment.newInstance();
@@ -466,11 +492,19 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         events_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                events_btn.setImageResource(R.mipmap.eventswhite);
                 events_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
                 contact_btn.setBackgroundResource(R.color.mytransparent);
+
+                feed_btn.setImageResource(R.mipmap.feed);
+                brands_btn.setImageResource(R.mipmap.brands);
+                shop_btn.setImageResource(R.mipmap.shop);
+                contact_btn.setImageResource(R.mipmap.contact);
+
+
                 Fragment selectedFragment = null;
                 selectedFragment = EventsFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -496,11 +530,18 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         contact_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contact_btn.setImageResource(R.mipmap.conciergewhite);
                 contact_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
+
+                feed_btn.setImageResource(R.mipmap.feed);
+                brands_btn.setImageResource(R.mipmap.brands);
+                shop_btn.setImageResource(R.mipmap.shop);
+                events_btn.setImageResource(R.mipmap.event);
+
                 Fragment selectedFragment = null;
                 selectedFragment = ContactFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -537,10 +578,13 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             }else {
                 if(colorcodes.equals("blue")){
                     feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                    feed_btn.setImageResource(R.mipmap.feedwhite);
                 }else if(colorcodes.equalsIgnoreCase("#59247c")){
                     feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                    feed_btn.setImageResource(R.mipmap.feedwhite);
                 }else if(colorcodes.equalsIgnoreCase("#1d487a")){
                     feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                    feed_btn.setImageResource(R.mipmap.feedwhite);
                 }
             }
         }
@@ -713,6 +757,86 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                         ");"
         );
     }
+    @Override
+    public boolean onFling(MotionEvent motionEvent1, MotionEvent motionEvent2, float X, float Y) {
 
+        if(motionEvent1.getY() - motionEvent2.getY() > 50){
+
+            Toast.makeText(MainActivity.this , " Swipe Up " , Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+
+        if(motionEvent2.getY() - motionEvent1.getY() > 50){
+
+            Toast.makeText(MainActivity.this , " Swipe Down " , Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+
+        if(motionEvent1.getX() - motionEvent2.getX() > 50){
+
+            Toast.makeText(MainActivity.this , " Swipe Left " , Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+
+        if(motionEvent2.getX() - motionEvent1.getX() > 50) {
+
+            Toast.makeText(MainActivity.this, " Swipe Right ", Toast.LENGTH_LONG).show();
+            profilelayout.setVisibility(View.GONE);
+            return true;
+        }
+        else {
+
+            return true ;
+        }
+    }
+
+    @Override
+    public void onLongPress(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent arg0, MotionEvent arg1, float arg2, float arg3) {
+
+        // TODO Auto-generated method stub
+
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+
+        // TODO Auto-generated method stub
+
+        return gestureDetector.onTouchEvent(motionEvent);
+    }
+
+    @Override
+    public boolean onDown(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+        return false;
+    }
 
 }

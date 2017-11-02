@@ -19,9 +19,7 @@
         local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:visibility="visible"
-        android:layout_below="@+id/fragment_layout"
-        android:layout_toRightOf="@+id/fragment_layout"
-        android:layout_toEndOf="@+id/fragment_layout">
+>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -186,7 +184,7 @@
 
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:id="@+id/fragment_layout"
         android:visibility="gone"
@@ -201,20 +199,21 @@
             android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:weightSum="1"
+                android:padding="10dp"
             android:background="@drawable/bluebutton"
             android:layout_marginLeft="0dp"
             android:id="@+id/linearLayout2">
             <ImageView
                 android:id="@+id/tv_header_title"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="5dp"
@@ -226,22 +225,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="Filters"
+                android:text="Categories"
                 android:layout_marginRight="10dp"
                 android:textAlignment="textEnd"
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                android:textSize="18dp"/>
 
         </LinearLayout>
 
 
         <ExpandableListView
             android:id="@+id/lvExp"
-            android:layout_height="433dp"
+            android:layout_height="470dp"
             android:layout_width="match_parent"
             android:layout_marginLeft="11dp"
+            android:layout_marginTop="5dp"
             android:choiceMode="singleChoice"
             android:divider="#ffffff"
             android:dividerHeight="0dp"
+            android:childDivider="#00000000"
             android:groupIndicator="@null"
             android:indicatorRight="?android:attr/expandableListPreferredItemIndicatorLeft"
             android:layout_below="@+id/linearLayout2"
@@ -256,7 +258,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="60dp">
 
                 <Button
                     android:id="@+id/close"
@@ -268,7 +271,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     android:background="@drawable/close" />
 
                 <TextView
@@ -289,7 +292,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:id="@+id/profile_layout"
         android:visibility="gone"
@@ -363,6 +366,7 @@
                         android:paddingRight="10dp"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/roundcorner"
                         />
 
@@ -375,7 +379,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -399,7 +403,7 @@
                         android:textSize="15dp"
                         android:textAlignment="center"
                         android:background="#efeded"
-                        android:padding="10dp"
+                        android:padding="15dp"
                         />
                     <TextView
                         android:id="@+id/auctions"
@@ -410,7 +414,7 @@
                         android:text="Auctions"
                         android:background="#f9f5f5"
                         android:textSize="15dp"
-                        android:padding="10dp"
+                        android:padding="15dp"
                         />
                     <TextView
                         android:id="@+id/cart"
@@ -431,7 +435,7 @@
                         android:textAlignment="center"
                         android:background="#f9f5f5"
                         android:textSize="15dp"
-                        android:padding="10dp"
+                        android:padding="15dp"
                         />
                     <TextView
                         android:id="@+id/blog"
@@ -442,7 +446,7 @@
                         android:text="Blog"
                         android:background="#efeded"
                         android:textSize="15dp"
-                        android:padding="10dp"
+                        android:padding="15dp"
                         />
                     <TextView
                         android:id="@+id/aboutus"
@@ -452,7 +456,7 @@
                         android:textAlignment="center"
                         android:text="About Us"
                         android:background="#f9f5f5"
-                        android:padding="10dp"
+                        android:padding="15dp"
                         android:textSize="15dp"
                         />
                     <TextView
@@ -464,7 +468,7 @@
                         android:text="Terms &amp; Conditions"
                         android:background="#efeded"
                         android:textSize="15dp"
-                        android:padding="10dp"
+                        android:padding="15dp"
                         />
 
 
@@ -478,7 +482,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="25dp"
                         android:background="@drawable/close" />
 
                     <TextView

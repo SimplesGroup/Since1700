@@ -5,37 +5,23 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bluebutton"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:layout_weight="0.25">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bluebutton"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
-
-        </android.support.v7.widget.Toolbar>
-
 
         <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/aboutus"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="2dp"
+            android:layout_marginLeft="0dp"
             android:paddingTop="5dp"
-            android:text="Karan Bhangay"
+            android:text="About Us"
+            android:gravity="center"
+            android:background="@drawable/bluebutton"
             android:layout_gravity="center"
             android:textSize="22dp"
-            android:textStyle="bold" />
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
 
-    </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -43,17 +29,25 @@
         android:layout_height="5dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="2dp"
-        android:paddingTop="5dp"
+        android:paddingTop="0dp"
         android:layout_gravity="center"
         android:textSize="15dp"
         android:text="@string/aboutus"
         android:textColor="#000000"
-        android:layout_margin="10dp"/>
-
+        android:layout_margin="5dp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -131,9 +131,9 @@ GetData();
 
                 }
 
-                Toast.makeText(getApplicationContext(),
+                /*Toast.makeText(getApplicationContext(),
                         "Selected items: \n" + data, Toast.LENGTH_LONG)
-                        .show();
+                        .show();*/
                 Intent in=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(in);
             }

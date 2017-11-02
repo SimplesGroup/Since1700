@@ -86,10 +86,10 @@
                     android:layout_marginRight="50dp"
                     android:layout_marginTop="30dp"
                     android:background="#ffffff"
-                    android:padding="5dp"
+                    android:padding="0dp"
                     android:drawableLeft="@drawable/email"
                     android:textSize="12dp"
-                    android:drawablePadding="5dp"
+                    android:drawablePadding="10dp"
                     android:inputType="textEmailAddress"/>
 
                 <View
@@ -109,7 +109,7 @@
                     android:background="#ffffff"
                     android:padding="5dp"
                     android:textSize="12dp"
-                    android:drawableLeft="@drawable/lock"
+                    android:drawableLeft="@drawable/locked"
                     android:drawablePadding="5dp"
                     android:inputType="textPassword"/>
 
@@ -179,25 +179,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-
+                    android:layout_alignParentBottom="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="50dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="0dp">
 
                     <ImageButton
                         android:id="@+id/imageButton"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="0dp"
                         android:background="#ffffff"
-                        android:src="@mipmap/fb" />
+                        android:src="@mipmap/facebook" />
 
 
 
                     <ImageButton
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:src="@mipmap/gmail"
                         android:background="#ffffff"
                         android:layout_marginLeft="30dp"
@@ -238,7 +238,7 @@
                     android:background="#ffffff"
                     android:padding="5dp"
                     android:textSize="12dp"
-                    android:drawableLeft="@drawable/user"
+                    android:drawableLeft="@drawable/users"
                     android:drawablePadding="5dp"/>
 
                 <View

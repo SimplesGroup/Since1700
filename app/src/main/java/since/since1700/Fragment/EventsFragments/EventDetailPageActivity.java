@@ -1,14 +1,22 @@
 package since.since1700.Fragment.EventsFragments;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import since.since1700.R;
 
 /**
@@ -21,13 +29,17 @@ public class EventDetailPageActivity extends AppCompatActivity {
     LinearLayout count_layout;
     int count = 0;
     static TextView page_text[];
-
+    Button remindme;
+    long startTime, endTime;
+    Calendar cal;
+    String event_title, event_place, event_startdate, event_enddate;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.eventdetailpage_layout);
         count_layout = (LinearLayout) findViewById(R.id.image_count);
         gallery = (Gallery) findViewById(R.id.mygallery01);
+        remindme = (Button) findViewById(R.id.remindme);
         imageAdapter = new EventDetailPageAdapter(this);
         gallery.setAdapter(imageAdapter);
         count=gallery.getAdapter().getCount();
@@ -57,6 +69,36 @@ public class EventDetailPageActivity extends AppCompatActivity {
 
             }
         });
+remindme.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(Intent.ACTION_INSERT);
+        intent.setType("vnd.android.cursor.item/event");
+        cal = Calendar.getInstance();
+        try {
+            Date date = new SimpleDateFormat("MMMM dd, yyyy").parse(event_startdate);
+            startTime = date.getTime();
+            //startTime=date.setHours(4);
 
+
+        } catch (Exception e) {
+        }
+        try {
+            Date date = new SimpleDateFormat("MMMM dd, yyyy").parse(event_enddate);
+            endTime = date.getTime();
+        } catch (Exception e) {
+        }
+
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime);
+
+        intent.putExtra(CalendarContract.Events.TITLE, event_title);
+        //intent.putExtra(CalendarContract.Events.DESCRIPTION,  "This is a sample description");
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, event_place);
+        intent.putExtra(CalendarContract.Events.RRULE, "FREQ=YEARLY");
+
+        startActivity(intent);
+    }
+});
     }
 }
