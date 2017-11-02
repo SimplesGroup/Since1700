@@ -209,9 +209,9 @@
                 android:padding="10dp"
             android:background="@drawable/bluebutton"
             android:layout_marginLeft="0dp"
-            android:id="@+id/linearLayout2">
+            >
             <ImageView
-                android:id="@+id/tv_header_title"
+                android:id="@+id/image_filter"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="5dp"
@@ -275,7 +275,7 @@
                     android:background="@drawable/close" />
 
                 <TextView
-                    android:id="@+id/forget_password"
+                    android:id="@+id/text_close"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
@@ -486,7 +486,7 @@
                         android:background="@drawable/close" />
 
                     <TextView
-                        android:id="@+id/forget_password"
+                        android:id="@+id/profile_text_close"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="50dp"

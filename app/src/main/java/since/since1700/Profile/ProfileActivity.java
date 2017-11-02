@@ -323,7 +323,7 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
         if(colorcodes.length()==0){
 
         }else {
-            if(colorcodes.equalsIgnoreCase("004")){
+           /* if(colorcodes.equalsIgnoreCase("004")){
                 Log.e("Msg","hihihi");
             }else {
                 if(colorcodes.equals("blue")){
@@ -333,7 +333,7 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 }else if(colorcodes.equalsIgnoreCase("#1d487a")){
                     feed_btn.setBackgroundResource(R.drawable.membershipgradient);
                 }
-            }
+            }*/
         }
 
         Bundle bundle = getIntent().getExtras();
@@ -538,7 +538,7 @@ if(pos==0){
                 if(colorcodes.equalsIgnoreCase("004")){
                     Log.e("Msg","hihihi");
                 }else {
-                    if(colorcodes.equals("blue")){
+                   if(colorcodes.equals("blue")){
                         contact_btn.setBackgroundResource(R.drawable.membershipgradient);
                     }else if(colorcodes.equalsIgnoreCase("#59247c")){
                         contact_btn.setBackgroundResource(R.drawable.membershipgradient);
