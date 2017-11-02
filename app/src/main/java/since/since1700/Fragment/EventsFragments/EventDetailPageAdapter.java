@@ -39,10 +39,10 @@ public class EventDetailPageAdapter extends BaseAdapter {
 
         image.setImageResource(flowers[position]);
         image.setScaleType(ImageView.ScaleType.FIT_XY);
-        image.setPadding(20,20,20,20);
-      image.setLayoutParams(new Gallery.LayoutParams(200, 200));
+        image.setPadding(100,10,100,10);
+      image.setLayoutParams(new Gallery.LayoutParams(1000, 600));
         return image;
     }
-    int[] flowers = { R.drawable.stevejobs, R.drawable.stevejobs,
+     public int[] flowers = { R.drawable.stevejobs, R.drawable.stevejobs,
             R.drawable.stevejobs,R.drawable.stevejobs, R.drawable.stevejobs};
 }

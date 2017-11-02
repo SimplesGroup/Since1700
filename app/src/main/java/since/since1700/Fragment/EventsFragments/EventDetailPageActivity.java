@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Gallery;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,13 +36,64 @@ public class EventDetailPageActivity extends AppCompatActivity {
     long startTime, endTime;
     Calendar cal;
     String event_title, event_place, event_startdate, event_enddate;
+    ImageView galleryimage;
+
+    TextView eventdetaillebel,eventdeatil,eventtitle,text_eventvenue,text_eventvenue_details,text_eventlocation,text_eventlocation_details,text_eventwebsite,text_eventwebsite_details,text_eventontactname,text_eventontactname_details,text_eventphonenumber,text_eventphonenumber_details,text_eventemail,text_eventemail_details,text_date_event,text_date_event_data,text_timing_event,text_timing_event_data;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.eventdetailpage_layout);
         count_layout = (LinearLayout) findViewById(R.id.image_count);
         gallery = (Gallery) findViewById(R.id.mygallery01);
+        //galleryimage = (ImageView)findViewById(R.id.galleryimage);
         remindme = (Button) findViewById(R.id.remindme);
+
+        eventdetaillebel = (TextView) findViewById(R.id.eventdetaillebel);
+        eventdeatil = (TextView) findViewById(R.id.eventdeatil);
+        eventtitle = (TextView) findViewById(R.id.eventtitle);
+        text_eventvenue = (TextView) findViewById(R.id.text_eventvenue);
+        text_eventvenue_details = (TextView) findViewById(R.id.text_eventvenue_details);
+        text_eventlocation = (TextView) findViewById(R.id.text_eventlocation);
+        text_eventlocation_details = (TextView) findViewById(R.id.text_eventlocation_details);
+        text_eventwebsite = (TextView) findViewById(R.id.text_eventwebsite);
+        text_eventwebsite_details = (TextView) findViewById(R.id.text_eventwebsite_details);
+        text_eventontactname = (TextView) findViewById(R.id.text_eventontactname);
+        text_eventontactname_details = (TextView) findViewById(R.id.text_eventontactname_details);
+        text_eventphonenumber = (TextView) findViewById(R.id.text_eventphonenumber);
+        text_eventphonenumber_details = (TextView) findViewById(R.id.text_eventphonenumber_details);
+        text_eventemail = (TextView) findViewById(R.id.text_eventemail);
+        text_eventemail_details = (TextView) findViewById(R.id.text_eventemail_details);
+        text_date_event = (TextView) findViewById(R.id.text_date_event);
+        text_date_event_data = (TextView) findViewById(R.id.text_date_event_data);
+        text_timing_event = (TextView) findViewById(R.id.text_timing_event);
+        text_timing_event_data = (TextView) findViewById(R.id.text_timing_event_data);
+
+        String fontPath = "fonts/OpenSans-Regular.ttf";
+        final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
+
+        eventdetaillebel.setTypeface(opensansfont);
+        eventdeatil.setTypeface(opensansfont);
+        eventtitle.setTypeface(opensansfont);
+        text_eventvenue.setTypeface(opensansfont);
+        text_eventvenue_details.setTypeface(opensansfont);
+        text_eventlocation.setTypeface(opensansfont);
+        text_eventlocation_details.setTypeface(opensansfont);
+        text_eventwebsite.setTypeface(opensansfont);
+        text_eventwebsite_details.setTypeface(opensansfont);
+        text_eventontactname.setTypeface(opensansfont);
+        text_eventontactname_details.setTypeface(opensansfont);
+        text_eventphonenumber.setTypeface(opensansfont);
+        text_eventphonenumber_details.setTypeface(opensansfont);
+        text_eventemail.setTypeface(opensansfont);
+        text_eventemail_details.setTypeface(opensansfont);
+        text_date_event.setTypeface(opensansfont);
+        text_date_event_data.setTypeface(opensansfont);
+        text_timing_event.setTypeface(opensansfont);
+        text_timing_event_data.setTypeface(opensansfont);
+
         imageAdapter = new EventDetailPageAdapter(this);
         gallery.setAdapter(imageAdapter);
         count=gallery.getAdapter().getCount();
@@ -57,6 +111,7 @@ public class EventDetailPageActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int position, long arg3) {
                 // TODO Auto-generated method stub
+                //galleryimage.setImageResource(imageAdapter.flowers[position]);
                 for (int i = 0; i < count; i++) {
                     EventDetailPageActivity.page_text[i].setTextColor(android.graphics.Color.GRAY);
                 }

@@ -35,7 +35,7 @@ public class SearchActivity extends AppCompatActivity {
     StudentRepo studentRepo ;
     SQLiteDatabase mDatabase;
     private final static String TAG= MainActivity.class.getName().toString();
-
+String s;
     public static final String DATABASE_NAME = "mysearchdatabase";
 
     @Override
@@ -49,8 +49,13 @@ public class SearchActivity extends AppCompatActivity {
         customAdapter = new CustomAdapter(SearchActivity.this,  cursor, 0);
         listView = (ListView) findViewById(R.id.lstStudent);
         listView.setAdapter(customAdapter);
-        listView.setVisibility(View.VISIBLE);
-        if(cursor==null) insertDummy();
+        insertDummy();
+        if(cursor==null)
+        {
+            insertDummy();
+            cursor=studentRepo.getStudentListByKeyword(s);
+            customAdapter.swapCursor(cursor);
+        }
     }
 
     private void insertDummy(){
@@ -120,8 +125,6 @@ public class SearchActivity extends AppCompatActivity {
                 @Override
                 public boolean onQueryTextSubmit(String s) {
                     Log.d(TAG, "onQueryTextSubmit ");
-                   // relativelayout.setVisibility(View.GONE);
-                    listView.setVisibility(View.VISIBLE);
                     cursor=studentRepo.getStudentListByKeyword(s);
                     if (cursor==null){
                         Toast.makeText(SearchActivity.this,"No records found!",Toast.LENGTH_LONG).show();

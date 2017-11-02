@@ -174,9 +174,9 @@ public class LocationActivity extends AppCompatActivity {
                 }
 
 
-                Toast.makeText(getApplicationContext(),
+              /*  Toast.makeText(getApplicationContext(),
                         "Selected items: \n" + data, Toast.LENGTH_LONG)
-                        .show();
+                        .show();*/
                 Intent intent=new Intent(getApplicationContext(), ChooseyourInterest.class);
                 startActivity(intent);
             }

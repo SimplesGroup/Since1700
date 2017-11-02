@@ -371,7 +371,7 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             userViewHolder.hoverimage.setVisibility(View.INVISIBLE);
             productlist.get(pos).setSelected(false);
         } else {
-            Toast.makeText(getApplicationContext(), productlist.get(pos).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(getApplicationContext(), productlist.get(pos).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
             userViewHolder.hoverimage.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setBackgroundResource(R.mipmap.tickblue);
@@ -388,7 +388,7 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             productlist.get(pos).setSelected(false);
         } else {
             userViewHolder.hoverimage.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), productlist.get(pos).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getApplicationContext(), productlist.get(pos).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
             userViewHolder.selectbutton.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setBackgroundResource(R.mipmap.tickblue);
             productlist.get(pos).setSelected(true);

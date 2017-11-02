@@ -31,6 +31,8 @@ import java.util.List;
 
 import since.since1700.Model.FeedProductModel;
 
+import static android.R.attr.description;
+
 /**
  * Created by Sandhiya on 10/21/2017.
  */
@@ -63,6 +65,8 @@ public class DetailPage extends AppCompatActivity {
 
         feedimage = (NetworkImageView) findViewById(R.id.product_category_image);
         webone = (WebView)findViewById(R.id.webview_one);
+        webtwo = (WebView)findViewById(R.id.webview_eventdescription);
+        webthree = (WebView)findViewById(R.id.webview_event);
         ;
    //     feedimage.setImageResource(R.drawable.background);
 
@@ -112,22 +116,32 @@ public class DetailPage extends AppCompatActivity {
                 model.setProducttitle(obj.getString("producttitle"));
 
 
-                String descrition = obj.isNull("producttitle") ? null : obj
+                String des = obj.isNull("producttitle") ? null : obj
                         .getString("producttitle");
-                String ss = descrition;
+                String ss = des;
                 String s = ss;
                 // s = s.replace("\"", "'");
                 s = s.replace("\\", "");
+                String descrition = "This is a section of our privilege partners, offering benefits like free hotel stays, loyalty status, and special experiences and discounts to our members. \n\n\t This is a section of our privilege partners, offering benefits like free hotel stays, loyalty status, and special experiences and discounts to our members.";
 
-                // description.setText(Html.fromHtml(s));
+               String performance = "Release date \t\t	August 2016 \n Form factor	\t\tTouchscreen \nDimensions (mm)\t\t151.00 x 76.00 x 8.30 \nWeight (g)\t\t	175.00 \nBattery capacity (mAh)\t\t	4100 \nRemovable battery	\t\tNo \nColours	\t\tGold, Grey, Matte Black \nSAR value	\t\tNA";
+
+
+
+
+
+
+
 
                 //description.loadData(String.format(descrip), "text/html", "utf-8");
                 //description.loadData(descrip,"text/html","utf-8");
-                String fonts = "<html>\n" + "\t<head>\n" + "\t\t<meta  \thttp-equiv=\"content-type\" content=\"text/html;\" charset=\"UTF-8\">\n" + "\t\t<style>\n" + "\t\t@font-face {\n" + "  font-family: 'segeoui-light';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-regular';\n" + "src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-sbold';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Bold';\n" + "   src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Light';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Regular';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Thin';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "\t\t</style>\n" + "\t</head>";
-                webone.loadDataWithBaseURL("", fonts + descrition + "</head>", "text/html", "utf-8", "");
+              //  String fonts = "<html>\n" + "\t<head>\n" + "\t\t<meta  \thttp-equiv=\"content-type\" content=\"text/html;\" charset=\"UTF-8\">\n" + "\t\t<style>\n" + "\t\t@font-face {\n" + "  font-family: 'segeoui-light';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-regular';\n" + "src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-sbold';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Bold';\n" + "   src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Light';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Regular';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Thin';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "\t\t</style>\n" + "\t</head>";
+                webone.loadData(descrition + "</head>", "text/html", "utf-8");
+               webtwo.loadData(performance + "</head>", "text/html", "utf-8");
+                webthree.loadData(performance + "</head>", "text/html", "utf-8");
                 // description.setBackgroundColor(0x0a000000);
                 webone.setBackgroundColor(Color.TRANSPARENT);
-                Log.e("WEBCONTENT",descrition);
+              //  Log.e("WEBCONTENT",descrition);
                /* model.setLikescount(obj.getInt("likescount"));
                 model.setSharecount(obj.getInt("sharecount"));
                 model.setMoreimagescount(obj.getString("moreimagescount"));*/
