@@ -2,15 +2,21 @@ package since.since1700;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
+import android.widget.AdapterView;
+import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -29,6 +35,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Fragment.EventsFragments.EventDetailPageActivity;
+import since.since1700.Fragment.EventsFragments.EventDetailPageAdapter;
 import since.since1700.Model.FeedProductModel;
 
 import static android.R.attr.description;
@@ -44,10 +52,17 @@ public class DetailPage extends AppCompatActivity {
     String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
     ProgressDialog progressDialog;
     List<ProductModel> productlist=new ArrayList<ProductModel>();
-    NetworkImageView feedimage;
+   // NetworkImageView feedimage;
     ProductModel model=new ProductModel();
     ImageLoader mImageLoader;
     WebView webone,webtwo,webthree;
+
+    Gallery gallery;
+    EventDetailPageAdapter imageAdapter;
+    LinearLayout count_layout;
+    int count = 0;
+    static TextView page_text[];
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +70,8 @@ public class DetailPage extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.detailpage_layout);
+        count_layout = (LinearLayout) findViewById(R.id.image_count);
+        gallery = (Gallery) findViewById(R.id.mygallery01);
         requestQueue= Volley.newRequestQueue(getApplicationContext());
         progressDialog = new ProgressDialog(getApplicationContext());
 //        progressDialog.show();
@@ -63,7 +80,7 @@ public class DetailPage extends AppCompatActivity {
         mImageLoader = MySingleton.getInstance(getApplicationContext()).getImageLoader();
         getData();
 
-        feedimage = (NetworkImageView) findViewById(R.id.product_category_image);
+       // feedimage = (NetworkImageView) findViewById(R.id.product_category_image);
         webone = (WebView)findViewById(R.id.webview_one);
         webtwo = (WebView)findViewById(R.id.webview_eventdescription);
         webthree = (WebView)findViewById(R.id.webview_event);
@@ -71,6 +88,38 @@ public class DetailPage extends AppCompatActivity {
    //     feedimage.setImageResource(R.drawable.background);
 
 //        Log.e("IMAGEVIEWDATE",model.getProductimage());
+
+
+        imageAdapter = new EventDetailPageAdapter(this);
+        gallery.setAdapter(imageAdapter);
+        count=gallery.getAdapter().getCount();
+        page_text = new TextView[count];
+        for (int i = 0; i < count; i++) {
+            page_text[i] = new TextView(this);
+            page_text[i].setText(".");
+            page_text[i].setTextSize(45);
+            page_text[i].setTypeface(null, Typeface.BOLD);
+            page_text[i].setTextColor(android.graphics.Color.GRAY);
+            count_layout.addView(page_text[i]);
+        }
+        gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int position, long arg3) {
+                // TODO Auto-generated method stub
+                //galleryimage.setImageResource(imageAdapter.flowers[position]);
+                for (int i = 0; i < count; i++) {
+                    page_text[i].setTextColor(android.graphics.Color.GRAY);
+                }
+               page_text[position].setTextColor(android.graphics.Color.WHITE);
+
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
     }
 
     private void getData(){
@@ -112,7 +161,7 @@ public class DetailPage extends AppCompatActivity {
                         .getString("productimage");
                 model.setProductimage(image);
 
-                feedimage.setImageUrl(model.getProductimage(),mImageLoader);
+                //feedimage.setImageUrl(model.getProductimage(),mImageLoader);
                 model.setProducttitle(obj.getString("producttitle"));
 
 

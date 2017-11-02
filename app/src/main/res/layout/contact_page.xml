@@ -28,15 +28,21 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="0.50"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:src="@mipmap/whatsapp"
+                android:background="#f4efef"
             android:id="@+id/wharsapp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
             />
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight=".50"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:src="@mipmap/callus"
+            android:background="#f4efef"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/callus"/>
     </LinearLayout>
     <LinearLayout
@@ -47,14 +53,18 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight=".50"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:src="@mipmap/message"
+            android:background="#f4efef"
+            android:layout_marginRight="10dp"
             android:id="@+id/sms"/>
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight=".50"
-            android:layout_height="100dp "
+            android:layout_height="150dp "
+            android:background="#f4efef"
             android:src="@mipmap/mailus"
+            android:layout_marginLeft="10dp"
             android:id="@+id/emailus"/>
     </LinearLayout>
 </LinearLayout>

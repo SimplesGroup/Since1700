@@ -39,7 +39,7 @@ public class EventDetailPageAdapter extends BaseAdapter {
 
         image.setImageResource(flowers[position]);
         image.setScaleType(ImageView.ScaleType.FIT_XY);
-        image.setPadding(100,10,100,10);
+        image.setPadding(100,10,100,0);
       image.setLayoutParams(new Gallery.LayoutParams(1000, 600));
         return image;
     }
