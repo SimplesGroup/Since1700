@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -28,8 +27,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -48,7 +45,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,13 +55,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import since.since1700.Fragment.Brands.DetailDesign.Feedbrand;
 import since.since1700.Fragment.BrandsFragment;
 import since.since1700.Fragment.ContactFragment;
 import since.since1700.Fragment.EventsFragment;
 import since.since1700.Fragment.FeedFragment;
 import since.since1700.Fragment.ShopFragment;
+import since.since1700.MainActivity;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.R;
@@ -171,11 +167,14 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
                 contact_btn.setBackgroundResource(R.color.mytransparent);
-                Fragment selectedFragment = null;
+                /*Fragment selectedFragment = null;
                 selectedFragment = FeedFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedFragment);
-                transaction.commit();
+                transaction.commit();*/
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","1");
+                startActivity(next);
                 if(colorcodes.length()==0){
 
                 }else {
@@ -199,11 +198,15 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
                 contact_btn.setBackgroundResource(R.color.mytransparent);
-                Fragment selectedFragment = null;
+
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","2");
+                startActivity(next);
+               /* Fragment selectedFragment = null;
                 selectedFragment = BrandsFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedFragment);
-                transaction.commit();
+                transaction.commit();*/
                 if(colorcodes.length()==0){
 
                 }else {
@@ -230,12 +233,14 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 feed_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
                 contact_btn.setBackgroundResource(R.color.mytransparent);
-
-                Fragment selectedFragment = null;
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","3");
+                startActivity(next);
+                /*Fragment selectedFragment = null;
                 selectedFragment = ShopFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedFragment);
-                transaction.commit();
+                transaction.commit();*/
                 if (colorcodes.length() == 0) {
 
                 } else {
@@ -262,11 +267,15 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
                 contact_btn.setBackgroundResource(R.color.mytransparent);
-                Fragment selectedFragment = null;
+
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","4");
+                startActivity(next);
+               /* Fragment selectedFragment = null;
                 selectedFragment = EventsFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedFragment);
-                transaction.commit();
+                transaction.commit();*/
                 if(colorcodes.length()==0){
 
                 }else {
@@ -292,11 +301,14 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 shop_btn.setBackgroundResource(R.color.mytransparent);
                 events_btn.setBackgroundResource(R.color.mytransparent);
                 feed_btn.setBackgroundResource(R.color.mytransparent);
-                Fragment selectedFragment = null;
+                /*Fragment selectedFragment = null;
                 selectedFragment = ContactFragment.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedFragment);
-                transaction.commit();
+                transaction.commit();*/
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","5");
+                startActivity(next);
                 if(colorcodes.length()==0){
 
                 }else {

@@ -29,10 +29,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -64,12 +63,10 @@ import since.since1700.Fragment.ContactFragment;
 import since.since1700.Fragment.EventsFragment;
 import since.since1700.Fragment.FeedFragment;
 import since.since1700.Fragment.ShopFragment;
-import since.since1700.Profile.Privileges;
 import since.since1700.Profile.ProfileActivity;
 import since.since1700.Search.CustomAdapter;
 import since.since1700.Search.SearchActivity;
 import since.since1700.Search.StudentRepo;
-import android.view.GestureDetector.OnGestureListener;
 
 /**
  * Created by Kuppusamy on 9/21/2017.
@@ -107,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements OnGestureListener
     SQLiteDatabase mDatabase;
     ListView searchlistview;
     ViewPager pager;
-
+String id;
     public static final String DATABASE_NAME = "mysearchdatabase";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -130,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements OnGestureListener
         String fontPath = "fonts/OpenSans-Regular.ttf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
         mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+        Intent get=getIntent();
+        id=get.getStringExtra("ID");
 
         gestureDetector = new GestureDetector(MainActivity.this, MainActivity.this);
        feed_btn=(ImageButton)findViewById(R.id.btn_feed);
@@ -256,7 +255,13 @@ public class MainActivity extends AppCompatActivity implements OnGestureListener
                 startActivity(next);
             }
         });
-
+terms.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent next=new Intent(getApplicationContext(),TermsandCondition.class);
+        startActivity(next);
+    }
+});
         mDrawerListView = (ExpandableListView) findViewById(R.id.lvExp);
         close = (Button)findViewById(R.id.close);
         closeprofile = (Button)findViewById(R.id.closeprofile);
@@ -565,26 +570,29 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
             }
         });
 
-
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, FeedFragment.newInstance());
-        transaction.commit();
-      if(colorcodes.length()==0){
-
+        if(id!=null){
+            changefrag();
         }else {
-            if(colorcodes.equalsIgnoreCase("004")){
-                Log.e("Msg","hihihi");
-            }else {
-                if(colorcodes.equals("blue")){
-                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    feed_btn.setImageResource(R.mipmap.feedwhite);
-                }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    feed_btn.setImageResource(R.mipmap.feedwhite);
-                }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    feed_btn.setImageResource(R.mipmap.feedwhite);
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frame_layout, FeedFragment.newInstance());
+            transaction.commit();
+            if (colorcodes.length() == 0) {
+
+            } else {
+                if (colorcodes.equalsIgnoreCase("004")) {
+                    Log.e("Msg", "hihihi");
+                } else {
+                    if (colorcodes.equals("blue")) {
+                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        feed_btn.setImageResource(R.mipmap.feedwhite);
+                    } else if (colorcodes.equalsIgnoreCase("#59247c")) {
+                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        feed_btn.setImageResource(R.mipmap.feedwhite);
+                    } else if (colorcodes.equalsIgnoreCase("#1d487a")) {
+                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        feed_btn.setImageResource(R.mipmap.feedwhite);
+                    }
                 }
             }
         }
@@ -594,7 +602,174 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
     public void onDrawerItemSelected(View view, int position) {
     }
 
+    private void changefrag(){
+if(id.equals("1")){
+    feed_btn.setImageResource(R.mipmap.feedwhite);
+    // feed_btn.setBackgroundResource(R.drawable.bluebutton);
+    brands_btn.setBackgroundResource(R.color.mytransparent);
+    brands_btn.setImageResource(R.mipmap.brands);
+    shop_btn.setBackgroundResource(R.color.mytransparent);
+    shop_btn.setImageResource(R.mipmap.shop);
+    events_btn.setBackgroundResource(R.color.mytransparent);
+    events_btn.setImageResource(R.mipmap.event);
+    contact_btn.setBackgroundResource(R.color.mytransparent);
+    contact_btn.setImageResource(R.mipmap.contact);
+    Fragment selectedFragment = null;
+    selectedFragment = FeedFragment.newInstance();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.frame_layout, selectedFragment);
+    transaction.commit();
+    if(colorcodes.length()==0){
 
+    }else {
+
+        if(colorcodes.equals("blue")){
+            feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+        }else if(colorcodes.equalsIgnoreCase("#59247c")){
+            feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+            feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+        }
+
+    }
+}else if(id.equals("2")) {
+    brands_btn.setImageResource(R.mipmap.brandswhite);
+    brands_btn.setBackgroundResource(R.drawable.bluebutton);
+    feed_btn.setBackgroundResource(R.color.mytransparent);
+    shop_btn.setBackgroundResource(R.color.mytransparent);
+    events_btn.setBackgroundResource(R.color.mytransparent);
+    contact_btn.setBackgroundResource(R.color.mytransparent);
+
+    feed_btn.setImageResource(R.mipmap.feed);
+    shop_btn.setImageResource(R.mipmap.shop);
+    events_btn.setImageResource(R.mipmap.event);
+    contact_btn.setImageResource(R.mipmap.contact);
+
+    Fragment selectedFragment = null;
+    selectedFragment = BrandsFragment.newInstance();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.frame_layout, selectedFragment);
+    transaction.commit();
+    if (colorcodes.length() == 0) {
+
+    } else {
+        if (colorcodes.equalsIgnoreCase("004")) {
+            Log.e("Msg", "hihihi");
+        } else {
+            if (colorcodes.equals("blue")) {
+                brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+            } else if (colorcodes.equalsIgnoreCase("#59247c")) {
+                brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+            } else if (colorcodes.equalsIgnoreCase("#1d487a")) {
+                brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }
+        }
+    }
+}else if(id.equals("3")){
+
+    shop_btn.setImageResource(R.mipmap.shopwhite);
+    shop_btn.setBackgroundResource(R.drawable.bluebutton);
+    brands_btn.setBackgroundResource(R.color.mytransparent);
+    feed_btn.setBackgroundResource(R.color.mytransparent);
+    events_btn.setBackgroundResource(R.color.mytransparent);
+    contact_btn.setBackgroundResource(R.color.mytransparent);
+
+    feed_btn.setImageResource(R.mipmap.feed);
+    brands_btn.setImageResource(R.mipmap.brands);
+    events_btn.setImageResource(R.mipmap.event);
+    contact_btn.setImageResource(R.mipmap.contact);
+
+
+    Fragment selectedFragment = null;
+    selectedFragment = ShopFragment.newInstance();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.frame_layout, selectedFragment);
+    transaction.commit();
+    if (colorcodes.length() == 0) {
+
+    } else {
+        if (colorcodes.equalsIgnoreCase("004")) {
+            Log.e("Msg", "hihihi");
+        } else {
+            if(colorcodes.equals("blue")){
+                shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }
+        }
+    }
+
+}else if (id.equals("4")){
+    events_btn.setImageResource(R.mipmap.eventswhite);
+    events_btn.setBackgroundResource(R.drawable.bluebutton);
+    brands_btn.setBackgroundResource(R.color.mytransparent);
+    shop_btn.setBackgroundResource(R.color.mytransparent);
+    feed_btn.setBackgroundResource(R.color.mytransparent);
+    contact_btn.setBackgroundResource(R.color.mytransparent);
+
+    feed_btn.setImageResource(R.mipmap.feed);
+    brands_btn.setImageResource(R.mipmap.brands);
+    shop_btn.setImageResource(R.mipmap.shop);
+    contact_btn.setImageResource(R.mipmap.contact);
+
+
+    Fragment selectedFragment = null;
+    selectedFragment = EventsFragment.newInstance();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.frame_layout, selectedFragment);
+    transaction.commit();
+    if(colorcodes.length()==0){
+
+    }else {
+        if(colorcodes.equalsIgnoreCase("004")){
+            Log.e("Msg","hihihi");
+        }else {
+            if(colorcodes.equals("blue")){
+                events_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                events_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                events_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }
+        }
+    }
+}else if (id.equals("5")){
+    contact_btn.setImageResource(R.mipmap.conciergewhite);
+    contact_btn.setBackgroundResource(R.drawable.bluebutton);
+    brands_btn.setBackgroundResource(R.color.mytransparent);
+    shop_btn.setBackgroundResource(R.color.mytransparent);
+    events_btn.setBackgroundResource(R.color.mytransparent);
+    feed_btn.setBackgroundResource(R.color.mytransparent);
+
+    feed_btn.setImageResource(R.mipmap.feed);
+    brands_btn.setImageResource(R.mipmap.brands);
+    shop_btn.setImageResource(R.mipmap.shop);
+    events_btn.setImageResource(R.mipmap.event);
+
+    Fragment selectedFragment = null;
+    selectedFragment = ContactFragment.newInstance();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.frame_layout, selectedFragment);
+    transaction.commit();
+    if(colorcodes.length()==0){
+
+    }else {
+        if(colorcodes.equalsIgnoreCase("004")){
+            Log.e("Msg","hihihi");
+        }else {
+            if(colorcodes.equals("blue")){
+                contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }
+        }
+    }
+}
+    }
 
     public Intent getPickImageChooserIntent() {
 
