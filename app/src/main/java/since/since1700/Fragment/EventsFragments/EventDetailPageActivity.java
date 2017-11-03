@@ -1,17 +1,23 @@
 package since.since1700.Fragment.EventsFragments;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import since.since1700.Fragment.FeedFragment;
+import since.since1700.MainActivity;
 import since.since1700.R;
 
 /**
@@ -35,9 +43,16 @@ public class EventDetailPageActivity extends AppCompatActivity {
     Button remindme;
     long startTime, endTime;
     Calendar cal;
+    public ViewPager viewPager;
     String event_title, event_place, event_startdate, event_enddate;
     ImageView galleryimage;
-
+    ImageButton feed_btn,brands_btn,shop_btn,events_btn,contact_btn;
+    String colorcodes;
+    public static final String colorcode = "colorCode";
+    String id;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
+    int pos=2;
     TextView eventdetaillebel,eventdeatil,eventtitle,text_eventvenue,text_eventvenue_details,text_eventlocation,text_eventlocation_details,text_eventwebsite,text_eventwebsite_details,text_eventontactname,text_eventontactname_details,text_eventphonenumber,text_eventphonenumber_details,text_eventemail,text_eventemail_details,text_date_event,text_date_event_data,text_timing_event,text_timing_event_data;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,9 +63,19 @@ public class EventDetailPageActivity extends AppCompatActivity {
         setContentView(R.layout.eventdetailpage_layout);
         count_layout = (LinearLayout) findViewById(R.id.image_count);
         gallery = (Gallery) findViewById(R.id.mygallery01);
+        Intent get=getIntent();
+        id=get.getStringExtra("ID");
+
+        sharedpreferences =  getSharedPreferences(mypreference,
+                Context.MODE_PRIVATE);
+        colorcodes=sharedpreferences.getString(colorcode,"");
         //galleryimage = (ImageView)findViewById(R.id.galleryimage);
         remindme = (Button) findViewById(R.id.remindme);
-
+        feed_btn=(ImageButton)findViewById(R.id.btn_feed);
+        brands_btn=(ImageButton)findViewById(R.id.btn_brands);
+        shop_btn=(ImageButton)findViewById(R.id.btn_shop);
+        events_btn=(ImageButton)findViewById(R.id.btn_event);
+        contact_btn=(ImageButton)findViewById(R.id.btn_contact);
         eventdetaillebel = (TextView) findViewById(R.id.eventdetaillebel);
         eventdeatil = (TextView) findViewById(R.id.eventdeatil);
         eventtitle = (TextView) findViewById(R.id.eventtitle);
@@ -124,7 +149,212 @@ public class EventDetailPageActivity extends AppCompatActivity {
 
             }
         });
-   remindme.setOnClickListener(new View.OnClickListener() {
+
+
+
+        feed_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                feed_btn.setBackgroundResource(R.drawable.bluebutton);
+                brands_btn.setBackgroundResource(R.color.mytransparent);
+                shop_btn.setBackgroundResource(R.color.mytransparent);
+                events_btn.setBackgroundResource(R.color.mytransparent);
+                contact_btn.setBackgroundResource(R.color.mytransparent);
+                /*Fragment selectedFragment = null;
+                selectedFragment = FeedFragment.newInstance();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, selectedFragment);
+                transaction.commit();*/
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","1");
+                startActivity(next);
+                if(colorcodes.length()==0){
+
+                }else {
+
+                    if(colorcodes.equals("blue")){
+                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                    }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                    }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                    }
+
+                }
+            }
+        });
+        brands_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                brands_btn.setBackgroundResource(R.drawable.bluebutton);
+                feed_btn.setBackgroundResource(R.color.mytransparent);
+                shop_btn.setBackgroundResource(R.color.mytransparent);
+                events_btn.setBackgroundResource(R.color.mytransparent);
+                contact_btn.setBackgroundResource(R.color.mytransparent);
+
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","2");
+                startActivity(next);
+               /* Fragment selectedFragment = null;
+                selectedFragment = BrandsFragment.newInstance();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, selectedFragment);
+                transaction.commit();*/
+                if(colorcodes.length()==0){
+
+                }else {
+                    if(colorcodes.equalsIgnoreCase("004")){
+                        Log.e("Msg","hihihi");
+                    }else {
+                        if(colorcodes.equals("blue")){
+                            brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                            brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                            brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }
+                    }
+                }
+            }
+        });
+        shop_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //  if(myprofileid!=null) {
+                shop_btn.setBackgroundResource(R.drawable.bluebutton);
+                brands_btn.setBackgroundResource(R.color.mytransparent);
+                feed_btn.setBackgroundResource(R.color.mytransparent);
+                events_btn.setBackgroundResource(R.color.mytransparent);
+                contact_btn.setBackgroundResource(R.color.mytransparent);
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","3");
+                startActivity(next);
+                /*Fragment selectedFragment = null;
+                selectedFragment = ShopFragment.newInstance();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, selectedFragment);
+                transaction.commit();*/
+                if (colorcodes.length() == 0) {
+
+                } else {
+                    if (colorcodes.equalsIgnoreCase("004")) {
+                        Log.e("Msg", "hihihi");
+                    } else {
+                        if(colorcodes.equals("blue")){
+                            shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                            shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                            shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }
+                    }
+                }
+
+            }
+        });
+        events_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                events_btn.setBackgroundResource(R.drawable.bluebutton);
+                brands_btn.setBackgroundResource(R.color.mytransparent);
+                shop_btn.setBackgroundResource(R.color.mytransparent);
+                feed_btn.setBackgroundResource(R.color.mytransparent);
+                contact_btn.setBackgroundResource(R.color.mytransparent);
+
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","4");
+                startActivity(next);
+               /* Fragment selectedFragment = null;
+                selectedFragment = EventsFragment.newInstance();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, selectedFragment);
+                transaction.commit();*/
+                if(colorcodes.length()==0){
+
+                }else {
+                    if(colorcodes.equalsIgnoreCase("004")){
+                        Log.e("Msg","hihihi");
+                    }else {
+                        if(colorcodes.equals("blue")){
+                            events_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                            events_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                            events_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }
+                    }
+                }
+            }
+        });
+        contact_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contact_btn.setBackgroundResource(R.drawable.bluebutton);
+                brands_btn.setBackgroundResource(R.color.mytransparent);
+                shop_btn.setBackgroundResource(R.color.mytransparent);
+                events_btn.setBackgroundResource(R.color.mytransparent);
+                feed_btn.setBackgroundResource(R.color.mytransparent);
+                /*Fragment selectedFragment = null;
+                selectedFragment = ContactFragment.newInstance();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, selectedFragment);
+                transaction.commit();*/
+                Intent next=new Intent(getApplicationContext(), MainActivity.class);
+                next.putExtra("ID","5");
+                startActivity(next);
+                if(colorcodes.length()==0){
+
+                }else {
+                    if(colorcodes.equalsIgnoreCase("004")){
+                        Log.e("Msg","hihihi");
+                    }else {
+                        if(colorcodes.equals("blue")){
+                            contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                            contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                            contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }
+                    }
+                }
+            }
+        });
+
+
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, FeedFragment.newInstance());
+        transaction.commit();
+        if(colorcodes.length()==0){
+
+        }else {
+           /* if(colorcodes.equalsIgnoreCase("004")){
+                Log.e("Msg","hihihi");
+            }else {
+                if(colorcodes.equals("blue")){
+                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                }else if(colorcodes.equalsIgnoreCase("#59247c")){
+                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                }else if(colorcodes.equalsIgnoreCase("#1d487a")){
+                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                }
+            }*/
+        }
+
+        Bundle bundle = getIntent().getExtras();
+        String text= bundle.getString("pos");
+        if(pos==0){
+
+        }else {
+            viewPager.setCurrentItem(Integer.parseInt(text));
+        }
+
+
+
+
+
+
+        remindme.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(Intent.ACTION_INSERT);
