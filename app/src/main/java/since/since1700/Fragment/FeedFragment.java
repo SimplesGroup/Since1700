@@ -16,22 +16,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import since.since1700.Fragment.FeedFragments.Accessories_Frag;
-import since.since1700.Fragment.FeedFragments.Apparel;
-import since.since1700.Fragment.FeedFragments.Art;
-import since.since1700.Fragment.FeedFragments.Beauty;
-import since.since1700.Fragment.FeedFragments.Bikes;
-import since.since1700.Fragment.FeedFragments.Cars;
-import since.since1700.Fragment.FeedFragments.Decor;
 import since.since1700.Fragment.FeedFragments.Featured;
-import since.since1700.Fragment.FeedFragments.Footwear;
-import since.since1700.Fragment.FeedFragments.Gadgets;
-import since.since1700.Fragment.FeedFragments.Gourmet;
-import since.since1700.Fragment.FeedFragments.Homes;
-import since.since1700.Fragment.FeedFragments.JetsYachts;
-import since.since1700.Fragment.FeedFragments.Jewellery;
-import since.since1700.Fragment.FeedFragments.Travel;
-import since.since1700.Fragment.FeedFragments.Watches;
 import since.since1700.R;
 
 /**
@@ -68,21 +53,21 @@ public class FeedFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         FeedViewPagerAdapter adapter = new FeedViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new Featured(), "Featured");
-        adapter.addFragment(new Accessories_Frag(), "Accessories");
-        adapter.addFragment(new Apparel(), "Apparel");
-        adapter.addFragment(new Art(), "Art");
-        adapter.addFragment(new Beauty(), "Beauty");
-        adapter.addFragment(new Bikes(), "Bikes");
-        adapter.addFragment(new Cars(), "Cars");
-        adapter.addFragment(new Decor(), "Decor");
-        adapter.addFragment(new Footwear(), "Footwear");
-        adapter.addFragment(new Gadgets(), "Gadgets");
-        adapter.addFragment(new Gourmet(), "Gourmet");
-        adapter.addFragment(new Homes(), "Homes");
-        adapter.addFragment(new JetsYachts(), "Jets & Yachts");
-        adapter.addFragment(new Jewellery(), "Jewellery");
-        adapter.addFragment(new Travel(), "Travel");
-        adapter.addFragment(new Watches(), "Watches");
+        adapter.addFragment(new Featured(), "Accessories");
+        adapter.addFragment(new Featured(), "Apparel");
+        adapter.addFragment(new Featured(), "Art");
+        adapter.addFragment(new Featured(), "Beauty");
+        adapter.addFragment(new Featured(), "Bikes");
+        adapter.addFragment(new Featured(), "Cars");
+        adapter.addFragment(new Featured(), "Decor");
+        adapter.addFragment(new Featured(), "Footwear");
+        adapter.addFragment(new Featured(), "Gadgets");
+        adapter.addFragment(new Featured(), "Gourmet");
+        adapter.addFragment(new Featured(), "Homes");
+        adapter.addFragment(new Featured(), "Jets & Yachts");
+        adapter.addFragment(new Featured(), "Jewellery");
+        adapter.addFragment(new Featured(), "Travel");
+        adapter.addFragment(new Featured(), "Watches");
         viewPager.setAdapter(adapter);
     }
 
