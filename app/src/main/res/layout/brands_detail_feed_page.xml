@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
     </FrameLayout>
     <android.support.v7.widget.RecyclerView
-        android:paddingBottom="60dp"
+        android:paddingBottom="110dp"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

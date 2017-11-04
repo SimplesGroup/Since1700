@@ -258,7 +258,7 @@ public class MyRewards extends Fragment {
 
                 String fontPath = "fonts/OpenSans-Regular.ttf";
                 final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
-                userViewHolder.productitle.setText(itemModel.getProducttitle());
+              //  userViewHolder.productitle.setText(itemModel.getProducttitle());
 
                 userViewHolder.productitle.setTypeface(opensansfont);
                 userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);

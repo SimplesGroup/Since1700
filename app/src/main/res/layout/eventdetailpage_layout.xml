@@ -27,23 +27,14 @@
 
 
         <ImageButton
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/morephptos"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:background="@android:color/transparent"
             android:src="@mipmap/morephotos" />
-        <TextView
-            android:layout_gravity="center|center_horizontal|center_vertical"
-            android:id="@+id/morephptos_count"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
 
-            android:layout_marginTop="5dp"
-            android:paddingBottom="10dp"
-            android:textColor="@android:color/white"/>
     </LinearLayout>
     <Gallery
         android:id="@+id/mygallery01"
@@ -56,7 +47,7 @@
     <LinearLayout
         android:id="@+id/image_count"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:gravity="center"
         android:layout_marginTop="0dp"
         android:orientation="horizontal"
@@ -66,7 +57,7 @@
 <ScrollView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="25dp"
+    android:layout_marginTop="5dp"
     android:layout_below="@+id/mygallery01"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true">
@@ -318,7 +309,7 @@
                 <TextView
                     android:layout_weight=".25"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:minHeight="48dp"
                     android:padding="10dp"
                     android:text="Date"
@@ -334,7 +325,7 @@
                     android:layout_weight=".45"
                     android:layout_width="0dp"
                     android:minHeight="48dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:padding="10dp"
                     android:text="Nov 03,2017 - Nov 04,2017"
                     android:textSize="15dp"
@@ -355,7 +346,7 @@
                 <TextView
                     android:layout_weight=".25"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:minHeight="48dp"
                     android:padding="10dp"
                     android:text="Timing"
@@ -371,7 +362,7 @@
                 <TextView
                     android:layout_weight=".45"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:minHeight="48dp"
                     android:padding="10dp"
                     android:text="09:30 AM - 04:30PM"

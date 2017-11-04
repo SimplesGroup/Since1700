@@ -163,13 +163,14 @@ public class Featured extends Fragment {
     static  class Itemviewholder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageButton selectbutton;
         NetworkImageView productimage;
-        ImageView hoverimage;
+        ImageView hoverimage ,likebutton;
         TextView productitle;
         RecyclerView_OnClickListener.OnClickListener recyclerView_onClickListener;
         public Itemviewholder(View itemView) {
             super(itemView);
             productimage=(NetworkImageView)itemView.findViewById(R.id.product_category_image);
             // hoverimage=(ImageView)itemView.findViewById(R.id.hoverimage);
+            likebutton=(ImageView)itemView.findViewById(R.id.likebutton);
             productitle=(TextView)itemView.findViewById(R.id.product_category_name);
             // selectbutton=(ImageButton) itemView.findViewById(R.id.select_item_imagebutton);
         }
@@ -295,7 +296,13 @@ public class Featured extends Fragment {
                 String fontPath = "fonts/OpenSans-Regular.ttf";
                 final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
                 userViewHolder.productitle.setText(itemModel.getProducttitle());
+                userViewHolder.likebutton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        userViewHolder.likebutton.setImageResource(R.mipmap.heartred);
 
+                    }
+                });
                 userViewHolder.productitle.setTypeface(opensansfont);
                 userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
 

@@ -56,8 +56,8 @@ public class ShopFragment extends Fragment {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new ShopHomeFragment(), "Home");
         adapter.addFragment(new ShopCategoryFragment(), "Category");
-        adapter.addFragment(new ShopPopularFragment(), "Popular");
-        adapter.addFragment(new ShopOnSaleFragment(), "On Sale");
+        adapter.addFragment(new ShopHomeFragment(), "Popular");
+        adapter.addFragment(new ShopHomeFragment(), "On Sale");
 
         viewPager.setAdapter(adapter);
     }

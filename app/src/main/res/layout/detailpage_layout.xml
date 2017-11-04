@@ -22,8 +22,8 @@
         android:layout_alignParentStart="true" />
 
             <ImageButton
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="30dp"
                 android:id="@+id/morephptos"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
@@ -35,7 +35,7 @@
         <LinearLayout
             android:id="@+id/image_count"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:gravity="center"
             android:layout_marginTop="0dp"
             android:orientation="horizontal"
@@ -143,7 +143,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout5"
-        android:layout_above="@+id/footer"
+        android:layout_marginTop="193dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -176,69 +177,5 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/footer"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-
-        android:background="#ffffff"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <ImageButton
-            android:id="@+id/btn_feed"
-
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/buttonselector"
-            android:gravity="center_horizontal"
-            android:src="@mipmap/feed" />
-
-        <ImageButton
-            android:id="@+id/btn_brands"
-
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/buttonselector"
-            android:gravity="center_horizontal"
-            android:src="@mipmap/brands" />
-
-        <ImageButton
-            android:id="@+id/btn_shop"
-
-
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/buttonselector"
-            android:gravity="center_horizontal"
-            android:src="@mipmap/shop" />
-
-        <ImageButton
-            android:id="@+id/btn_event"
-
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/buttonselector"
-            android:gravity="center_horizontal"
-            android:src="@mipmap/event" />
-
-        <ImageButton
-            android:id="@+id/btn_contact"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_centerInParent="true"
-            android:layout_weight="1"
-            android:background="@drawable/buttonselector"
-            android:gravity="center_horizontal"
-            android:src="@mipmap/contact" />
-
-
-    </LinearLayout>
 
 </RelativeLayout>

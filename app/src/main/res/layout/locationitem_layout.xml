@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/countrylayout"
-    android:layout_marginBottom="5dp">
+    android:layout_marginBottom="0dp">
 
 
     <TextView
@@ -14,8 +14,9 @@
         android:layout_height="wrap_content"
         android:paddingLeft="0dp"
         android:textColor="#000000"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="50dp"
         android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:textSize="14dp"
         />
 

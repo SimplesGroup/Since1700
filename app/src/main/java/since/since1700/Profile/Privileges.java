@@ -240,22 +240,22 @@ public class Privileges extends Fragment {
 
 
 
-        ProductEnglish a = new ProductEnglish("Fennel Seeds", "250", covers[0],"per kilogram");
+        ProductEnglish a = new ProductEnglish("Furniture Set", "250", covers[0],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Asafoetida", "250", covers[1],"per kilogram");
+        a = new ProductEnglish("Signature Blend", "250", covers[1],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Red Chilli Powder", "150", covers[2],"per kilogram");
+        a = new ProductEnglish("Zenith watch", "150", covers[2],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Black Cardamon", "540", covers[3],"per kilogram");
+        a = new ProductEnglish("Burberry Bags", "540", covers[3],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("White Pepper", "14", covers[4],"per kilogram");
+        a = new ProductEnglish("Furniture Set", "14", covers[4],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Black Pepper", "1", covers[5],"per kilogram");
+        a = new ProductEnglish("Signature Blend", "1", covers[5],"per kilogram");
         productEnglishList.add(a);
 
         adapter.notifyDataSetChanged();

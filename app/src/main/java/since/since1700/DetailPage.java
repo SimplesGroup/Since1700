@@ -1,11 +1,15 @@
 package since.since1700;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +18,7 @@ import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,6 +42,7 @@ import java.util.List;
 
 import since.since1700.Fragment.EventsFragments.EventDetailPageActivity;
 import since.since1700.Fragment.EventsFragments.EventDetailPageAdapter;
+import since.since1700.Fragment.FeedFragment;
 import since.since1700.Model.FeedProductModel;
 
 import static android.R.attr.description;
@@ -56,7 +62,11 @@ public class DetailPage extends AppCompatActivity {
     ProductModel model=new ProductModel();
     ImageLoader mImageLoader;
     WebView webone,webtwo,webthree;
-
+    ImageButton feed_btn,brands_btn,shop_btn,events_btn,contact_btn;
+    String colorcodes;
+    public static final String colorcode = "colorCode";
+    String id;
+    SharedPreferences sharedpreferences;
     Gallery gallery;
     EventDetailPageAdapter imageAdapter;
     LinearLayout count_layout;
@@ -70,9 +80,15 @@ public class DetailPage extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.detailpage_layout);
+        Intent get = getIntent();
+        id = get.getStringExtra("ID");
+
+        sharedpreferences = getSharedPreferences(mypreference,
+                Context.MODE_PRIVATE);
+        colorcodes = sharedpreferences.getString(colorcode, "");
         count_layout = (LinearLayout) findViewById(R.id.image_count);
         gallery = (Gallery) findViewById(R.id.mygallery01);
-        requestQueue= Volley.newRequestQueue(getApplicationContext());
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
         progressDialog = new ProgressDialog(getApplicationContext());
 //        progressDialog.show();
         progressDialog.setContentView(R.layout.custom_progressdialog);
@@ -80,19 +96,19 @@ public class DetailPage extends AppCompatActivity {
         mImageLoader = MySingleton.getInstance(getApplicationContext()).getImageLoader();
         getData();
 
-       // feedimage = (NetworkImageView) findViewById(R.id.product_category_image);
-        webone = (WebView)findViewById(R.id.webview_one);
-        webtwo = (WebView)findViewById(R.id.webview_eventdescription);
-        webthree = (WebView)findViewById(R.id.webview_event);
-        ;
-   //     feedimage.setImageResource(R.drawable.background);
+        // feedimage = (NetworkImageView) findViewById(R.id.product_category_image);
+        webone = (WebView) findViewById(R.id.webview_one);
+        webtwo = (WebView) findViewById(R.id.webview_eventdescription);
+        webthree = (WebView) findViewById(R.id.webview_event);
+
+        //     feedimage.setImageResource(R.drawable.background);
 
 //        Log.e("IMAGEVIEWDATE",model.getProductimage());
 
 
         imageAdapter = new EventDetailPageAdapter(this);
         gallery.setAdapter(imageAdapter);
-        count=gallery.getAdapter().getCount();
+        count = gallery.getAdapter().getCount();
         page_text = new TextView[count];
         for (int i = 0; i < count; i++) {
             page_text[i] = new TextView(this);
@@ -111,7 +127,7 @@ public class DetailPage extends AppCompatActivity {
                 for (int i = 0; i < count; i++) {
                     page_text[i].setTextColor(android.graphics.Color.GRAY);
                 }
-               page_text[position].setTextColor(android.graphics.Color.WHITE);
+                page_text[position].setTextColor(android.graphics.Color.WHITE);
 
             }
 
@@ -120,6 +136,7 @@ public class DetailPage extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void getData(){
@@ -175,19 +192,12 @@ public class DetailPage extends AppCompatActivity {
 
                String performance = "Release date \t\t	August 2016 \n Form factor	\t\tTouchscreen \nDimensions (mm)\t\t151.00 x 76.00 x 8.30 \nWeight (g)\t\t	175.00 \nBattery capacity (mAh)\t\t	4100 \nRemovable battery	\t\tNo \nColours	\t\tGold, Grey, Matte Black \nSAR value	\t\tNA";
 
-
-
-
-
-
-
-
                 //description.loadData(String.format(descrip), "text/html", "utf-8");
                 //description.loadData(descrip,"text/html","utf-8");
-              //  String fonts = "<html>\n" + "\t<head>\n" + "\t\t<meta  \thttp-equiv=\"content-type\" content=\"text/html;\" charset=\"UTF-8\">\n" + "\t\t<style>\n" + "\t\t@font-face {\n" + "  font-family: 'segeoui-light';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-regular';\n" + "src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-sbold';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Bold';\n" + "   src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Light';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Regular';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Thin';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "\t\t</style>\n" + "\t</head>";
-                webone.loadData(descrition + "</head>", "text/html", "utf-8");
-               webtwo.loadData(performance + "</head>", "text/html", "utf-8");
-                webthree.loadData(performance + "</head>", "text/html", "utf-8");
+               String fonts = "<html>\n" + "\t<head>\n" + "\t\t<meta  \thttp-equiv=\"content-type\" content=\"text/html;\" charset=\"UTF-8\">\n" + "\t\t<style>\n" + "\t\t@font-face {\n" + "  font-family: 'segeoui-light';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-regular';\n" + "src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "  font-family: 'segeoui-sbold';\n" + " src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "  font-style: normal;\n" + "}\n" + "\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Bold';\n" + "   src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Light';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Regular';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "@font-face {\n" + "    font-family: 'RobotoSlab-Thin';\n" + "    src: url('file:///android_asset/fonts/RobotoSlab-Regular.ttf');\n" + "    font-style: normal;\n" + "}\n" + "\t\t</style>\n" + "\t</head>";
+                webone.loadData(fonts + descrition + "</head>", "text/html", "utf-8");
+               webtwo.loadData(fonts + performance + "</head>", "text/html", "utf-8");
+                webthree.loadData(fonts + performance + "</head>", "text/html", "utf-8");
                 // description.setBackgroundColor(0x0a000000);
                 webone.setBackgroundColor(Color.TRANSPARENT);
               //  Log.e("WEBCONTENT",descrition);

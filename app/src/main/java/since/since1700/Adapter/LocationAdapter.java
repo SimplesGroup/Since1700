@@ -58,6 +58,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.locationitem_layout, parent, false);
+
+
         Log.e("LISTTTTTTTT","SSSSSSS");
         return new MyViewHolder(itemView);
     }
@@ -66,7 +68,11 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
        final LocationModel comment = modellist.get(position);
-
+        if (position % 2 == 0) {
+            holder.itemView.setBackgroundResource(R.color.gray);
+        } else {
+            holder.itemView.setBackgroundResource(R.color.lightgray);
+        }
         holder.title.setText(comment.getLocation());
         String fontPath = "fonts/OpenSans-Regular.ttf";
 //        final Typeface opensansfont = Typeface.createFromAsset(context.getAssets(), fontPath);
