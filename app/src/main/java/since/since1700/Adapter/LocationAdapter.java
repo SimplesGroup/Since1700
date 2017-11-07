@@ -91,7 +91,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
                 } else {
                    // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
                     holder.checkbutton.setVisibility(View.VISIBLE);
-                    holder.checkbutton.setBackgroundResource(R.mipmap.tickblue);
+                    holder.checkbutton.setBackgroundResource(R.mipmap.tickwhiteblue);
                     modellist.get(position).setSelected(true);
                 }
             }
@@ -106,7 +106,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
                 } else {
                    // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
                     holder.checkbutton.setVisibility(View.VISIBLE);
-                    holder.checkbutton.setBackgroundResource(R.mipmap.tickblue);
+                    holder.checkbutton.setBackgroundResource(R.mipmap.tickwhiteblue);
                     modellist.get(position).setSelected(true);
                 }
             }

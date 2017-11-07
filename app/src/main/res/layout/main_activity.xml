@@ -236,10 +236,10 @@
 
         <ExpandableListView
             android:id="@+id/lvExp"
-            android:layout_height="470dp"
+            android:layout_height="515dp"
             android:layout_width="match_parent"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="1dp"
             android:choiceMode="singleChoice"
             android:divider="#00000000"
             android:dividerHeight="0.2dp"
@@ -249,17 +249,17 @@
             android:layout_below="@+id/linearLayout2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="11dp" />
+            android:layout_marginStart="1dp" />
 
             <LinearLayout
-                android:id="@+id/linearLayouts"
+                android:id="@+id/close_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:orientation="vertical"
-                android:layout_marginTop="60dp">
+                android:layout_marginTop="15dp">
 
                 <Button
                     android:id="@+id/close"
@@ -297,10 +297,10 @@
         android:id="@+id/profile_layout"
         android:visibility="gone"
         android:background="@android:color/white"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:orientation="vertical">
+        android:layout_alignParentEnd="true">
 
 
                 <LinearLayout
@@ -411,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textAlignment="center"
-                        android:text="Auctions"
+                        android:text="Favourites"
                         android:background="#f9f5f5"
                         android:textSize="15dp"
                         android:padding="15dp"
@@ -471,31 +471,41 @@
                         android:padding="15dp"
                         />
 
-
-                    <Button
-                        android:id="@+id/closeprofile"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/close" />
-
-                    <TextView
-                        android:id="@+id/profile_text_close"
+                    <LinearLayout
+                        android:id="@+id/close_layout2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginTop="3dp"
-                        android:text="Close"
-                        android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:orientation="vertical"
+                        android:layout_marginTop="15dp">
+
+                        <Button
+                            android:id="@+id/closeprofile"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/close" />
+
+                        <TextView
+                            android:id="@+id/profile_text_close"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="50dp"
+                            android:layout_marginTop="3dp"
+                            android:text="Close"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="12dp" />
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

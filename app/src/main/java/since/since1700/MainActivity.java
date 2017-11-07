@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements OnGestureListener
     ImageButton feed_btn,brands_btn,shop_btn,events_btn,contact_btn;
     Toolbar toolbar;
     private FragmentDrawer drawerFragment;
-    LinearLayout layout,profilelayout,linearLayout;
+    LinearLayout layout,profilelayout,linearLayout,closelayout1,closelayout2;
     RelativeLayout relativelayout;
      ExpandableListView mDrawerListView;
     List<String> expandableListTitle;
@@ -155,6 +155,8 @@ String id;
         terms = (TextView) findViewById(R.id.terms);
         final ProfileActivity p = new ProfileActivity();
         relativelayout = (RelativeLayout) findViewById(R.id.relativelayout);
+        closelayout1 = (LinearLayout) findViewById(R.id.close_layout1);
+        closelayout2 = (LinearLayout) findViewById(R.id.close_layout2);
 
 
         relativelayout.setVisibility(View.VISIBLE);
@@ -255,13 +257,13 @@ String id;
                 startActivity(next);
             }
         });
-terms.setOnClickListener(new View.OnClickListener() {
+      terms.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent next=new Intent(getApplicationContext(),TermsandCondition.class);
         startActivity(next);
     }
-});
+  });
         mDrawerListView = (ExpandableListView) findViewById(R.id.lvExp);
         close = (Button)findViewById(R.id.close);
         closeprofile = (Button)findViewById(R.id.closeprofile);
@@ -299,6 +301,18 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
                 mDrawerLayout.closeDrawer(containerView);
             }
         });*/
+        closelayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profilelayout.setVisibility(View.GONE);
+            }
+        });
+        closelayout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout.setVisibility(View.GONE);
+            }
+        });
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override

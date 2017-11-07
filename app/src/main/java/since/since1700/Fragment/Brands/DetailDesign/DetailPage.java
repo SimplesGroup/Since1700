@@ -6,9 +6,13 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,6 +52,13 @@ import since.since1700.Fragment.FeedFragment;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.OnLoadMoreListener;
+import since.since1700.Profile.Blog;
+import since.since1700.Profile.Cart;
+import since.since1700.Profile.Favourites;
+import since.since1700.Profile.MyRewards;
+import since.since1700.Profile.Privileges;
+import since.since1700.Profile.ProfileActivity;
+import since.since1700.Profile.Profiles;
 import since.since1700.R;
 import since.since1700.RecyclerView_OnClickListener;
 
@@ -66,11 +77,11 @@ public class DetailPage extends AppCompatActivity {
     ImageButton back_imagebutton;
     private FragmentTabHost mTabHost;
     TabWidget tabWidget;
-
+    public ViewPager viewPager;
     RecyclerView recyclerView_products;
     int requestcount = 1;
     String ITEMURL = "https://androiddevelopmentnew.000webhostapp.com/productlist.json";
-
+    private TabLayout tabLayout;
     List<FeedProductModel> productlist = new ArrayList<FeedProductModel>();
    // ProductAdapterFeed productAdapter;
 
@@ -88,7 +99,10 @@ public class DetailPage extends AppCompatActivity {
         recyclerView_products = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView_products.setLayoutManager(layoutManager);*/
         Intent get = getIntent();
-
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
         banner_brandimage = (NetworkImageView) findViewById(R.id.select_brand_image);
         follow_button = (Button) findViewById(R.id.follow_button);
         back_imagebutton = (ImageButton) findViewById(R.id.back_button);
@@ -97,36 +111,26 @@ public class DetailPage extends AppCompatActivity {
         String image = "https://androiddevelopmentnew.000webhostapp.com/cars.png";
         follow_button.setTypeface(opensansfont);
         banner_brandimage.setImageUrl(image, imageLoader);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         /*getData();
         productAdapter = new ProductAdapterFeed(productlist, recyclerView_products);
         recyclerView_products.setAdapter(productAdapter);*/
 
-        tabWidget = (TabWidget) findViewById(android.R.id.tabs);
-        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-       mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
-
-
-        mTabHost.addTab(
-                mTabHost.newTabSpec("Feed").setIndicator("Feed", null),
-                ShopdetailBrand.class, null);
-
-        mTabHost.addTab(
-                mTabHost.newTabSpec("Shop").setIndicator("Shop", null),
-                ShopdetailBrand.class, null);
-        //  mTabHost.getCurrentTab();
-
-       if(mTabHost.getCurrentTabTag().equals("Feed")){
-            mTabHost.getCurrentTabView().setBackgroundResource(R.drawable.membershipgradient);
-           Fragment selectedFragment = null;
-           selectedFragment = Feedbrand.newInstance();
-           FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-           transaction.replace(android.R.id.tabcontent, selectedFragment);
-           transaction.commit();
-
-
-        }
-        // mTabHost.getCurrentTabView().setBackgroundResource(R.drawable.membershipgradient);
 
 
         back_imagebutton.setOnClickListener(new View.OnClickListener() {
@@ -136,34 +140,50 @@ public class DetailPage extends AppCompatActivity {
             }
         });
 
-        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
-            public void onTabChanged(String tabId) {
-                mTabHost.getCurrentTab();
 
+    }
+    private void setupViewPager(ViewPager viewPager) {
 
-        /*if (tabId.equals("Feed")) {
-            if (mTabHost.getCurrentTab() == 0) {
-                mTabHost.getCurrentTabView().setBackgroundResource(R.drawable.membershipgradient);
-            }
-            mTabHost.getCurrentTabView().setBackgroundResource(R.drawable.membershipgradient);
-            if (mTabHost.getCurrentTab() == 1) {
-                mTabHost.getCurrentTabView().setBackgroundResource(R.color.white);
-            }
+      ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Feedbrand(), "Feed");
+        adapter.addFragment(new ShopdetailBrand(), "Shop");
 
-        }else {
-            if (mTabHost.getCurrentTab() == 0) {
-                mTabHost.getCurrentTabView().setBackgroundResource(R.color.white);
-            }
-            if (mTabHost.getCurrentTab() == 1) {
-                mTabHost.getCurrentTabView().setBackgroundResource(R.drawable.membershipgradient);
-            }
-        }*/
+        viewPager.setAdapter(adapter);
 
-            }
-        });
     }
 
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+        //    pos = position;
+          //  Log.e("POSITIONNNNN", String.valueOf(pos));
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+
+
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
    /* private void getData() {
         requestQueue.add(getDataFromTheServer(requestcount));
         requestcount++;

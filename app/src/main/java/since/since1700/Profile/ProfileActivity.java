@@ -87,7 +87,6 @@ public class ProfileActivity extends AppCompatActivity {
     int requestcount = 1;
     RequestQueue requestQueue;
     String ITEMURL = "https://androiddevelopmentnew.000webhostapp.com/productlist.json";
-    Feedbrand.ProductAdapterFeed productAdapter;
     List<FeedProductModel> productlist = new ArrayList<FeedProductModel>();
     FeedProductModel model = new FeedProductModel();
     ImageLoader imageLoader;
@@ -421,151 +420,12 @@ if(pos==0){
         adapter.addFragment(new Profiles(), "Profiles");
         adapter.addFragment(new Favourites(), "Favourites");
         adapter.addFragment(new Privileges(), "Privileges");
-        adapter.addFragment(new Cart(), "Cart");
+        adapter.addFragment(new Favourites(), "Cart");
         adapter.addFragment(new MyRewards(), "My Rewards");
+        adapter.addFragment(new Blog(), "Blog");
         viewPager.setAdapter(adapter);
 
     }
-
-
-    private void changefrag(){
-        if(id.equals("1")){
-            feed_btn.setBackgroundResource(R.drawable.bluebutton);
-            brands_btn.setBackgroundResource(R.color.mytransparent);
-            shop_btn.setBackgroundResource(R.color.mytransparent);
-            events_btn.setBackgroundResource(R.color.mytransparent);
-            contact_btn.setBackgroundResource(R.color.mytransparent);
-            Fragment selectedFragment = null;
-            selectedFragment = FeedFragment.newInstance();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, selectedFragment);
-            transaction.commit();
-            if(colorcodes.length()==0){
-
-            }else {
-
-                if(colorcodes.equals("blue")){
-                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                    feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                }
-
-            }
-        }else if(id.equals("2")){
-            brands_btn.setBackgroundResource(R.drawable.bluebutton);
-            feed_btn.setBackgroundResource(R.color.mytransparent);
-            shop_btn.setBackgroundResource(R.color.mytransparent);
-            events_btn.setBackgroundResource(R.color.mytransparent);
-            contact_btn.setBackgroundResource(R.color.mytransparent);
-            Fragment selectedFragment = null;
-            selectedFragment = BrandsFragment.newInstance();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, selectedFragment);
-            transaction.commit();
-            if(colorcodes.length()==0){
-
-            }else {
-                if(colorcodes.equalsIgnoreCase("004")){
-                    Log.e("Msg","hihihi");
-                }else {
-                    if(colorcodes.equals("blue")){
-                        brands_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                        brands_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                        brands_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }
-                }
-            }
-        }else if(id.equals("3")){
-            shop_btn.setBackgroundResource(R.drawable.bluebutton);
-            brands_btn.setBackgroundResource(R.color.mytransparent);
-            feed_btn.setBackgroundResource(R.color.mytransparent);
-            events_btn.setBackgroundResource(R.color.mytransparent);
-            contact_btn.setBackgroundResource(R.color.mytransparent);
-
-            Fragment selectedFragment = null;
-            selectedFragment = ShopFragment.newInstance();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, selectedFragment);
-            transaction.commit();
-            if (colorcodes.length() == 0) {
-
-            } else {
-                if (colorcodes.equalsIgnoreCase("004")) {
-                    Log.e("Msg", "hihihi");
-                } else {
-                    if(colorcodes.equals("blue")){
-                        shop_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                        shop_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                        shop_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }
-                }
-            }
-        }else if(id.equals("4")){
-            events_btn.setBackgroundResource(R.drawable.bluebutton);
-            brands_btn.setBackgroundResource(R.color.mytransparent);
-            shop_btn.setBackgroundResource(R.color.mytransparent);
-            feed_btn.setBackgroundResource(R.color.mytransparent);
-            contact_btn.setBackgroundResource(R.color.mytransparent);
-            Fragment selectedFragment = null;
-            selectedFragment = EventsFragment.newInstance();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, selectedFragment);
-            transaction.commit();
-            if(colorcodes.length()==0){
-
-            }else {
-                if(colorcodes.equalsIgnoreCase("004")){
-                    Log.e("Msg","hihihi");
-                }else {
-                    if(colorcodes.equals("blue")){
-                        events_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                        events_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                        events_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }
-                }
-            }
-        }
-        else if(id.equals("5")){
-            contact_btn.setBackgroundResource(R.drawable.bluebutton);
-            brands_btn.setBackgroundResource(R.color.mytransparent);
-            shop_btn.setBackgroundResource(R.color.mytransparent);
-            events_btn.setBackgroundResource(R.color.mytransparent);
-            feed_btn.setBackgroundResource(R.color.mytransparent);
-            Fragment selectedFragment = null;
-            selectedFragment = ContactFragment.newInstance();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, selectedFragment);
-            transaction.commit();
-            if(colorcodes.length()==0){
-
-            }else {
-                if(colorcodes.equalsIgnoreCase("004")){
-                    Log.e("Msg","hihihi");
-                }else {
-                   if(colorcodes.equals("blue")){
-                        contact_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                        contact_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                        contact_btn.setBackgroundResource(R.drawable.membershipgradient);
-                    }
-                }
-            }
-        }
-        else {
-
-        }
-    }
-
-
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();

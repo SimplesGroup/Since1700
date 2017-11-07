@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -130,6 +131,7 @@ public class Feedbrand extends Fragment {
     static class Itemviewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageButton selectbutton;
         NetworkImageView productimage;
+        Button claim;
         ImageView hoverimage;
         TextView productitle;
         RecyclerView_OnClickListener.OnClickListener recyclerView_onClickListener;
@@ -139,7 +141,7 @@ public class Feedbrand extends Fragment {
             productimage = (NetworkImageView) itemView.findViewById(R.id.product_category_image);
             // hoverimage=(ImageView)itemView.findViewById(R.id.hoverimage);
             // productitle=(TextView)itemView.findViewById(R.id.product_category_name);
-            // selectbutton=(ImageButton) itemView.findViewById(R.id.select_item_imagebutton);
+          claim=(Button) itemView.findViewById(R.id.rsvp);
         }
 
         @Override
@@ -263,7 +265,7 @@ public class Feedbrand extends Fragment {
 
                 String fontPath = "fonts/OpenSans-Regular.ttf";
                 final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
-
+userViewHolder.claim.setVisibility(View.GONE);
                 userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
                 /*userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
                     @Override

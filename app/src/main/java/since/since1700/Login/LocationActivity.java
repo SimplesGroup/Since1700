@@ -84,7 +84,7 @@ public class LocationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                black.setBackgroundResource(R.mipmap.tickblue);
+                black.setBackgroundResource(R.mipmap.tickblack);
                 red.setBackgroundResource(R.drawable.red);
                 blue.setBackgroundResource(R.drawable.blue);
              /*  if(modellist.get(0).isColorSelection()) {
@@ -109,7 +109,8 @@ public class LocationActivity extends AppCompatActivity {
         red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                red.setBackgroundResource(R.mipmap.tickblue);
+
+                red.setBackgroundResource(R.mipmap.tickred);
                 black.setBackgroundResource(R.drawable.black);
                 blue.setBackgroundResource(R.drawable.blue);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -123,7 +124,7 @@ public class LocationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                blue.setBackgroundResource(R.mipmap.tickblue);
+                blue.setBackgroundResource(R.mipmap.tickwhiteblue);
                 black.setBackgroundResource(R.drawable.black);
                 red.setBackgroundResource(R.drawable.red);
                 SharedPreferences.Editor editor = sharedpreferences.edit();

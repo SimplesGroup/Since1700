@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.CustomVolleyRequest;
+import since.since1700.DetailPage;
 import since.since1700.Filter.NavigationDrawerActivity;
 import since.since1700.OnLoadMoreListener;
 import since.since1700.R;
@@ -298,7 +299,13 @@ GetData();
                 final CategoryAdapter.MyViewHolder userViewHolder = (CategoryAdapter.MyViewHolder) holder;
 
                 userViewHolder.feedimage.setImageUrl("http://simpli-city.in//gloclAPI//image//03072017193744_1878332239_gloc" + "l_posted_image.jpg",mImageLoader);
-
+                userViewHolder.feedimage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), DetailPage.class);
+                        startActivity(i);
+                    }
+                });
             }
             else {
                 ((ProgressViewHolder) holder).progressBar.setIndeterminate(true);

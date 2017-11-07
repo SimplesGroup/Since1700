@@ -15,7 +15,8 @@ android:orientation="vertical"
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+       >
 
         <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/feedImage"
@@ -24,6 +25,7 @@ android:orientation="vertical"
             android:scaleType="centerCrop"
             android:maxHeight="220dp"
             android:minHeight="200dp"
+
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
@@ -87,9 +89,9 @@ android:orientation="vertical"
             android:layout_alignParentStart="true">
 
             <Button
-                android:id="@+id/signin"
+                android:id="@+id/share"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_toEndOf="@+id/signup"
                 android:layout_toRightOf="@+id/signup"
                 android:layout_weight="0.50"
@@ -98,9 +100,9 @@ android:orientation="vertical"
                 android:textColor="#000000"/>
 
             <Button
-                android:id="@+id/signup"
+                android:id="@+id/buynow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_weight="0.50"
