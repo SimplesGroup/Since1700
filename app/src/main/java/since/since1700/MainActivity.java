@@ -224,6 +224,7 @@ String id;
                /* Intent i = new Intent(getApplicationContext(), DetailPage.class);
                 startActivity(i);*/
                profilelayout.setVisibility(View.VISIBLE);
+                relativelayout.setAlpha(0.6f);
             }
         });
 
@@ -240,6 +241,7 @@ String id;
             public void onClick(View v) {
 
                 String pos = "0";
+
                 Intent i = new Intent(MainActivity.this, ProfileActivity.class);
 //Create the bundle
                 Bundle b = new Bundle();
@@ -274,6 +276,7 @@ String id;
             public void onClick(View v) {
 
                 layout.setVisibility(View.VISIBLE);
+                relativelayout.setAlpha(0.6f);
             }
         });
 
@@ -305,12 +308,14 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
             @Override
             public void onClick(View v) {
                 profilelayout.setVisibility(View.GONE);
+                relativelayout.setAlpha(1);
             }
         });
         closelayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 layout.setVisibility(View.GONE);
+                relativelayout.setAlpha(1);
             }
         });
 
@@ -318,6 +323,7 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
             @Override
             public void onClick(View v) {
                 layout.setVisibility(View.GONE);
+                relativelayout.setAlpha(1);
             }
         });
 
@@ -325,6 +331,7 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
             @Override
             public void onClick(View v) {
                 profilelayout.setVisibility(View.GONE);
+                relativelayout.setAlpha(1);
             }
         });
 
