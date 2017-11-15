@@ -30,7 +30,7 @@ public class ContactFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.contact_page,container,false);
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
             textView_title=(TextView)view.findViewById(R.id.contact_title);
         textView_description=(TextView)view.findViewById(R.id.contact_description);

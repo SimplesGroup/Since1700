@@ -54,10 +54,13 @@ public class ShopFragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new ShopHomeFragment(), "Home");
-        adapter.addFragment(new ShopCategoryFragment(), "Category");
-        adapter.addFragment(new ShopHomeFragment(), "Popular");
-        adapter.addFragment(new ShopHomeFragment(), "On Sale");
+
+        adapter.addFragment(new ShopCategoryFragment(), "Featured");
+        adapter.addFragment(new ShopHomeFragment(), "Offer");
+        adapter.addFragment(new ShopCategoryFragment(), "Cars");
+        adapter.addFragment(new ShopCategoryFragment(), "Bike");
+        adapter.addFragment(new ShopCategoryFragment(), "Jet");
+        adapter.addFragment(new ShopCategoryFragment(), "Jewellery");
 
         viewPager.setAdapter(adapter);
     }

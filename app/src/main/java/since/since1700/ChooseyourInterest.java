@@ -69,8 +69,8 @@ ProgressDialog pdialog;
         setContentView(R.layout.chooseyourinterest);
         sharedpreferences =  getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
-requestQueue= Volley.newRequestQueue(ChooseyourInterest.this);
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+       requestQueue= Volley.newRequestQueue(ChooseyourInterest.this);
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
         textview_chooseyour_interest_title=(TextView)findViewById(R.id.textview_chooseyourinterest);
@@ -90,7 +90,7 @@ requestQueue= Volley.newRequestQueue(ChooseyourInterest.this);
         pdialog.show();
         pdialog.setContentView(R.layout.custom_progressdialog);
         pdialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-GetData();
+        GetData();
         productAdapter=new ProductAdapter(productlist,recyclerView_select_yourinterest);
         recyclerView_select_yourinterest.setAdapter(productAdapter);
 
@@ -173,7 +173,7 @@ GetData();
         try {
             JSONArray feedArray = response.getJSONArray("result");
 
-            for (int i = 0; i < feedArray.length(); i++) {
+              for (int i = 0; i < feedArray.length(); i++) {
                 JSONObject obj = (JSONObject) feedArray.get(i);
                 ItemModel model=new ItemModel();
                 model.setId(obj.getString("id"));
@@ -201,7 +201,7 @@ GetData();
         }
 
     }
-    public class ItemModel{
+    public static class ItemModel{
 String id,productname,productimage;
         private boolean isSelected;
 

@@ -67,7 +67,7 @@ public class LocationActivity extends AppCompatActivity {
         red = (Button)findViewById(R.id.btn_red);
         blue = (Button)findViewById(R.id.btn_blue);
 
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
 

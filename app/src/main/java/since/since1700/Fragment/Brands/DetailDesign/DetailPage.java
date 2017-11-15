@@ -11,56 +11,27 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TabHost;
 import android.widget.TabWidget;
-import android.widget.TextView;
 
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import since.since1700.Fragment.Brands.Featured_brands;
-import since.since1700.Fragment.FeedFragment;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
-import since.since1700.OnLoadMoreListener;
-import since.since1700.Profile.Blog;
-import since.since1700.Profile.Cart;
-import since.since1700.Profile.Favourites;
-import since.since1700.Profile.MyRewards;
-import since.since1700.Profile.Privileges;
-import since.since1700.Profile.ProfileActivity;
-import since.since1700.Profile.Profiles;
 import since.since1700.R;
-import since.since1700.RecyclerView_OnClickListener;
 
 /**
  * Created by Kuppusamy on 10/5/2017.
@@ -106,7 +77,7 @@ public class DetailPage extends AppCompatActivity {
         banner_brandimage = (NetworkImageView) findViewById(R.id.select_brand_image);
         follow_button = (Button) findViewById(R.id.follow_button);
         back_imagebutton = (ImageButton) findViewById(R.id.back_button);
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
         String image = "https://androiddevelopmentnew.000webhostapp.com/cars.png";
         follow_button.setTypeface(opensansfont);

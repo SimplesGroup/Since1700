@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,32 +27,25 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-import since.since1700.Fragment.FeedFragment;
 import since.since1700.ProductEnglish;
 import since.since1700.R;
 
 /**
- * Created by Sandhiya on 10/5/2017.
+ * Created by Sandhiya on 11/14/2017.
  */
 
-public class Privileges extends Fragment {
-
-    @Nullable
-    public static Privileges newInstance() {
-        Privileges fragment = new Privileges();
-        return fragment;
-    }
-
+public class Items extends Fragment {
     private RecyclerView recyclerView;
-    private ViewPagerAdapter adapter;
+    private ProductsAdapterEnglish adapter;
     private List<ProductEnglish> productEnglishList;
     Button home;
     public ViewPager viewPager;
     private TabLayout tabLayout;
- //   private static final String TAG = MainActivityEnglish.class.getSimpleName();
-    private String URL_FEED = "http://simpli-city.in/request2.php?rtype=alldata&key=simples&page=3";
-
-
+    @Nullable
+    public static Items newInstance() {
+        Items fragment = new Items();
+        return fragment;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,168 +55,21 @@ public class Privileges extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.profile_privilages, container, false);
+        View rootView = inflater.inflate(R.layout.privilages_items, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
-        LinearLayout recyclerLayout = (LinearLayout) rootView.findViewById(R.id.recycler_layout);
 
         productEnglishList = new ArrayList<>();
-      //  adapter = new ProductsAdapterEnglish(getActivity(), productEnglishList);
-        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
-        adapter = new ViewPagerAdapter(getChildFragmentManager());
-        tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setTabsFromPagerAdapter(adapter);
-        setupViewPager(viewPager);
-      //  prepareAlbums();
-        // Inflate the layout for this fragment
-
-
-        /*recyclerLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),ProductDetailsEnglish.class);
-                startActivity(i);
-
-            }
-        });
-*/
-        home = (Button) rootView.findViewById(R.id.home);
-
-        /*home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = null;
-                // String title = getString(R.string.app_name);
-
-                fragment = new HomeFragmentEnglish();
-
-                if (fragment != null) {
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.container_body, fragment);
-                    fragmentTransaction.commit();
-
-                    // set the toolbar title
-                    //  getSupportActionBar().setTitle(title);
-                }
-            }
-        });*/
-
-
-       /* Cache cache = AppControllerTamil.getInstance().getRequestQueue().getCache();
-        Cache.Entry entry = cache.get(URL_FEED);
-        if (entry != null) {
-            // fetch the data from cache
-            try {
-                String data = new String(entry.data, "UTF-8");
-                try {
-                    parseJsonFeed(new JSONObject(data));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-        } else {
-            // making fresh volley request and getting json
-            JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,
-                    URL_FEED, new Response.Listener<JSONObject>() {
-
-                @Override
-                public void onResponse(JSONObject response) {
-                    VolleyLog.d(TAG, "Response: " + response.toString());
-                    if (response != null) {
-                        parseJsonFeed(response);
-                    }
-                }
-            }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    VolleyLog.d(TAG, "Error: " + error.getMessage());
-                }
-            });
-
-            // Adding request to volley request queue
-            AppControllerTamil.getInstance().addToRequestQueue(jsonReq);
-        }
-*/
-        return rootView;
+        adapter = new ProductsAdapterEnglish(getActivity(), productEnglishList);
+        Log.e("LIST",productEnglishList.toString());
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+        prepareAlbums();
+return rootView;
     }
 
-    /*private void parseJsonFeed(JSONObject response) {
-        try {
-            JSONArray feedArray = response.getJSONArray("result");
-
-            for (int i = 0; i < feedArray.length(); i++) {
-                JSONObject feedObj = (JSONObject) feedArray.get(i);
-
-                ProductTamil item = new ProductTamil();
-                item.setPid(feedObj.getInt("id"));
-                item.setPname(feedObj.getString("title"));
-
-                // Image might be null sometimes
-                String image = feedObj.isNull("image") ? null : feedObj
-                        .getString("image");
-                item.setPimage(image);
-                item.setPprice(feedObj.getString("qtype"));
-                item.setPquantity(feedObj.getString("image_url"));
-
-
-                productEnglishList.add(item);
-            }
-
-            // notify data changes to list adapater
-            adapter.notifyDataSetChanged();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    private void setupViewPager(ViewPager viewPager) {
-
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new Items(), "Items");
-        adapter.addFragment(new Auctions(), "Auctions");
-
-        viewPager.setAdapter(adapter);
-
-    }
-
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            //    pos = position;
-            //  Log.e("POSITIONNNNN", String.valueOf(pos));
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-
-
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-    }
     private void prepareAlbums() {
 
     /*   ProductTamil item = new ProductTamil();
@@ -366,10 +213,10 @@ public class Privileges extends Fragment {
             public MyViewHolder(View view) {
                 super(view);
                 title = (TextView) view.findViewById(R.id.profile);
-               // count = (TextView) view.findViewById(R.id.count);
-               // quantity = (TextView) view.findViewById(R.id.kg);
+                // count = (TextView) view.findViewById(R.id.count);
+                // quantity = (TextView) view.findViewById(R.id.kg);
                 thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-               // overflow = (ImageView) view.findViewById(R.id.overflow);
+                // overflow = (ImageView) view.findViewById(R.id.overflow);
             }
         }
 
@@ -380,21 +227,21 @@ public class Privileges extends Fragment {
         }
 
         @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ProductsAdapterEnglish.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.album_card, parent, false);
 
-            return new MyViewHolder(itemView);
+            return new ProductsAdapterEnglish.MyViewHolder(itemView);
         }
 
         @Override
-        public void onBindViewHolder(final MyViewHolder holder, int position) {
-          //  String splash = "fonts/LATO-MEDIUM.TTF";
-          //  final Typeface tf = Typeface.createFromAsset(mContext.getAssets(), splash);
+        public void onBindViewHolder(final ProductsAdapterEnglish.MyViewHolder holder, int position) {
+            //  String splash = "fonts/LATO-MEDIUM.TTF";
+            //  final Typeface tf = Typeface.createFromAsset(mContext.getAssets(), splash);
 
             final ProductEnglish productEnglish = productEnglishList.get(position);
             holder.title.setText(productEnglish.getPname());
-          //  holder.count.setText("Rs." + productEnglish.getPprice());
+            //  holder.count.setText("Rs." + productEnglish.getPprice());
             //holder.quantity.setText(productEnglish.getPquantity());
 
             // loading album cover using Glide library
@@ -464,6 +311,5 @@ public class Privileges extends Fragment {
             return productEnglishList.size();
         }
     }
-
 
 }

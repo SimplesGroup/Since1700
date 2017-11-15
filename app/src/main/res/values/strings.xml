@@ -16,14 +16,14 @@
     </array>
     <array name="brandfilter">
         <item>"Brand Filter"</item>
-        <item>"1"</item>
-        <item>"2"</item>
-        <item>"3"</item>
-        <item>"4"</item>
-        <item>"5"</item>
-        <item>"10"</item>
-        <item>"15"</item>
-        <item>"20"</item>
+        <item>"Audi"</item>
+        <item>"BMW"</item>
+        <item>"Mercedes-Benz"</item>
+        <item>"Rolls-Royce"</item>
+        <item>"Skoda"</item>
+        <item>"Polaris"</item>
+        <item>"Jeep"</item>
+        <item>"Jaguar"</item>
     </array>
 
     <string name="drawer_open"></string>

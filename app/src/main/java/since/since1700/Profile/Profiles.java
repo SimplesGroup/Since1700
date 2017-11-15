@@ -3,6 +3,7 @@ package since.since1700.Profile;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -85,6 +86,20 @@ public class Profiles extends Fragment {
                 s();
             }
         });
+
+
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
+        final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
+
+
+        address.setTypeface(opensansfont);
+        address2.setTypeface(opensansfont);
+        dob.setTypeface(opensansfont);
+        dob1.setTypeface(opensansfont);
+        country.setTypeface(opensansfont);
+        language.setTypeface(opensansfont);
+        notification.setTypeface(opensansfont);
+        color.setTypeface(opensansfont);
         /*String splash = "fonts/LATO-MEDIUM.TTF";
         final Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), splash);
 */

@@ -48,7 +48,7 @@ public class Blog extends android.support.v4.app.Fragment {
         gallery = (Gallery) view.findViewById(R.id.mygallery01);
         eventdetaillebel = (TextView) view.findViewById(R.id.eventdetaillebel);
         eventdeatil = (TextView) view.findViewById(R.id.eventdeatil);
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
 
         eventdetaillebel.setTypeface(opensansfont);

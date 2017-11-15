@@ -62,7 +62,7 @@
                 android:layout_alignParentStart="true">
 
                 <TextView
-                    android:id="@+id/product_category_name"
+                    android:id="@+id/product_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -87,7 +87,7 @@
                 </WebView>
 
                 <TextView
-                    android:id="@+id/product_category_name"
+                    android:id="@+id/product_specification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -112,7 +112,7 @@
                 </WebView>
 
                 <TextView
-                    android:id="@+id/product_category_name"
+                    android:id="@+id/engine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -172,7 +172,7 @@
             android:background="@drawable/bluebuttonreverse"
             android:selectAllOnFocus="true"
             android:text="Test Drive"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:textAllCaps="false"
             />
     </LinearLayout>

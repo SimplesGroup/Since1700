@@ -160,6 +160,21 @@
                 android:background="@drawable/buttonroundcorner"
                 android:text="BID"
                 android:textAllCaps="false" />
+
+            <Button
+
+                android:id="@+id/claim"
+                android:layout_width="wrap_content"
+                android:minWidth="50dp"
+                android:maxHeight="55dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/buttonroundcorner"
+                android:text="Claim"
+                android:textAllCaps="false" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginBottom="11dp"

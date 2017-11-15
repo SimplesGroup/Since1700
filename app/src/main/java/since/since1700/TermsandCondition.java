@@ -28,7 +28,7 @@ public class TermsandCondition extends AppCompatActivity {
         setContentView(R.layout.activity_termsandcondition);
         termsandcondition = (TextView) findViewById(R.id.termsandcondition);
         details=(WebView)findViewById(R.id.details);
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
         termsandcondition.setTypeface(opensansfont);
         termsandcondition.setText("Terms and Condition");

@@ -53,7 +53,6 @@ public class EventsFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new EventUpcomingFragment(), "Upcoming");
-        adapter.addFragment(new EventUpcomingFragment(), "Featured");
         adapter.addFragment(new EventUpcomingFragment(), "Music");
         adapter.addFragment(new EventUpcomingFragment(), "Sports");
         adapter.addFragment(new EventUpcomingFragment(), "Luxury");

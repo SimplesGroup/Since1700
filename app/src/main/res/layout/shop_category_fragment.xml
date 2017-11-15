@@ -17,39 +17,13 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabMinWidth="0dp"
-            app:tabMode="scrollable"
-            android:background="#efebeb"
-            app:tabGravity="fill"
-            app:tabTextColor="#000000"
-            app:tabIndicatorHeight="1dp"
-            app:tabPaddingStart="10dp"
-            app:tabPaddingEnd="10dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="8dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            app:tabIndicatorColor="#0213a6"
-            app:tabSelectedTextColor="#000000"
-            android:showDividers="none"
-            app:tabTextAppearance="@style/TabLayoutStyle"
-            />
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     </android.support.design.widget.AppBarLayout>
 
    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_marginTop="48dp"
+       android:layout_marginTop="2dp"
 
        >
       <Spinner

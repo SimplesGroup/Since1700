@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordsignup.setHint("************");
         logincode.setHint("Your Login Code");
 
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
         username.setTypeface(opensansfont);

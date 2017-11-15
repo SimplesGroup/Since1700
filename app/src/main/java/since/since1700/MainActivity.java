@@ -124,7 +124,7 @@ String id;
         colorcodes=sharedpreferences.getString(colorcode,"");
         //   colorcodes = colorcodes.replaceAll("\\D+","");
        Log.e("ColorCodes",colorcodes+"hihi");
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
         mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
         Intent get=getIntent();

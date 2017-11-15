@@ -55,12 +55,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import since.since1700.Fragment.Brands.DetailDesign.Feedbrand;
-import since.since1700.Fragment.BrandsFragment;
-import since.since1700.Fragment.ContactFragment;
-import since.since1700.Fragment.EventsFragment;
 import since.since1700.Fragment.FeedFragment;
-import since.since1700.Fragment.ShopFragment;
 import since.since1700.MainActivity;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
@@ -421,7 +416,7 @@ if(pos==0){
         adapter.addFragment(new Favourites(), "Favourites");
         adapter.addFragment(new Privileges(), "Privileges");
         adapter.addFragment(new Favourites(), "Cart");
-        adapter.addFragment(new MyRewards(), "My Rewards");
+        adapter.addFragment(new Auctions(), "Rewards");
         adapter.addFragment(new Blog(), "Blog");
         viewPager.setAdapter(adapter);
 

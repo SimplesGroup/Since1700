@@ -30,7 +30,7 @@ TextView textview_membership_tile,textview_firstdescription,textview_seconddescr
         sharedpreferences =  getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
 
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
 

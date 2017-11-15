@@ -72,6 +72,7 @@ public class DetailPage extends AppCompatActivity {
     LinearLayout count_layout;
     int count = 0;
     static TextView page_text[];
+    TextView brandname,specification,engine;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,7 +83,11 @@ public class DetailPage extends AppCompatActivity {
         setContentView(R.layout.detailpage_layout);
         Intent get = getIntent();
         id = get.getStringExtra("ID");
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
+        final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
+      //  String fontBold = "fonts/PFBeauSansPro-Bold_0.otf";
+        //final Typeface opensansfontbold = Typeface.createFromAsset(getAssets(), fontPath);
         sharedpreferences = getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
         colorcodes = sharedpreferences.getString(colorcode, "");
@@ -96,6 +101,9 @@ public class DetailPage extends AppCompatActivity {
         mImageLoader = MySingleton.getInstance(getApplicationContext()).getImageLoader();
         getData();
 
+        brandname = (TextView) findViewById(R.id.product_category_name);
+        specification = (TextView) findViewById(R.id.product_specification);
+        engine = (TextView) findViewById(R.id.engine);
         // feedimage = (NetworkImageView) findViewById(R.id.product_category_image);
         webone = (WebView) findViewById(R.id.webview_one);
         webtwo = (WebView) findViewById(R.id.webview_eventdescription);
@@ -105,6 +113,9 @@ public class DetailPage extends AppCompatActivity {
 
 //        Log.e("IMAGEVIEWDATE",model.getProductimage());
 
+//        brandname.setTypeface(opensansfontbold);
+      //  specification.setTypeface(opensansfontbold);
+       // engine.setTypeface(opensansfontbold);
 
         imageAdapter = new EventDetailPageAdapter(this);
         gallery.setAdapter(imageAdapter);
@@ -136,7 +147,6 @@ public class DetailPage extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void getData(){
@@ -186,6 +196,7 @@ public class DetailPage extends AppCompatActivity {
                         .getString("producttitle");
                 String ss = des;
                 String s = ss;
+
                 // s = s.replace("\"", "'");
                 s = s.replace("\\", "");
                 String descrition = "This is a section of our privilege partners, offering benefits like free hotel stays, loyalty status, and special experiences and discounts to our members. \n\n\t This is a section of our privilege partners, offering benefits like free hotel stays, loyalty status, and special experiences and discounts to our members.";

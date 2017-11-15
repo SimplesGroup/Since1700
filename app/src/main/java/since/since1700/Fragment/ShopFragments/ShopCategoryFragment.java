@@ -91,12 +91,12 @@ public class ShopCategoryFragment extends Fragment {
                 startActivity(i);
             }
         });*/
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+      //  viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+      //  setupViewPager(viewPager);
         requestQueue= Volley.newRequestQueue(getActivity());
         handler = new Handler();
-        tabLayout = (TabLayout) view.findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+       // tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+       // tabLayout.setupWithViewPager(viewPager);
 
         pdialog = new ProgressDialog(getActivity());
         pdialog.show();
@@ -113,12 +113,13 @@ GetData();
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(new ShopHomeFragment(), "Featured");
+        adapter.addFragment(new ShopCategoryFragment(), "Featured");
+        adapter.addFragment(new ShopHomeFragment(), "Offer");
         adapter.addFragment(new ShopCategoryFragment(), "Cars");
         adapter.addFragment(new ShopPopularFragment(), "Bike");
         adapter.addFragment(new ShopOnSaleFragment(), "Jet");
         adapter.addFragment(new ShopOnSaleFragment(), "Jewellery");
-        adapter.addFragment(new ShopOnSaleFragment(), "Home");
+
 
 
         viewPager.setAdapter(adapter);

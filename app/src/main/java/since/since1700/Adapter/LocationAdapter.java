@@ -74,7 +74,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
             holder.itemView.setBackgroundResource(R.color.lightgray);
         }
         holder.title.setText(comment.getLocation());
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
 //        final Typeface opensansfont = Typeface.createFromAsset(context.getAssets(), fontPath);
 
        // holder.title.setTypeface(opensansfont);

@@ -92,7 +92,7 @@ public class EventDetailPageActivity extends AppCompatActivity {
         text_timing_event = (TextView) findViewById(R.id.text_timing_event);
         text_timing_event_data = (TextView) findViewById(R.id.text_timing_event_data);
 
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
         eventdetaillebel.setTypeface(opensansfont);

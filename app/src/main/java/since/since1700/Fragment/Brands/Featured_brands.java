@@ -90,7 +90,7 @@ public class Featured_brands extends Fragment {
         sharedpreferences = getActivity(). getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
         requestQueue= Volley.newRequestQueue(getActivity());
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
         recyclerView_products=(RecyclerView)view.findViewById(R.id.recycler_feed_view);

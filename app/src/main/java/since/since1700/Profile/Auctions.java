@@ -15,10 +15,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -27,7 +23,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -41,13 +36,12 @@ import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.OnLoadMoreListener;
 import since.since1700.R;
-import since.since1700.RecyclerView_OnClickListener;
 
 /**
  * Created by Sandhiya on 10/5/2017.
  */
 
-public class MyRewards extends Fragment {
+public class Auctions extends Fragment {
 
     private boolean isFragmentLoaded=false;
 
@@ -64,8 +58,8 @@ public class MyRewards extends Fragment {
     ProductAdapterFeed productAdapter;
 
     @Nullable
-    public static MyRewards newInstance() {
-        MyRewards fragment = new MyRewards();
+    public static Auctions newInstance() {
+        Auctions fragment = new Auctions();
         return fragment;
     }
 
@@ -88,12 +82,12 @@ public class MyRewards extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.profile_myrewards,container,false);
+        View view=inflater.inflate(R.layout.profile_auctions,container,false);
 
         sharedpreferences = getActivity(). getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
         requestQueue= Volley.newRequestQueue(getActivity());
-        String fontPath = "fonts/OpenSans-Regular.ttf";
+        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
         recyclerView_products=(RecyclerView)view.findViewById(R.id.recycler_feed_view);
