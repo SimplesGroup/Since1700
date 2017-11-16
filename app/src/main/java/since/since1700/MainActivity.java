@@ -315,7 +315,7 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
            public void onClick(View v) {
 
                SharedPreferences.Editor editor = sharedpreferences.edit();
-               editor.commit();
+               editor.clear();
                Intent i = new Intent(MainActivity.this, LoginActivity.class);
                startActivity(i);
 
