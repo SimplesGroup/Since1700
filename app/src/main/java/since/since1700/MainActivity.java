@@ -22,6 +22,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -63,6 +64,7 @@ import since.since1700.Fragment.ContactFragment;
 import since.since1700.Fragment.EventsFragment;
 import since.since1700.Fragment.FeedFragment;
 import since.since1700.Fragment.ShopFragment;
+import since.since1700.Login.LoginActivity;
 import since.since1700.Profile.ProfileActivity;
 import since.since1700.Search.CustomAdapter;
 import since.since1700.Search.SearchActivity;
@@ -81,12 +83,12 @@ public class MainActivity extends AppCompatActivity implements OnGestureListener
     ImageButton feed_btn,brands_btn,shop_btn,events_btn,contact_btn;
     Toolbar toolbar;
     private FragmentDrawer drawerFragment;
-    LinearLayout layout,profilelayout,linearLayout,closelayout1,closelayout2;
+    LinearLayout layout,profilelayout,linearLayout,closelayout1,closelayout2,logoutlayout;
     RelativeLayout relativelayout;
      ExpandableListView mDrawerListView;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
-    Button close,closeprofile;
+    Button close,closeprofile,btnlogout;
     String colorcodes;
     float x1,x2;
     float y1, y2;
@@ -157,6 +159,7 @@ String id;
         relativelayout = (RelativeLayout) findViewById(R.id.relativelayout);
         closelayout1 = (LinearLayout) findViewById(R.id.close_layout1);
         closelayout2 = (LinearLayout) findViewById(R.id.close_layout2);
+        logoutlayout = (LinearLayout) findViewById(R.id.logout_layout);
 
 
         relativelayout.setVisibility(View.VISIBLE);
@@ -269,6 +272,7 @@ String id;
         mDrawerListView = (ExpandableListView) findViewById(R.id.lvExp);
         close = (Button)findViewById(R.id.close);
         closeprofile = (Button)findViewById(R.id.closeprofile);
+        btnlogout = (Button)findViewById(R.id.logout);
 
         layout = (LinearLayout)findViewById(R.id.fragment_layout);
         filter.setOnClickListener(new View.OnClickListener() {
@@ -304,6 +308,20 @@ if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == Vi
                 mDrawerLayout.closeDrawer(containerView);
             }
         });*/
+
+
+       logoutlayout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               SharedPreferences.Editor editor = sharedpreferences.edit();
+               editor.commit();
+               Intent i = new Intent(MainActivity.this, LoginActivity.class);
+               startActivity(i);
+
+           }
+       });
+
         closelayout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
