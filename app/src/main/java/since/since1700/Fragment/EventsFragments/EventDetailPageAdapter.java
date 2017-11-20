@@ -40,7 +40,7 @@ public class EventDetailPageAdapter extends BaseAdapter {
         image.setImageResource(flowers[position]);
         image.setScaleType(ImageView.ScaleType.FIT_XY);
         image.setPadding(100,0,100,0);
-      image.setLayoutParams(new Gallery.LayoutParams(1200, 700));
+      image.setLayoutParams(new Gallery.LayoutParams(1400, 700));
         return image;
     }
      public int[] flowers = { R.drawable.stevejobs, R.drawable.stevejobs,
