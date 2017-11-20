@@ -142,13 +142,11 @@ public class EventDetailPageActivity extends AppCompatActivity {
 
             public void onNothingSelected(AdapterView<?> arg0) {
                 // TODO Auto-generated method stub
-
             }
         });
 
-
-
         remindme.setOnClickListener(new View.OnClickListener() {
+
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(Intent.ACTION_INSERT);
