@@ -274,7 +274,7 @@ public class Featured extends Fragment {
 
         @Override
         public int getItemViewType(int position) {
-            return productlist.get(position)==null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
+            return                                                                                                                                                                productlist.get(position)==null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
         }
         public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
             this.onLoadMoreListener = onLoadMoreListener;

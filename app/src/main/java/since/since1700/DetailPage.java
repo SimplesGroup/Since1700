@@ -150,6 +150,7 @@ public class DetailPage extends AppCompatActivity {
     }
 
     private void getData(){
+
         requestQueue.add(getDataFromTheServer(requestcount));
         requestcount++;
     }
