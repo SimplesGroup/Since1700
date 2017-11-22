@@ -44,6 +44,8 @@ public class ContactFragment extends Fragment {
         textView_title.setText("Concierge");
         textView_description.setText("An exsclusive personal shopper service connected to a network of luxury brands.our object istry to get a up-scale luxury market in closer contact with our customers.");
 
+
+
       final   String phone="1234567890";
         button_call.setOnClickListener(new View.OnClickListener() {
             @Override
