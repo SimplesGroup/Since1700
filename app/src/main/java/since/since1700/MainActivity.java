@@ -221,6 +221,20 @@ String id;
             }
         });
 
+        blog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pos = "5";
+                Intent i = new Intent(MainActivity.this, ProfileActivity.class);
+//Create the bundle
+                Bundle b = new Bundle();
+//Add your data to bundle
+                b.putString("pos", pos);
+                i.putExtras(b);
+                startActivity(i);
+            }
+        });
+
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

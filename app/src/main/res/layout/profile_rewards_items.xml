@@ -12,51 +12,42 @@
         android:orientation="horizontal"
         >
 
-        <android.support.v7.widget.CardView
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/product_category_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:maxHeight="220dp"
+            android:minHeight="200dp"
+            android:scaleType="centerCrop" />
 
-            <TextView
-                android:id="@+id/product_category_name"
-                android:layout_width="158dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="80dp"
-                android:paddingBottom="0dp"
-                android:textColor="@android:color/black"
-                android:text="$ 220"
-                android:textSize="18sp" />
+        <TextView
+            android:id="@+id/product_category_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/white"
+            android:text="$ 250"
+            android:textSize="14sp" />
 
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/product_category_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="end"
-                android:src="@drawable/stevejobs"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="bottom"
-                >
-                <Button
-                    android:id="@+id/redeem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginTop="0dp"
-                    android:paddingBottom="0dp"
-                    android:textColor="@android:color/black"
-                    android:text="REDEEM NOW"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textSize="20sp"
-                    android:background="#ffffff"/>
+        <Button
+            android:id="@+id/redeem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:paddingBottom="0dp"
+            android:text="REDEEM NOW"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
