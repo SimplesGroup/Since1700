@@ -309,10 +309,10 @@ String id;
         });
 
 /*
-if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == View.VISIBLE)
-{
+        if(layout.getVisibility() == View.VISIBLE || profilelayout.getVisibility() == View.VISIBLE)
+        {
 
-}
+        }
 */
 
        /* mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
