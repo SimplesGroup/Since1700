@@ -556,7 +556,9 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:orientation="vertical"
-                        android:layout_marginTop="0dp">
+                        android:layout_marginTop="0dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
 
                         <Button
                             android:id="@+id/logout"

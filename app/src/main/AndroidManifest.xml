@@ -67,6 +67,8 @@
         <activity android:name=".Filter.NavigationDrawerActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".Fragment.Brands.DetailDesign.DetailPage"/>
+        <activity android:name=".Profile.EditProfileEnglish"/>
+        <activity android:name=".Profile.BlogDetailPage"/>
 
 <activity android:name=".TermsandCondition"/>
     </application>

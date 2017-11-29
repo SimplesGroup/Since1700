@@ -81,6 +81,13 @@ public class DetailPage extends AppCompatActivity {
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
         String image = "https://androiddevelopmentnew.000webhostapp.com/cars.png";
         follow_button.setTypeface(opensansfont);
+
+        follow_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                follow_button.setText("Following");
+            }
+        });
         banner_brandimage.setImageUrl(image, imageLoader);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

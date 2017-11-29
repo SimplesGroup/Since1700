@@ -2,6 +2,7 @@ package since.since1700.Profile;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -86,7 +87,13 @@ public class Profiles extends Fragment {
                 s();
             }
         });
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),EditProfileEnglish.class);
+                startActivity(i);
+            }
+        });
 
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
