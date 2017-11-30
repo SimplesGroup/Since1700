@@ -1,9 +1,12 @@
 package since.since1700.Profile;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +17,12 @@ import android.widget.Gallery;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import since.since1700.Adapter.LocationAdapter;
 import since.since1700.Fragment.EventsFragments.EventDetailPageAdapter;
+import since.since1700.Model.LocationModel;
 import since.since1700.R;
 
 /**
@@ -29,6 +37,12 @@ public class BlogDetailPage extends AppCompatActivity {
     int count = 0;
     static TextView page_text[];
     TextView eventdetaillebel,eventdeatil,eventtitle;
+    List<LocationModel> modellist=new ArrayList<LocationModel>();
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private LocationAdapter locationadapter;
+    Context context;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +51,11 @@ public class BlogDetailPage extends AppCompatActivity {
 
         setContentView(R.layout.blogdetailpage);
 
+        mLayoutManager=new LinearLayoutManager(context);
+        recyclerView = (RecyclerView) findViewById(R.id.commentlist);
+        recyclerView.setLayoutManager(mLayoutManager);
+        locationadapter = new LocationAdapter(context,modellist);
+        recyclerView.setAdapter(locationadapter);
 
         count_layout = (LinearLayout) findViewById(R.id.image_count);
         gallery = (Gallery) findViewById(R.id.mygallery01);
@@ -78,7 +97,5 @@ public class BlogDetailPage extends AppCompatActivity {
 
             }
         });
-
-
     }
     }

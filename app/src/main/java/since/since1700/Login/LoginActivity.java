@@ -112,7 +112,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
 
 
@@ -214,8 +213,6 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             passwordsignin.setError(null);
         }
-
-
 
         return valid;
     }

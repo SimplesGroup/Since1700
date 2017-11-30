@@ -187,8 +187,6 @@ ProgressDialog pdialog;
         } catch (JSONException e) {
 
         }
-
-
     }
 
     public void dissmissDialog() {

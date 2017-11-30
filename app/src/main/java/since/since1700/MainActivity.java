@@ -503,7 +503,7 @@ String id;
                         }else if(colorcodes.equalsIgnoreCase("#1d487a")){
                             brands_btn.setBackgroundResource(R.drawable.membershipgradient);
                         }
-                    }
+                     }
                 }
             }
         });
