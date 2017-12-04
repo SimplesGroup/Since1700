@@ -1,20 +1,14 @@
 package since.since1700.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +17,15 @@ import since.since1700.Model.LocationModel;
 import since.since1700.R;
 
 /**
- * Created by Sandhiya on 9/19/2017.
+ * Created by Sandhiya on 12/4/2017.
  */
 
-public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyViewHolder> {
+public class BlogDetailPageAdapter extends RecyclerView.Adapter<BlogDetailPageAdapter.MyViewHolder> {
 
     Context context;
     List<LocationModel> modellist=new ArrayList<LocationModel>();
 
-    public LocationAdapter(Context context,List<LocationModel> list) {
+    public BlogDetailPageAdapter(Context context,List<LocationModel> list) {
 
         this.modellist = list;
         this.context = context;
@@ -40,7 +34,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-     public Button checkbutton;
+        public Button checkbutton;
         LinearLayout countrylayout;
 
 
@@ -55,17 +49,17 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
 
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BlogDetailPageAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.locationitem_layout, parent, false);
         Log.e("LISTTTTTTTT","SSSSSSS");
-        return new MyViewHolder(itemView);
+        return new BlogDetailPageAdapter.MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final BlogDetailPageAdapter.MyViewHolder holder, final int position) {
 
-       final LocationModel comment = modellist.get(position);
+        final LocationModel comment = modellist.get(position);
         if (position % 2 == 0) {
             holder.itemView.setBackgroundResource(R.color.gray);
         } else {
@@ -75,7 +69,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
 //        final Typeface opensansfont = Typeface.createFromAsset(context.getAssets(), fontPath);
 
-       // holder.title.setTypeface(opensansfont);
+        // holder.title.setTypeface(opensansfont);
 
 
         holder.countrylayout.setOnClickListener(new View.OnClickListener() {
@@ -87,13 +81,15 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
                     holder.checkbutton.setBackgroundResource(R.drawable.unchecked);
                     modellist.get(position).setSelected(false);
                 } else {
-                   // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
                     holder.checkbutton.setVisibility(View.VISIBLE);
                     holder.checkbutton.setBackgroundResource(R.mipmap.tickwhiteblue);
                     modellist.get(position).setSelected(true);
                 }
             }
         });
+
+        holder.checkbutton.setVisibility(View.GONE);
         holder.checkbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +98,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
                     holder.checkbutton.setBackgroundResource(R.drawable.unchecked);
                     modellist.get(position).setSelected(false);
                 } else {
-                   // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getApplicationContext(), modellist.get(position).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
                     holder.checkbutton.setVisibility(View.VISIBLE);
                     holder.checkbutton.setBackgroundResource(R.mipmap.tickwhiteblue);
                     modellist.get(position).setSelected(true);

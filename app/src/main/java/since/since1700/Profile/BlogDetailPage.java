@@ -20,6 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Adapter.BlogDetailPageAdapter;
 import since.since1700.Adapter.LocationAdapter;
 import since.since1700.Fragment.EventsFragments.EventDetailPageAdapter;
 import since.since1700.Model.LocationModel;
@@ -40,7 +41,7 @@ public class BlogDetailPage extends AppCompatActivity {
     List<LocationModel> modellist=new ArrayList<LocationModel>();
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private LocationAdapter locationadapter;
+    private BlogDetailPageAdapter locationadapter;
     Context context;
 
     @Override
@@ -54,7 +55,7 @@ public class BlogDetailPage extends AppCompatActivity {
         mLayoutManager=new LinearLayoutManager(context);
         recyclerView = (RecyclerView) findViewById(R.id.commentlist);
         recyclerView.setLayoutManager(mLayoutManager);
-        locationadapter = new LocationAdapter(context,modellist);
+        locationadapter = new BlogDetailPageAdapter(context,modellist);
         recyclerView.setAdapter(locationadapter);
 
         count_layout = (LinearLayout) findViewById(R.id.image_count);
@@ -78,6 +79,8 @@ public class BlogDetailPage extends AppCompatActivity {
             page_text[i].setTextColor(android.graphics.Color.GRAY);
             count_layout.addView(page_text[i]);
         }
+
+
         gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -94,8 +97,32 @@ public class BlogDetailPage extends AppCompatActivity {
 
             public void onNothingSelected(AdapterView<?> arg0) {
                 // TODO Auto-generated method stub
-
             }
         });
+
+
+
+        final LocationModel comment = new LocationModel();
+        final LocationModel comment1 = new LocationModel();
+        final LocationModel comment2 = new LocationModel();
+        final LocationModel comment3 = new LocationModel();
+        final LocationModel comment4 = new LocationModel();
+        final LocationModel comment5 = new LocationModel();
+
+        comment.setLocation("Lorem Ipsum is simply dummy text of the printing and typesetting");
+        comment1.setLocation("Here are the latest projects and contests matching your profile and skills:");
+        comment2.setLocation("Lorem Ipsum is simply dummy text of the printing and typesetting");
+        comment3.setLocation("Here are the latest projects and contests matching your profile and skills:");
+        comment4.setLocation("Lorem Ipsum is simply dummy text of the printing and typesettingA");
+        comment5.setLocation("Here are the latest projects and contests matching your profile and skills:");
+
+
+        modellist.add(comment);
+        modellist.add(comment1);
+        modellist.add(comment2);
+        modellist.add(comment3);
+        modellist.add(comment4);
+        modellist.add(comment5);
+
     }
     }

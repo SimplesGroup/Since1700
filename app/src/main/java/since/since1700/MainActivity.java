@@ -544,7 +544,6 @@ String id;
                         }
                     }
                 }
-
             }
         });
         events_btn.setOnClickListener(new View.OnClickListener() {
