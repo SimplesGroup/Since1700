@@ -33,14 +33,14 @@ public class ExpandableListDataPump {
 
 
         List<String> list2 = new ArrayList<String>();
-        list2.add("Fennel seed" );
-        list2.add("Asafoetida");
-        list2.add("Red Chilli");
-        list2.add("Black cardamon");
-        list2.add("White Pepper");
-        list2.add("Peppercorns");
-        list2.add("Blackcumin");
-        list2.add("Capers");
+        list2.add("Audi" );
+        list2.add("BMW");
+        list2.add("Mercedes-Benz");
+        list2.add("Rolls-Royce");
+        list2.add("Skoda");
+        list2.add("Polaris");
+        list2.add("Jeep");
+        list2.add("Jaguar");
 
 
         expandableListDetail.put("Accesories", list1);

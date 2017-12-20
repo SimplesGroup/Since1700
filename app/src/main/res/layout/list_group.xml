@@ -4,17 +4,17 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/plus"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:paddingRight="0dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="9dp"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/plus"
-        android:textAlignment="viewEnd"
+
+
+    <Button
+        android:id="@+id/btn_check"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:background="@drawable/unchecked"
         />
+
 
     <TextView
         android:id="@+id/listTitle"
@@ -28,6 +28,16 @@
         android:textSize="15dp"
         android:textAlignment="textEnd"
         android:layout_weight="0.20"/>
-
+    <ImageView
+        android:id="@+id/plus"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:paddingRight="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="9dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/plus"
+        android:textAlignment="viewEnd"
+        />
 
 </LinearLayout>

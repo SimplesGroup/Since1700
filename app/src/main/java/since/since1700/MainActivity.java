@@ -102,10 +102,11 @@ public class MainActivity extends AppCompatActivity implements OnGestureListener
     private final static String TAG= MainActivity.class.getName().toString();
     EditText searchedit;
     GestureDetector gestureDetector;
-
+    public  static  final String SelectedCategory="category";
     SQLiteDatabase mDatabase;
     ListView searchlistview;
     ViewPager pager;
+    String categoryitems;
 String id;
     public static final String DATABASE_NAME = "mysearchdatabase";
     @Override
@@ -122,7 +123,8 @@ String id;
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         sharedpreferences =  getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
-
+        categoryitems=sharedpreferences.getString(SelectedCategory,"");
+        Log.e("CAT",categoryitems);
         colorcodes=sharedpreferences.getString(colorcode,"");
         //   colorcodes = colorcodes.replaceAll("\\D+","");
        Log.e("ColorCodes",colorcodes+"hihi");
@@ -369,6 +371,7 @@ String id;
 
         expandableListDetail = ExpandableListDataPump.getData();
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        Log.e("KeY",expandableListDetail.keySet().toString());
 
 
         mDrawerListView.setAdapter(new ExpandableListAdapter(this, expandableListTitle, expandableListDetail));
