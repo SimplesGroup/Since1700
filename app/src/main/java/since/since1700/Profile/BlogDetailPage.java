@@ -69,7 +69,7 @@ public class BlogDetailPage extends AppCompatActivity {
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
-        final String result = commentbox.getText().toString();
+
 
         eventdetaillebel.setTypeface(opensansfont);
         eventdeatil.setTypeface(opensansfont);
@@ -106,21 +106,21 @@ public class BlogDetailPage extends AppCompatActivity {
             }
         });
 
-post.setOnClickListener(new View.OnClickListener() {
+        post.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        final LocationModel comment = new LocationModel();
-        comment.setLocation("EditText" );
-        modellist.add(comment);
-      Log.e("EditText",result);
-    }
-});
 
-        final LocationModel comment1 = new LocationModel();
-        final LocationModel comment2 = new LocationModel();
-        final LocationModel comment3 = new LocationModel();
-        final LocationModel comment4 = new LocationModel();
-        final LocationModel comment5 = new LocationModel();
+     addComents();
+
+      //Log.e("EditText",result);
+    }
+    });
+
+       LocationModel comment1 = new LocationModel();
+        LocationModel comment2 = new LocationModel();
+       LocationModel comment3 = new LocationModel();
+        LocationModel comment4 = new LocationModel();
+       LocationModel comment5 = new LocationModel();
 
         comment1.setLocation("Here are the latest projects and contests matching your profile and skills:");
         comment2.setLocation("Lorem Ipsum is simply dummy text of the printing and typesetting");
@@ -134,5 +134,16 @@ post.setOnClickListener(new View.OnClickListener() {
         modellist.add(comment4);
         modellist.add(comment5);
 
+    }
+    public void addComents(){
+
+        String result = commentbox.getText().toString();
+        int curSize = locationadapter.getItemCount();
+
+       LocationModel comment = new LocationModel();
+        comment.setLocation(result );
+        modellist.add(comment);
+        locationadapter.notifyItemRangeInserted(curSize,0);
+        locationadapter.notifyDataSetChanged();
     }
     }
