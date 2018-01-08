@@ -54,7 +54,7 @@ public class ChooseyourInterest extends AppCompatActivity {
     RecyclerView recyclerView_select_yourinterest;
     public static final String mypreference = "mypref";
     TextView textview_chooseyour_interest_title;
-    public  static  final String SelectedCategory="category";
+
     RequestQueue requestQueue;
     int requestcount=1;
     String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
@@ -125,18 +125,12 @@ ProgressDialog pdialog;
                     ItemModel singleStudent = stList.get(i);
                     if (singleStudent.getSelected() == true) {
 
-                        data = data + "," + singleStudent.getProductname().toString();
+                        data = data + "\n" + singleStudent.getProductname().toString();
 
                     }
 
                 }
 
-                String str = data;
-                str = str.replaceFirst(","," ");
-                Log.e("STRING",str);
-SharedPreferences.Editor editor=sharedpreferences.edit();
-editor.putString(SelectedCategory,str);
-                editor.commit();
                 /*Toast.makeText(getApplicationContext(),
                         "Selected items: \n" + data, Toast.LENGTH_LONG)
                         .show();*/
@@ -349,7 +343,7 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         loading = false;
     }
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof Itemviewholder) {
             if (mImageLoader == null)
                 mImageLoader = CustomVolleyRequest.getInstance(getApplicationContext()).getImageLoader();
@@ -374,18 +368,15 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             userViewHolder.selectbutton.setVisibility(View.INVISIBLE);
             userViewHolder.hoverimage.setVisibility(View.INVISIBLE);
             productlist.get(pos).setSelected(false);
-            Log.e("GETSELECTEDPOSITION1", String.valueOf(productlist.get(pos)));
         } else {
           //  Toast.makeText(getApplicationContext(), productlist.get(pos).getProductname() + " selected!", Toast.LENGTH_SHORT).show();
             userViewHolder.hoverimage.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setVisibility(View.VISIBLE);
             userViewHolder.selectbutton.setBackgroundResource(R.mipmap.tickblue);
             productlist.get(pos).setSelected(true);
-            Log.e("GETSELECTEDPOSITION2", String.valueOf(position));
         }
     }
 });
-
    userViewHolder.selectbutton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {

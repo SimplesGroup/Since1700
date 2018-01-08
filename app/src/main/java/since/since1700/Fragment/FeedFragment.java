@@ -1,21 +1,20 @@
 package since.since1700.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import since.since1700.Fragment.FeedFragments.Featured;
 import since.since1700.R;
 
@@ -27,8 +26,10 @@ public class FeedFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     FeedViewPagerAdapter adapter;
-    CoordinatorLayout mCoordinator;
-    CollapsingToolbarLayout mCollapsingToolbarLayout;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
+    public static final String Interestarea = "interestarea";
+    String user_interested_area;
     @Nullable
     public static FeedFragment newInstance() {
         FeedFragment fragment = new FeedFragment();
@@ -37,9 +38,11 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.feed_fragment,container,false);
+        sharedpreferences = getActivity(). getSharedPreferences(mypreference,
+                Context.MODE_PRIVATE);
 
-
-
+        user_interested_area=sharedpreferences.getString(Interestarea,"");
+        Log.e("INTEREST",user_interested_area);
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(1);
 

@@ -15,10 +15,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import since.since1700.Fragment.EventsFragments.EventFeaturedFragment;
-import since.since1700.Fragment.EventsFragments.EventLuxuryFragment;
-import since.since1700.Fragment.EventsFragments.EventMusicFragment;
-import since.since1700.Fragment.EventsFragments.EventSportsFragment;
 import since.since1700.Fragment.EventsFragments.EventUpcomingFragment;
 import since.since1700.R;
 
@@ -89,5 +85,6 @@ public class EventsFragment extends Fragment {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+
     }
 }

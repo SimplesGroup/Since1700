@@ -56,7 +56,7 @@ public class BlogDetailPage extends AppCompatActivity {
 
         mLayoutManager=new LinearLayoutManager(context);
         recyclerView = (RecyclerView) findViewById(R.id.commentlist);
-        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         locationadapter = new BlogDetailPageAdapter(context,modellist);
         recyclerView.setAdapter(locationadapter);
 
@@ -142,8 +142,8 @@ public class BlogDetailPage extends AppCompatActivity {
 
        LocationModel comment = new LocationModel();
         comment.setLocation(result );
-        modellist.add(comment);
-        locationadapter.notifyItemRangeInserted(curSize,0);
+        modellist.add(0,comment);
+        locationadapter.notifyItemRangeInserted(curSize,modellist.size());
         locationadapter.notifyDataSetChanged();
     }
     }
