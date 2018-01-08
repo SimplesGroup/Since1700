@@ -131,9 +131,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
          checkbutton= (Button) convertView.findViewById(R.id.btn_check);
 
 
-
-
-
         if (listPosition % 2 == 0) {
             convertView.setBackgroundResource(R.color.gray);
         } else {
@@ -163,7 +160,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             }else {
 
             }
-
         }
         Log.e("SIZE", String.valueOf(getGroupCount()));
         for(int j = 0; j< expandableListTitle.size(); j++) {

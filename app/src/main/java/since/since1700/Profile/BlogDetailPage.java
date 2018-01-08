@@ -7,12 +7,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Gallery;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,10 +29,6 @@ import since.since1700.Fragment.EventsFragments.EventDetailPageAdapter;
 import since.since1700.Model.LocationModel;
 import since.since1700.R;
 
-/**
- * Created by Sandhiya on 11/7/2017.
- */
-
 public class BlogDetailPage extends AppCompatActivity {
 
     Gallery gallery;
@@ -42,6 +41,9 @@ public class BlogDetailPage extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private BlogDetailPageAdapter locationadapter;
+    EditText commentbox;
+    Button post;
+
     Context context;
 
     @Override
@@ -62,8 +64,12 @@ public class BlogDetailPage extends AppCompatActivity {
         gallery = (Gallery) findViewById(R.id.mygallery01);
         eventdetaillebel = (TextView) findViewById(R.id.eventdetaillebel);
         eventdeatil = (TextView) findViewById(R.id.eventdeatil);
+        commentbox = (EditText) findViewById(R.id.comment_description);
+        post = (Button) findViewById(R.id.post_button);
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
+
+        final String result = commentbox.getText().toString();
 
         eventdetaillebel.setTypeface(opensansfont);
         eventdeatil.setTypeface(opensansfont);
@@ -100,24 +106,28 @@ public class BlogDetailPage extends AppCompatActivity {
             }
         });
 
-
-
+post.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
         final LocationModel comment = new LocationModel();
+        comment.setLocation("EditText" );
+        modellist.add(comment);
+      Log.e("EditText",result);
+    }
+});
+
         final LocationModel comment1 = new LocationModel();
         final LocationModel comment2 = new LocationModel();
         final LocationModel comment3 = new LocationModel();
         final LocationModel comment4 = new LocationModel();
         final LocationModel comment5 = new LocationModel();
 
-        comment.setLocation("Lorem Ipsum is simply dummy text of the printing and typesetting");
         comment1.setLocation("Here are the latest projects and contests matching your profile and skills:");
         comment2.setLocation("Lorem Ipsum is simply dummy text of the printing and typesetting");
         comment3.setLocation("Here are the latest projects and contests matching your profile and skills:");
         comment4.setLocation("Lorem Ipsum is simply dummy text of the printing and typesettingA");
         comment5.setLocation("Here are the latest projects and contests matching your profile and skills:");
 
-
-        modellist.add(comment);
         modellist.add(comment1);
         modellist.add(comment2);
         modellist.add(comment3);

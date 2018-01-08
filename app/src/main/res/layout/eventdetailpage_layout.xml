@@ -76,7 +76,7 @@
         android:minHeight="40dp"
         android:layout_height="wrap_content"
         android:textSize="16dp"
-        android:background="@color/whitegradient"
+        android:background="#e4e3e3"
         android:textColor="@android:color/black"
         android:padding="12dp"
         android:text="Event Detail"
@@ -115,7 +115,7 @@
             android:textColor="@android:color/black"
             android:padding="12dp"
             android:paddingLeft="45dp"
-            android:background="@color/whitegradient"
+            android:background="#e4e3e3"
             android:text="VENUE  CONTACT INFORMATION"
             android:layout_height="wrap_content" />
         <LinearLayout
@@ -318,7 +318,7 @@
                     android:textAlignment="center"
                     android:id="@+id/text_date_event"
                     android:layout_margin="2dp"
-                    android:background="@color/whitegradient"
+                    android:background="#e4e3e3"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true" />
                 <TextView
@@ -333,7 +333,7 @@
                     android:textAlignment="center"
                     android:id="@+id/text_date_event_data"
                     android:layout_toRightOf="@+id/text_date_event"
-                    android:background="@color/whitegradient"
+                    android:background="#e4e3e3"
                     android:layout_margin="2dp"
                     />
             </LinearLayout>
@@ -355,7 +355,7 @@
                     android:layout_below="@+id/text_date_event"
                     android:id="@+id/text_timing_event"
                     android:layout_margin="2dp"
-                    android:background="@color/whitegradient"
+                    android:background="#e4e3e3"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true" />
                 <TextView
@@ -371,7 +371,7 @@
                     android:layout_below="@+id/text_date_event_data"
                     android:id="@+id/text_timing_event_data"
                     android:layout_toRightOf="@+id/text_timing_event"
-                    android:background="#ffffff"
+                    android:background="#e4e3e3"
                     android:layout_margin="2dp"
                     />
             </LinearLayout>
@@ -392,7 +392,7 @@
                 android:textColor="@color/black"
                 android:id="@+id/remindme"
                 android:layout_margin="2dp"
-                android:background="@color/whitegradient"
+                android:background="#e4e3e3"
                 android:textAlignment="center"
                 android:text="Remind me"
                 />

@@ -160,7 +160,7 @@
                android:layout_marginLeft="20dp"
                android:textSize="15dp"/>
            <android.support.v7.widget.SwitchCompat
-               android:layout_width="219dp"
+               android:layout_width="50dp"
                android:layout_height="wrap_content"
                android:checked="true"
                />

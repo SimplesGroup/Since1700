@@ -15,9 +15,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import since.since1700.GoogleSignin;
 import since.since1700.MembershipPage;
 import since.since1700.R;
 
@@ -30,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username,emailsignin,passwordsignin,logincode,emailsignup,passwordsignup;
     Button signin,signup,btnsignin,btnsignup;
     LinearLayout signinlayout,signuplayout;
+    ImageButton gmail,fb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,10 @@ public class LoginActivity extends AppCompatActivity {
         logincode = (EditText) findViewById(R.id.edt_lgncode);
         emailsignup = (EditText) findViewById(R.id.ed_email);
         passwordsignup = (EditText)findViewById(R.id.ed_password);
+
+        fb = (ImageButton) findViewById(R.id.btnfb);
+        gmail = (ImageButton) findViewById(R.id.btngmail);
+
 
         username.setHint("Username");
         emailsignin.setHint("Email");
@@ -109,6 +116,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 validation();
                 Intent i = new Intent(LoginActivity.this,MembershipPage.class);
+                startActivity(i);
+            }
+        });
+
+        gmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this,GoogleSignin.class);
                 startActivity(i);
             }
         });

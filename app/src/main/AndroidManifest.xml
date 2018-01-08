@@ -6,7 +6,8 @@
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
-
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <application
 
         android:allowBackup="true"
@@ -69,8 +70,21 @@
         <activity android:name=".Fragment.Brands.DetailDesign.DetailPage"/>
         <activity android:name=".Profile.EditProfileEnglish"/>
         <activity android:name=".Profile.BlogDetailPage"/>
+        <activity android:name=".GoogleSignin"/>
 
 <activity android:name=".TermsandCondition"/>
+
+        <service android:name=".Notification.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".Notification.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

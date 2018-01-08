@@ -209,7 +209,7 @@
                     android:paddingBottom="0dp">
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/btnfb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
@@ -220,6 +220,7 @@
 
 
                     <ImageButton
+                        android:id="@+id/btngmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/gmail"
