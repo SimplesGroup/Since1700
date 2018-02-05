@@ -16,9 +16,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -53,7 +55,7 @@ public class Featured extends Fragment {
     private boolean isFragmentLoaded=false;
 
     ProgressDialog progressDialog;
-
+    Spinner sort,filter;
     SharedPreferences sharedpreferences;
     RecyclerView recyclerView_products;
     public static final String mypreference = "mypref";
@@ -96,14 +98,40 @@ public class Featured extends Fragment {
         recyclerView_products=(RecyclerView)view.findViewById(R.id.recycler_feed_view);
         recyclerView_products.setLayoutManager(layoutManager);
         Log.e("TAB","FEATURED");
+        Log.e("TAB", "1");
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.show();
         progressDialog.setContentView(R.layout.custom_progressdialog);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+        sort = (Spinner)view.findViewById(R.id.spin_sort);
+        filter = (Spinner)view.findViewById(R.id.spin_filter);
         getData();
         productAdapter = new ProductAdapterFeed(productlist,recyclerView_products);
         recyclerView_products.setAdapter(productAdapter);
+
+        sort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 Log.e("TAB", String.valueOf(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("TAB", String.valueOf(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         return view;
     }
 

@@ -100,7 +100,6 @@ public class Featured_brands extends Fragment {
         progressDialog.show();
         progressDialog.setContentView(R.layout.custom_progressdialog);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
         getData();
         productAdapter = new ProductAdapterFeed(productlist,recyclerView_products);
         recyclerView_products.setAdapter(productAdapter);
@@ -155,8 +154,6 @@ public class Featured_brands extends Fragment {
         } catch (JSONException e) {
 
         }
-
-
     }
 
 
@@ -296,14 +293,14 @@ public class Featured_brands extends Fragment {
                 final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
 
                 userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
-userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
+          userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent next=new Intent(getActivity(), DetailPage.class);
         next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/cars.png");
         startActivity(next);
-    }
-});
+      }
+     });
 
 
             }else {

@@ -3,19 +3,14 @@
     <string name="next">NEXT</string>
     <string name="start">GOT IT</string>
 
-    <array name="subfilter">
-        <item>"Sub Filter"</item>
-        <item>"1"</item>
-        <item>"2"</item>
-        <item>"3"</item>
-        <item>"4"</item>
-        <item>"5"</item>
-        <item>"10"</item>
-        <item>"15"</item>
-        <item>"20"</item>
+    <array name="Sort">
+        <item>"All"</item>
+        <item>"Mens"</item>
+        <item>"Womens"</item>
+
     </array>
     <array name="brandfilter">
-        <item>"Brand Filter"</item>
+        <item>"All Brand Filter"</item>
         <item>"Audi"</item>
         <item>"BMW"</item>
         <item>"Mercedes-Benz"</item>

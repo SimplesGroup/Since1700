@@ -33,7 +33,7 @@
           android:id="@+id/spinner1"
           android:padding="10dp"
           android:spinnerMode="dropdown"
-          android:entries="@array/subfilter"
+          android:entries="@array/Sort"
           android:textAlignment="center"
 
           />

@@ -43,14 +43,11 @@
 
     <Button
         android:layout_alignParentBottom="true"
-
         android:padding="7dp"
         android:background="@color/sandal"
         android:id="@+id/button_next"
         android:layout_width="match_parent"
-
         android:textColor="@android:color/black"
-
         android:layout_height="wrap_content" />
 
 

@@ -465,10 +465,10 @@ String id;
 
                         if(colorcodes.equals("blue")){
                             feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                            feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                            feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("black")){
+                            feed_btn.setBackgroundResource(R.drawable.black);
+                        }else if(colorcodes.equalsIgnoreCase("red")){
+                            feed_btn.setBackgroundResource(R.drawable.red);
                         }
              }
             }
@@ -501,10 +501,10 @@ String id;
                     }else {
                         if(colorcodes.equals("blue")){
                             brands_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                            brands_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                            brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("black")){
+                            brands_btn.setBackgroundResource(R.drawable.black);
+                        }else if(colorcodes.equalsIgnoreCase("red")){
+                            brands_btn.setBackgroundResource(R.drawable.red);
                         }
                      }
                 }
@@ -540,10 +540,10 @@ String id;
                     } else {
                         if(colorcodes.equals("blue")){
                             shop_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                            shop_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                            shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("black")){
+                            shop_btn.setBackgroundResource(R.drawable.black);
+                        }else if(colorcodes.equalsIgnoreCase("red")){
+                            shop_btn.setBackgroundResource(R.drawable.red);
                         }
                     }
                 }
@@ -578,10 +578,10 @@ String id;
                     }else {
                         if(colorcodes.equals("blue")){
                             events_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                            events_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                            events_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("black")){
+                            events_btn.setBackgroundResource(R.drawable.black);
+                        }else if(colorcodes.equalsIgnoreCase("red")){
+                            events_btn.setBackgroundResource(R.drawable.red);
                         }
                     }
                 }
@@ -615,10 +615,10 @@ String id;
                     }else {
                         if(colorcodes.equals("blue")){
                             contact_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                            contact_btn.setBackgroundResource(R.drawable.membershipgradient);
-                        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                            contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+                        }else if(colorcodes.equalsIgnoreCase("black")){
+                            contact_btn.setBackgroundResource(R.drawable.black);
+                        }else if(colorcodes.equalsIgnoreCase("#red")){
+                            contact_btn.setBackgroundResource(R.drawable.red);
                         }
                     }
                 }
@@ -641,11 +641,12 @@ String id;
                     if (colorcodes.equals("blue")) {
                         feed_btn.setBackgroundResource(R.drawable.membershipgradient);
                         feed_btn.setImageResource(R.mipmap.feedwhite);
-                    } else if (colorcodes.equalsIgnoreCase("#59247c")) {
-                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
                         feed_btn.setImageResource(R.mipmap.feedwhite);
-                    } else if (colorcodes.equalsIgnoreCase("#1d487a")) {
-                        feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+                    } else if(colorcodes.equalsIgnoreCase("black")){
+                        feed_btn.setBackgroundResource(R.drawable.red);
+                        feed_btn.setImageResource(R.mipmap.feedwhite);
+                    }else if(colorcodes.equalsIgnoreCase("red")){
+                        feed_btn.setBackgroundResource(R.drawable.red);
                         feed_btn.setImageResource(R.mipmap.feedwhite);
                     }
                 }
@@ -680,10 +681,10 @@ if(id.equals("1")){
 
         if(colorcodes.equals("blue")){
             feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-        }else if(colorcodes.equalsIgnoreCase("#59247c")){
-            feed_btn.setBackgroundResource(R.drawable.membershipgradient);
-        }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-            feed_btn.setBackgroundResource(R.drawable.membershipgradient);
+        }else if(colorcodes.equalsIgnoreCase("black")){
+            feed_btn.setBackgroundResource(R.drawable.red);
+        }else if(colorcodes.equalsIgnoreCase("red")){
+            feed_btn.setBackgroundResource(R.drawable.red);
         }
 
     }
@@ -713,10 +714,10 @@ if(id.equals("1")){
         } else {
             if (colorcodes.equals("blue")) {
                 brands_btn.setBackgroundResource(R.drawable.membershipgradient);
-            } else if (colorcodes.equalsIgnoreCase("#59247c")) {
-                brands_btn.setBackgroundResource(R.drawable.membershipgradient);
-            } else if (colorcodes.equalsIgnoreCase("#1d487a")) {
-                brands_btn.setBackgroundResource(R.drawable.membershipgradient);
+            } else if(colorcodes.equalsIgnoreCase("black")){
+                brands_btn.setBackgroundResource(R.drawable.red);
+            }else if(colorcodes.equalsIgnoreCase("red")){
+                brands_btn.setBackgroundResource(R.drawable.red);
             }
         }
     }
@@ -748,10 +749,10 @@ if(id.equals("1")){
         } else {
             if(colorcodes.equals("blue")){
                 shop_btn.setBackgroundResource(R.drawable.membershipgradient);
-            }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                shop_btn.setBackgroundResource(R.drawable.membershipgradient);
-            }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                shop_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("black")){
+                shop_btn.setBackgroundResource(R.drawable.red);
+            }else if(colorcodes.equalsIgnoreCase("red")){
+                shop_btn.setBackgroundResource(R.drawable.red);
             }
         }
     }
@@ -783,10 +784,10 @@ if(id.equals("1")){
         }else {
             if(colorcodes.equals("blue")){
                 events_btn.setBackgroundResource(R.drawable.membershipgradient);
-            }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                events_btn.setBackgroundResource(R.drawable.membershipgradient);
-            }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                events_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("black")){
+                events_btn.setBackgroundResource(R.drawable.red);
+            }else if(colorcodes.equalsIgnoreCase("red")){
+                events_btn.setBackgroundResource(R.drawable.red);
             }
         }
     }
@@ -816,10 +817,10 @@ if(id.equals("1")){
         }else {
             if(colorcodes.equals("blue")){
                 contact_btn.setBackgroundResource(R.drawable.membershipgradient);
-            }else if(colorcodes.equalsIgnoreCase("#59247c")){
-                contact_btn.setBackgroundResource(R.drawable.membershipgradient);
-            }else if(colorcodes.equalsIgnoreCase("#1d487a")){
-                contact_btn.setBackgroundResource(R.drawable.membershipgradient);
+            }else if(colorcodes.equalsIgnoreCase("black")){
+                contact_btn.setBackgroundResource(R.drawable.red);
+            }else if(colorcodes.equalsIgnoreCase("red")){
+                contact_btn.setBackgroundResource(R.drawable.red);
             }
         }
     }
