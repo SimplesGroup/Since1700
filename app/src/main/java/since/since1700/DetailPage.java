@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -41,6 +42,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Adapter.DetailPageAdapter;
 import since.since1700.Fragment.EventsFragments.EventDetailPageActivity;
 import since.since1700.Fragment.EventsFragments.EventDetailPageAdapter;
 import since.since1700.Fragment.FeedFragment;
@@ -68,8 +70,8 @@ public class DetailPage extends AppCompatActivity {
     public static final String colorcode = "colorCode";
     String id;
     SharedPreferences sharedpreferences;
-    ListView gallery;
-    EventDetailPageAdapter imageAdapter;
+    RecyclerView gallery;
+    DetailPageAdapter imageAdapter;
     LinearLayout count_layout;
     int count = 0;
     static TextView page_text[];
@@ -93,7 +95,7 @@ public class DetailPage extends AppCompatActivity {
                 Context.MODE_PRIVATE);
         colorcodes = sharedpreferences.getString(colorcode, "");
         count_layout = (LinearLayout) findViewById(R.id.image_count);
-        gallery = (ListView) findViewById(R.id.mygallery01);
+        gallery = (RecyclerView) findViewById(R.id.mygallery01);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         progressDialog = new ProgressDialog(getApplicationContext());
 //        progressDialog.show();
@@ -118,19 +120,19 @@ public class DetailPage extends AppCompatActivity {
       //  specification.setTypeface(opensansfontbold);
        // engine.setTypeface(opensansfontbold);
 
-        imageAdapter = new EventDetailPageAdapter(this);
+        imageAdapter = new DetailPageAdapter(this);
         gallery.setAdapter(imageAdapter);
-        count = gallery.getAdapter().getCount();
-        page_text = new TextView[count];
-        for (int i = 0; i < count; i++) {
+       // count = gallery.getAdapter().getCount();
+        //page_text = new TextView[count];
+        /*for (int i = 0; i < count; i++) {
             page_text[i] = new TextView(this);
             page_text[i].setText(".");
             page_text[i].setTextSize(45);
             page_text[i].setTypeface(null, Typeface.BOLD);
             page_text[i].setTextColor(android.graphics.Color.GRAY);
             count_layout.addView(page_text[i]);
-        }
-        gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        }*/
+       /* gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int position, long arg3) {
@@ -147,7 +149,7 @@ public class DetailPage extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
             }
-        });
+        });*/
     }
 
     private void getData(){
