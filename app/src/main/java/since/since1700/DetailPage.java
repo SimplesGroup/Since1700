@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -119,7 +121,9 @@ public class DetailPage extends AppCompatActivity {
 //        brandname.setTypeface(opensansfontbold);
       //  specification.setTypeface(opensansfontbold);
        // engine.setTypeface(opensansfontbold);
-
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        gallery.setLayoutManager(mLayoutManager);
+        gallery.setItemAnimator(new DefaultItemAnimator());
         imageAdapter = new DetailPageAdapter(this);
         gallery.setAdapter(imageAdapter);
        // count = gallery.getAdapter().getCount();
