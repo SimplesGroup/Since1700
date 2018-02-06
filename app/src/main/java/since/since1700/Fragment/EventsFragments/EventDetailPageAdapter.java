@@ -13,8 +13,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 
+import since.since1700.CustomVolleyRequest;
 import since.since1700.R;
 
 /**
@@ -23,6 +25,7 @@ import since.since1700.R;
 
 public class EventDetailPageAdapter extends BaseAdapter {
     private Context context;
+    ImageLoader imageLoader;
     private LayoutInflater mInflater;
 
     public EventDetailPageAdapter(Context c) {
@@ -56,18 +59,21 @@ public class EventDetailPageAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder)convertView.getTag();
         }
-        holder.image.setImageResource(flowers[position]);
+        imageLoader= CustomVolleyRequest.getInstance(context).getImageLoader();
+        String im="http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg";
+        holder.image.setImageUrl(im,imageLoader);
+       /* holder.image.setImageResource(flowers[position]);
         holder.image.setScaleType(NetworkImageView.ScaleType.FIT_XY);
         holder.image.setPadding(100,0,100,0);
-        holder.image.setLayoutParams(new RelativeLayout.LayoutParams(1400, 700));
+        holder.image.setLayoutParams(new RelativeLayout.LayoutParams(1400, 700));*/
 
-      MediaController mediaController = new MediaController(context);
+    /*  MediaController mediaController = new MediaController(context);
         String uriPath = "android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink;
         Uri uri = Uri.parse(uriPath);
         holder.video.setVideoURI(uri);
         holder.video.setMediaController(mediaController);
         holder.video.requestFocus();
-        holder.video.start();
+        holder.video.start();*/
         return convertView;
     }
 
