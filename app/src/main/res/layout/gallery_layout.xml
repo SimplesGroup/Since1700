@@ -10,8 +10,8 @@
 
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/feedImage1"
+        android:background="@mipmap/ic_launcher"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:maxHeight="300dp"

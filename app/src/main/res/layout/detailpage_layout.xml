@@ -20,8 +20,6 @@
         android:id="@+id/mygallery01"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:spacing="0px"
-        android:orientation="horizontal"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

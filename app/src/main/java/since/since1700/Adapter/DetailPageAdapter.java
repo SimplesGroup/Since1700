@@ -31,9 +31,9 @@ import since.since1700.R;
 public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.MyViewHolder> {
 
     Context context;
-    List<LocationModel> modellist=new ArrayList<LocationModel>();
+    List<DetailPage.ProductModel> modellist=new ArrayList<>();
     ImageLoader imageLoader;
-    public DetailPageAdapter(Context context, List<LocationModel> list) {
+    public DetailPageAdapter(Context context, List<DetailPage.ProductModel> list) {
 
         this.modellist = list;
         this.context = context;
@@ -69,18 +69,19 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
     @Override
     public void onBindViewHolder(final DetailPageAdapter.MyViewHolder holder, final int position) {
 
-        final LocationModel comment = modellist.get(position);
+        final DetailPage.ProductModel comment = modellist.get(position);
         imageLoader= CustomVolleyRequest.getInstance(context).getImageLoader();
+        Log.e("DATA","called");
         String im="http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg";
-        holder.image.setImageUrl(im,imageLoader);
+       holder.image.setImageUrl(im,imageLoader);
 
-        MediaController mediaController = new MediaController(context);
+       /* MediaController mediaController = new MediaController(context);
         String uriPath = "android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink;
         Uri uri = Uri.parse(uriPath);
         holder.video.setVideoURI(uri);
         holder.video.setMediaController(mediaController);
         holder.video.requestFocus();
-        holder.video.start();
+        holder.video.start();*/
 
     }
 

@@ -121,11 +121,33 @@ public class DetailPage extends AppCompatActivity {
 //        brandname.setTypeface(opensansfontbold);
       //  specification.setTypeface(opensansfontbold);
        // engine.setTypeface(opensansfontbold);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        gallery.setLayoutManager(mLayoutManager);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+
+        gallery
+                .setLayoutManager(new LinearLayoutManager(DetailPage.this, LinearLayoutManager.HORIZONTAL,false));
+
+ProductModel model=new ProductModel();
+        model.setId("1");
+        model.setLikescount(1);
+        model.setMoreimagescount("4");
+        model.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
+        model.setProducttitle("fsgsgsdgsdgsgfs");
+        model.setSharecount(1234);
+        productlist.add(model);
+        ProductModel model1=new ProductModel();
+        model1.setId("1");
+        model1.setLikescount(2);
+        model1.setMoreimagescount("4");
+        model1.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
+        model1.setProducttitle("fsgsgsdgsdgsgfs");
+        model1.setSharecount(1234);
+        productlist.add(model1);
+
+        // gallery.setLayoutManager(mLayoutManager);
         gallery.setItemAnimator(new DefaultItemAnimator());
-        imageAdapter = new DetailPageAdapter(this);
+        imageAdapter = new DetailPageAdapter(getApplicationContext(),productlist);
         gallery.setAdapter(imageAdapter);
+       imageAdapter.notifyDataSetChanged();
        // count = gallery.getAdapter().getCount();
         //page_text = new TextView[count];
         /*for (int i = 0; i < count; i++) {
@@ -223,7 +245,7 @@ public class DetailPage extends AppCompatActivity {
                /* model.setLikescount(obj.getInt("likescount"));
                 model.setSharecount(obj.getInt("sharecount"));
                 model.setMoreimagescount(obj.getString("moreimagescount"));*/
-                productlist.add(model);
+                //productlist.add(model);
             }
             //productAdapter.notifyDataSetChanged();
         } catch (JSONException e) {
