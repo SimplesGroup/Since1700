@@ -21,6 +21,7 @@ import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -67,7 +68,7 @@ public class DetailPage extends AppCompatActivity {
     public static final String colorcode = "colorCode";
     String id;
     SharedPreferences sharedpreferences;
-    Gallery gallery;
+    ListView gallery;
     EventDetailPageAdapter imageAdapter;
     LinearLayout count_layout;
     int count = 0;
@@ -92,7 +93,7 @@ public class DetailPage extends AppCompatActivity {
                 Context.MODE_PRIVATE);
         colorcodes = sharedpreferences.getString(colorcode, "");
         count_layout = (LinearLayout) findViewById(R.id.image_count);
-        gallery = (Gallery) findViewById(R.id.mygallery01);
+        gallery = (ListView) findViewById(R.id.mygallery01);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         progressDialog = new ProgressDialog(getApplicationContext());
 //        progressDialog.show();

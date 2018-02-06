@@ -2,14 +2,18 @@ package since.since1700.Fragment.EventsFragments;
 
 import android.content.Context;
 import android.net.Uri;
+import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.VideoView;
+
+import com.android.volley.toolbox.NetworkImageView;
 
 import since.since1700.R;
 
@@ -19,8 +23,10 @@ import since.since1700.R;
 
 public class EventDetailPageAdapter extends BaseAdapter {
     private Context context;
+    private LayoutInflater mInflater;
 
     public EventDetailPageAdapter(Context c) {
+        mInflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // TODO Auto-generated constructor stub
         this.context = c;
     }
@@ -37,34 +43,37 @@ public class EventDetailPageAdapter extends BaseAdapter {
         return position;
     }
     public View getView(int position, View convertView, ViewGroup parent) {
-        // TODO Auto-generated method stub
-       // ImageView image = new ImageView(context);
-        VideoView video = new VideoView(context);
-
-        //video.setVideoURI();
 
 
-    ImageView image = new ImageView(context);
-    image.setImageResource(flowers[position]);
-    image.setScaleType(ImageView.ScaleType.FIT_XY);
-    image.setPadding(100,0,100,0);
-    image.setLayoutParams(new Gallery.LayoutParams(1400, 700));
+        System.out.println("getView " + position + " " + convertView);
+        ViewHolder holder = null;
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.gallery_layout, null);
+            holder = new ViewHolder();
+            holder.image = (NetworkImageView) convertView.findViewById(R.id.feedImage1);
+            holder.video = (VideoView) convertView.findViewById(R.id.videoView);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder)convertView.getTag();
+        }
+        holder.image.setImageResource(flowers[position]);
+        holder.image.setScaleType(NetworkImageView.ScaleType.FIT_XY);
+        holder.image.setPadding(100,0,100,0);
+        holder.image.setLayoutParams(new RelativeLayout.LayoutParams(1400, 700));
 
-
-        MediaController mediaController = new MediaController(context);
+      MediaController mediaController = new MediaController(context);
         String uriPath = "android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink;
         Uri uri = Uri.parse(uriPath);
-        video.setVideoURI(uri);
-        video.setMediaController(mediaController);
-        video.requestFocus();
-        video.start();
+        holder.video.setVideoURI(uri);
+        holder.video.setMediaController(mediaController);
+        holder.video.requestFocus();
+        holder.video.start();
+        return convertView;
+    }
 
-
-      /*  image.setImageResource(flowers[position]);
-        image.setScaleType(ImageView.ScaleType.FIT_XY);
-        image.setPadding(100,0,100,0);
-      image.setLayoutParams(new Gallery.LayoutParams(1400, 700));*/
-        return video;
+    public static class ViewHolder {
+        public NetworkImageView image;
+        public VideoView video;
     }
      public int[] flowers = { R.drawable.stevejobs, R.drawable.stevejobs,
             R.drawable.stevejobs,R.drawable.stevejobs, R.drawable.stevejobs};
