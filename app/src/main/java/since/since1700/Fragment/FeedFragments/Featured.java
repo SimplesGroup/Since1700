@@ -73,16 +73,11 @@ public class Featured extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(true);
         if (isVisibleToUser && !isFragmentLoaded ) {
-
             Log.e("TAB:","TamilALL");
             isFragmentLoaded = true;
-
-
         }else {
 
         }
-
-
     }
     @Nullable
     @Override
@@ -183,8 +178,6 @@ public class Featured extends Fragment {
         } catch (JSONException e) {
 
         }
-
-
     }
 
 

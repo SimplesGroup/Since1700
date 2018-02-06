@@ -58,7 +58,7 @@ public class LocationActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         locationadapter = new LocationAdapter(context,modellist);
         recyclerView.setAdapter(locationadapter);
-
+        colorcodes=sharedpreferences.getString(colorcode,"");
         next = (Button) findViewById(R.id.btn_next);
         chooselocation = (TextView)findViewById(R.id.chooselocation);
         choosecolor = (TextView)findViewById(R.id.choosecolor);
@@ -70,7 +70,7 @@ public class LocationActivity extends AppCompatActivity {
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
 
-
+        chooselocation.setBackgroundResource(R.drawable.membershipgradient);
 
         black.setTypeface(opensansfont);
         red.setTypeface(opensansfont);
@@ -79,7 +79,7 @@ public class LocationActivity extends AppCompatActivity {
         choosecolor.setTypeface(opensansfont);
         next.setTypeface(opensansfont);
 
-
+        Log.e("ColorCodes",colorcodes+"hihi");
         black.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +87,18 @@ public class LocationActivity extends AppCompatActivity {
                 black.setBackgroundResource(R.mipmap.tickblack);
                 red.setBackgroundResource(R.drawable.red);
                 blue.setBackgroundResource(R.drawable.blue);
+
+                if(colorcodes.length()==0){
+
+                }else {
+                    if(colorcodes.equals("#000000")){
+                        chooselocation.setBackgroundResource(R.drawable.black);
+                    }else if(colorcodes.equalsIgnoreCase("blue")){
+                        chooselocation.setBackgroundResource(R.drawable.black);
+                    }else if(colorcodes.equalsIgnoreCase("#ca0d0d")){
+                        chooselocation.setBackgroundResource(R.drawable.red);
+                    }
+                }
              /*  if(modellist.get(0).isColorSelection()) {
                    black.setVisibility(View.VISIBLE);
                    black.setBackgroundResource(R.drawable.black);
@@ -117,6 +129,19 @@ public class LocationActivity extends AppCompatActivity {
                 editor.putString(colorcode, "blue");
                 editor.commit();
 
+                if(colorcodes.length()==0){
+
+                }else {
+
+                    if(colorcodes.equals("#ca0d0d")){
+                        chooselocation.setBackgroundResource(R.drawable.red);
+                    }else if(colorcodes.equalsIgnoreCase("black")){
+                        chooselocation.setBackgroundResource(R.drawable.black);
+                    }else if(colorcodes.equalsIgnoreCase("blue")){
+                        chooselocation.setBackgroundResource(R.drawable.membershipgradient);
+                    }
+                }
+
             }
         });
 
@@ -130,6 +155,19 @@ public class LocationActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString(colorcode, "blue");
                 editor.commit();
+
+                if(colorcodes.length()==0){
+
+                }else {
+
+                    if(colorcodes.equals("blue")){
+                        chooselocation.setBackgroundResource(R.drawable.membershipgradient);
+                    }else if(colorcodes.equalsIgnoreCase("black")){
+                        chooselocation.setBackgroundResource(R.drawable.black);
+                    }else if(colorcodes.equalsIgnoreCase("red")){
+                        chooselocation.setBackgroundResource(R.drawable.red);
+                    }
+                }
 
               /*  if(colorcodes.length()==0){
 
