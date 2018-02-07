@@ -37,7 +37,7 @@ import since.since1700.R;
 public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.MyViewHolder> {
 
     Context context;
-    List<DetailPage.ProductModel> modellist=new ArrayList<>();
+    List<DetailPage.ProductModel> modellist=new ArrayList<DetailPage.ProductModel>();
     ImageLoader imageLoader;
     MediaController mediaController;
     public DetailPageAdapter(Context context, List<DetailPage.ProductModel> list) {
@@ -62,13 +62,13 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
 
         public MyViewHolder(View view) {
             super(view);
-         //   mediaController = new MediaController(context);
+           // mediaController = new MediaController(context);
             image = (NetworkImageView) view.findViewById(R.id.feedImage1);
             video = (VideoView) view.findViewById(R.id.videoView);
             layout = (RelativeLayout)view.findViewById(R.id.video_container_layout);
             videobutton = (Button)view.findViewById(R.id.btn_video);
             thumbnail_mini = (ImageView)view.findViewById(R.id.thumbnail_mini);
-        //  video.setMediaController(mediaController);
+            //video.setMediaController(mediaController);
         }
     }
 
@@ -91,23 +91,25 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
         Bitmap bmThumbnail = ThumbnailUtils.createVideoThumbnail(comment.getProductvideo(),
                 MediaStore.Images.Thumbnails.MINI_KIND);
         holder.thumbnail_mini.setImageBitmap(bmThumbnail);
-        holder.videobutton.setVisibility(View.VISIBLE);
-       /* if(comment.getProductimage().equals("")){
+
+
+      if(comment.getProductimage().equals("")){
             holder.image.setVisibility(View.GONE);
             holder.video.setVisibility(View.VISIBLE);
+          holder.videobutton.setVisibility(View.GONE);
             String uriPath = comment.getProductvideo();
             Uri uri = Uri.parse(uriPath);
             holder.video.setVideoURI(uri);
             holder.video.requestFocus();
-          //  holder.video.start();
+           holder.video.start();
             Log.e("LISTTTTTTTT","SSSSSSS");
 
         }
-        else */if(comment.getProductvideo().equals("")){
+        else if(comment.getProductvideo().equals("")){
             Log.e("LISTTTTTTTT","GGGGGGGG");
             holder.video.setVisibility(View.GONE);
             holder.videobutton.setVisibility(View.GONE);
-            String im="http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg";
+            String im=comment.getProductimage();
             holder.image.setImageUrl(im,imageLoader);
         }
         else {
@@ -117,15 +119,18 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
          holder.videobutton.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 holder.image.setVisibility(View.GONE);
+                  holder.image.setVisibility(View.GONE);
                  holder.video.setVisibility(View.VISIBLE);
-                 holder.videobutton.setVisibility(View.GONE);
                  String uriPath = comment.getProductvideo();
                  Uri uri = Uri.parse(uriPath);
                  holder.video.setVideoURI(uri);
                  holder.video.start();
              }
          });
+
+        if(holder.video.isPlaying()){
+            holder.videobutton.setVisibility(View.GONE);
+        }
 
 
        /* MediaController mediaController = new MediaController(context);

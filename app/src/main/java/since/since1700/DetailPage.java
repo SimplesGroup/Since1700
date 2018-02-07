@@ -104,6 +104,10 @@ public class DetailPage extends AppCompatActivity {
         progressDialog.setContentView(R.layout.custom_progressdialog);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mImageLoader = MySingleton.getInstance(getApplicationContext()).getImageLoader();
+        gallery.setLayoutManager(new LinearLayoutManager(DetailPage.this, LinearLayoutManager.HORIZONTAL,false));
+        gallery.setItemAnimator(new DefaultItemAnimator());
+        imageAdapter = new DetailPageAdapter(getApplicationContext(),productlist);
+        gallery.setAdapter(imageAdapter);
         getData();
 
         brandname = (TextView) findViewById(R.id.product_category_name);
@@ -123,10 +127,7 @@ public class DetailPage extends AppCompatActivity {
        // engine.setTypeface(opensansfontbold);
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
 
-       gallery.setLayoutManager(new LinearLayoutManager(DetailPage.this, LinearLayoutManager.HORIZONTAL,false));
-        gallery.setItemAnimator(new DefaultItemAnimator());
-        imageAdapter = new DetailPageAdapter(getApplicationContext(),productlist);
-        gallery.setAdapter(imageAdapter);
+
 ProductModel model=new ProductModel();
         model.setId("1");
         model.setLikescount(1);
@@ -154,6 +155,24 @@ ProductModel model=new ProductModel();
         model2.setProducttitle("fsgsgsdgsdgsgfs");
         model2.setSharecount(1234);
         productlist.add(model2);
+        ProductModel model3=new ProductModel();
+        model3.setId("4");
+        model3.setLikescount(1);
+        model3.setMoreimagescount("4");
+        model3.setProductimage("");
+        model3.setProductvideo("android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink);
+        model3.setProducttitle("fsgsgsdgsdgsgfs");
+        model3.setSharecount(1234);
+        productlist.add(model3);
+        ProductModel model4=new ProductModel();
+        model4.setId("5");
+        model4.setLikescount(2);
+        model4.setProductvideo("");
+        model4.setMoreimagescount("4");
+        model4.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
+        model4.setProducttitle("fsgsgsdgsdgsgfs");
+        model4.setSharecount(1234);
+        productlist.add(model4);
 
     // gallery.setLayoutManager(mLayoutManager);
 
