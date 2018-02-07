@@ -93,38 +93,65 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
         holder.thumbnail_mini.setImageBitmap(bmThumbnail);
 
 
-      if(comment.getProductimage().equals("")){
+      if(comment.getProductimage().equals("")&&comment.getProductvideo()!=null){
             holder.image.setVisibility(View.GONE);
-            holder.video.setVisibility(View.VISIBLE);
-          holder.videobutton.setVisibility(View.GONE);
-            String uriPath = comment.getProductvideo();
-            Uri uri = Uri.parse(uriPath);
-            holder.video.setVideoURI(uri);
-            holder.video.requestFocus();
-           holder.video.start();
-            Log.e("LISTTTTTTTT","SSSSSSS");
 
-        }
-        else if(comment.getProductvideo().equals("")){
-            Log.e("LISTTTTTTTT","GGGGGGGG");
-            holder.video.setVisibility(View.GONE);
-            holder.videobutton.setVisibility(View.GONE);
-            String im=comment.getProductimage();
-            holder.image.setImageUrl(im,imageLoader);
-        }
-        else {
 
-        }
 
+
+        }else {
+          String im=comment.getProductimage();
+          holder.image.setImageUrl(im,imageLoader);
+      }
+         if(comment.getProductvideo().equals("")) {
+
+
+             holder.video.setVisibility(View.GONE);
+             holder.videobutton.setVisibility(View.GONE);
+
+
+         } else {
+             String uriPath = comment.getProductvideo();
+             Uri uri = Uri.parse(uriPath);
+             holder.video.setVideoURI(uri);
+             holder.video.requestFocus();
+             // holder.video.start();
+             Log.e("LISTTTTTTTT","SSSSSSS");
+             //notifyDataSetChanged();
+        }
+        holder.video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.video.start();
+            }
+        });
+
+        holder.video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                // This is just to show image when loaded
+                mp.start();
+                mp.pause();
+            }
+        });
+
+        holder.video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                // setLooping(true) didn't work, thats why this workaround
+                holder.video.setVideoPath(comment.getProductvideo());
+                holder.video.start();
+            }
+        });
          holder.videobutton.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                  holder.image.setVisibility(View.GONE);
+                /*  holder.image.setVisibility(View.GONE);
                  holder.video.setVisibility(View.VISIBLE);
                  String uriPath = comment.getProductvideo();
                  Uri uri = Uri.parse(uriPath);
                  holder.video.setVideoURI(uri);
-                 holder.video.start();
+                 holder.video.start();*/
              }
          });
 
