@@ -1,15 +1,21 @@
 package since.since1700.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -49,12 +55,20 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public NetworkImageView image;
         public VideoView video;
+        public RelativeLayout layout;
+        public Button videobutton;
+        public ImageView thumbnail_mini;
 
 
         public MyViewHolder(View view) {
             super(view);
+         //   mediaController = new MediaController(context);
             image = (NetworkImageView) view.findViewById(R.id.feedImage1);
             video = (VideoView) view.findViewById(R.id.videoView);
+            layout = (RelativeLayout)view.findViewById(R.id.video_container_layout);
+            videobutton = (Button)view.findViewById(R.id.btn_video);
+            thumbnail_mini = (ImageView)view.findViewById(R.id.thumbnail_mini);
+        //  video.setMediaController(mediaController);
         }
     }
 
@@ -63,7 +77,7 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
     public DetailPageAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.gallery_layout, parent, false);
-        Log.e("LISTTTTTTTT","SSSSSSS");
+
         return new DetailPageAdapter.MyViewHolder(itemView);
     }
 
@@ -73,23 +87,45 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
         final DetailPage.ProductModel comment = modellist.get(position);
         imageLoader= CustomVolleyRequest.getInstance(context).getImageLoader();
         Log.e("DATA","called");
-        mediaController = new MediaController(context);
-        if(comment.getProductimage().equals("")){
+
+        Bitmap bmThumbnail = ThumbnailUtils.createVideoThumbnail(comment.getProductvideo(),
+                MediaStore.Images.Thumbnails.MINI_KIND);
+        holder.thumbnail_mini.setImageBitmap(bmThumbnail);
+        holder.videobutton.setVisibility(View.VISIBLE);
+       /* if(comment.getProductimage().equals("")){
             holder.image.setVisibility(View.GONE);
-            holder.video.setMediaController(mediaController);
-            String uriPath = "android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink;
+            holder.video.setVisibility(View.VISIBLE);
+            String uriPath = comment.getProductvideo();
             Uri uri = Uri.parse(uriPath);
             holder.video.setVideoURI(uri);
-
             holder.video.requestFocus();
-            holder.video.start();
-        }
-        else{
-            holder.video.setVisibility(View.GONE);
+          //  holder.video.start();
+            Log.e("LISTTTTTTTT","SSSSSSS");
 
+        }
+        else */if(comment.getProductvideo().equals("")){
+            Log.e("LISTTTTTTTT","GGGGGGGG");
+            holder.video.setVisibility(View.GONE);
+            holder.videobutton.setVisibility(View.GONE);
             String im="http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg";
             holder.image.setImageUrl(im,imageLoader);
         }
+        else {
+
+        }
+
+         holder.videobutton.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 holder.image.setVisibility(View.GONE);
+                 holder.video.setVisibility(View.VISIBLE);
+                 holder.videobutton.setVisibility(View.GONE);
+                 String uriPath = comment.getProductvideo();
+                 Uri uri = Uri.parse(uriPath);
+                 holder.video.setVideoURI(uri);
+                 holder.video.start();
+             }
+         });
 
 
        /* MediaController mediaController = new MediaController(context);

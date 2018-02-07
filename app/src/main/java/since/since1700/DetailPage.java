@@ -121,11 +121,12 @@ public class DetailPage extends AppCompatActivity {
 //        brandname.setTypeface(opensansfontbold);
       //  specification.setTypeface(opensansfontbold);
        // engine.setTypeface(opensansfontbold);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+        //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
 
-      /*  gallery
-                .setLayoutManager(new LinearLayoutManager(DetailPage.this, LinearLayoutManager.HORIZONTAL,false));
-*/
+       gallery.setLayoutManager(new LinearLayoutManager(DetailPage.this, LinearLayoutManager.HORIZONTAL,false));
+        gallery.setItemAnimator(new DefaultItemAnimator());
+        imageAdapter = new DetailPageAdapter(getApplicationContext(),productlist);
+        gallery.setAdapter(imageAdapter);
 ProductModel model=new ProductModel();
         model.setId("1");
         model.setLikescount(1);
@@ -136,26 +137,26 @@ ProductModel model=new ProductModel();
         model.setSharecount(1234);
         productlist.add(model);
         ProductModel model1=new ProductModel();
-        model1.setId("1");
+        model1.setId("2");
         model1.setLikescount(2);
         model1.setMoreimagescount("4");
+        model1.setProductvideo("");
         model1.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
         model1.setProducttitle("fsgsgsdgsdgsgfs");
         model1.setSharecount(1234);
         productlist.add(model1);
         ProductModel model2=new ProductModel();
-        model2.setId("1");
+        model2.setId("3");
         model2.setLikescount(2);
+        model2.setProductvideo("");
         model2.setMoreimagescount("4");
         model2.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
         model2.setProducttitle("fsgsgsdgsdgsgfs");
         model2.setSharecount(1234);
         productlist.add(model2);
 
-     gallery.setLayoutManager(mLayoutManager);
-        gallery.setItemAnimator(new DefaultItemAnimator());
-        imageAdapter = new DetailPageAdapter(getApplicationContext(),productlist);
-        gallery.setAdapter(imageAdapter);
+    // gallery.setLayoutManager(mLayoutManager);
+
        imageAdapter.notifyDataSetChanged();
        // count = gallery.getAdapter().getCount();
         //page_text = new TextView[count];
