@@ -33,6 +33,7 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
     Context context;
     List<DetailPage.ProductModel> modellist=new ArrayList<>();
     ImageLoader imageLoader;
+    MediaController mediaController;
     public DetailPageAdapter(Context context, List<DetailPage.ProductModel> list) {
 
         this.modellist = list;
@@ -67,13 +68,29 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(final DetailPageAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final DetailPageAdapter.MyViewHolder holder,  int position) {
 
         final DetailPage.ProductModel comment = modellist.get(position);
         imageLoader= CustomVolleyRequest.getInstance(context).getImageLoader();
         Log.e("DATA","called");
-        String im="http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg";
-       holder.image.setImageUrl(im,imageLoader);
+        mediaController = new MediaController(context);
+        if(comment.getProductimage().equals("")){
+            holder.image.setVisibility(View.GONE);
+            holder.video.setMediaController(mediaController);
+            String uriPath = "android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink;
+            Uri uri = Uri.parse(uriPath);
+            holder.video.setVideoURI(uri);
+
+            holder.video.requestFocus();
+            holder.video.start();
+        }
+        else{
+            holder.video.setVisibility(View.GONE);
+
+            String im="http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg";
+            holder.image.setImageUrl(im,imageLoader);
+        }
+
 
        /* MediaController mediaController = new MediaController(context);
         String uriPath = "android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink;

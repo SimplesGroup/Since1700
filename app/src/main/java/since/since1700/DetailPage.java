@@ -123,14 +123,15 @@ public class DetailPage extends AppCompatActivity {
        // engine.setTypeface(opensansfontbold);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
 
-        gallery
+      /*  gallery
                 .setLayoutManager(new LinearLayoutManager(DetailPage.this, LinearLayoutManager.HORIZONTAL,false));
-
+*/
 ProductModel model=new ProductModel();
         model.setId("1");
         model.setLikescount(1);
         model.setMoreimagescount("4");
-        model.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
+        model.setProductimage("");
+        model.setProductvideo("android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink);
         model.setProducttitle("fsgsgsdgsdgsgfs");
         model.setSharecount(1234);
         productlist.add(model);
@@ -142,8 +143,16 @@ ProductModel model=new ProductModel();
         model1.setProducttitle("fsgsgsdgsdgsgfs");
         model1.setSharecount(1234);
         productlist.add(model1);
+        ProductModel model2=new ProductModel();
+        model2.setId("1");
+        model2.setLikescount(2);
+        model2.setMoreimagescount("4");
+        model2.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
+        model2.setProducttitle("fsgsgsdgsdgsgfs");
+        model2.setSharecount(1234);
+        productlist.add(model2);
 
-        // gallery.setLayoutManager(mLayoutManager);
+     gallery.setLayoutManager(mLayoutManager);
         gallery.setItemAnimator(new DefaultItemAnimator());
         imageAdapter = new DetailPageAdapter(getApplicationContext(),productlist);
         gallery.setAdapter(imageAdapter);
@@ -255,7 +264,7 @@ ProductModel model=new ProductModel();
 
     }
     public class ProductModel {
-        String producttitle,productimage,id,moreimagescount;
+        String producttitle,productimage,id,moreimagescount,productvideo;
         int likescount,sharecount;
 
         public String getProducttitle() {
@@ -300,6 +309,14 @@ ProductModel model=new ProductModel();
 
         public String getMoreimagescount() {
             return moreimagescount;
+        }
+
+        public String getProductvideo() {
+            return productvideo;
+        }
+
+        public void setProductvideo(String productvideo) {
+            this.productvideo = productvideo;
         }
 
         public void setMoreimagescount(String moreimagescount) {

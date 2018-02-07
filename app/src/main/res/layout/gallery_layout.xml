@@ -17,7 +17,6 @@
         android:maxHeight="300dp"
         android:scaleType="centerCrop" />
     <VideoView
-        android:visibility="gone"
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
