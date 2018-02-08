@@ -138,7 +138,7 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
         holder.video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                // setLooping(true) didn't work, thats why this workaround
+
                 holder.video.setVideoPath(comment.getProductvideo());
                 holder.video.start();
             }
