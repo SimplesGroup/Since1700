@@ -9,22 +9,16 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.Gallery;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -34,7 +28,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -45,12 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.Adapter.DetailPageAdapter;
-import since.since1700.Fragment.EventsFragments.EventDetailPageActivity;
-import since.since1700.Fragment.EventsFragments.EventDetailPageAdapter;
-import since.since1700.Fragment.FeedFragment;
-import since.since1700.Model.FeedProductModel;
-
-import static android.R.attr.description;
 
 /**
  * Created by Sandhiya on 10/21/2017.
@@ -155,7 +142,7 @@ ProductModel model=new ProductModel();
         model2.setProducttitle("fsgsgsdgsdgsgfs");
         model2.setSharecount(1234);
         productlist.add(model2);
-        /*ProductModel model3=new ProductModel();
+        ProductModel model3=new ProductModel();
         model3.setId("4");
         model3.setLikescount(1);
         model3.setMoreimagescount("4");
@@ -172,7 +159,7 @@ ProductModel model=new ProductModel();
         model4.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
         model4.setProducttitle("fsgsgsdgsdgsgfs");
         model4.setSharecount(1234);
-        productlist.add(model4);*/
+        productlist.add(model4);
 
     // gallery.setLayoutManager(mLayoutManager);
 
