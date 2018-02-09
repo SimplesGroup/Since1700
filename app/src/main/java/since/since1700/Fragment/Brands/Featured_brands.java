@@ -297,7 +297,7 @@ public class Featured_brands extends Fragment {
     @Override
     public void onClick(View v) {
         Intent next=new Intent(getActivity(), DetailPage.class);
-        next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/cars.png");
+        next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/RollsRoyce.jpg");
         startActivity(next);
       }
      });

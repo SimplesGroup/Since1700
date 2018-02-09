@@ -118,31 +118,31 @@ return rootView;
         itemsimg.add(R.drawable.ic_tree);*//*
 */
         int[] covers = new int[]{
-                R.mipmap.brands,
-                R.mipmap.brands,
-                R.mipmap.brands,
-                R.mipmap.brands,
-                R.mipmap.brands,
-                R.mipmap.brands};
+                R.drawable.logoone,
+                R.drawable.logotwo,
+                R.drawable.logothree,
+                R.drawable.logofour,
+                R.drawable.logofive,
+                R.drawable.logosix};
 
 
 
-        ProductEnglish a = new ProductEnglish("Furniture Set", "250", covers[0],"per kilogram");
+        ProductEnglish a = new ProductEnglish("Asto Martin", "250", covers[0],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Signature Blend", "250", covers[1],"per kilogram");
+        a = new ProductEnglish("BMW", "250", covers[1],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Zenith watch", "150", covers[2],"per kilogram");
+        a = new ProductEnglish("Jaqquar", "150", covers[2],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Burberry Bags", "540", covers[3],"per kilogram");
+        a = new ProductEnglish("Ferrari", "540", covers[3],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Furniture Set", "14", covers[4],"per kilogram");
+        a = new ProductEnglish("Mercedes", "14", covers[4],"per kilogram");
         productEnglishList.add(a);
 
-        a = new ProductEnglish("Signature Blend", "1", covers[5],"per kilogram");
+        a = new ProductEnglish("Bently", "1", covers[5],"per kilogram");
         productEnglishList.add(a);
 
         adapter.notifyDataSetChanged();

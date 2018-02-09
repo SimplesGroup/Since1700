@@ -299,7 +299,7 @@ GetData();
                     mImageLoader = CustomVolleyRequest.getInstance(getActivity()).getImageLoader();
                 final CategoryAdapter.MyViewHolder userViewHolder = (CategoryAdapter.MyViewHolder) holder;
 
-                userViewHolder.feedimage.setImageUrl("http://simpli-city.in//gloclAPI//image//03072017193744_1878332239_gloc" + "l_posted_image.jpg",mImageLoader);
+                userViewHolder.feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
                 userViewHolder.feedimage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

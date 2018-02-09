@@ -129,7 +129,7 @@ public class DetailPage extends AppCompatActivity {
         model1.setLikescount(2);
         model1.setMoreimagescount("4");
         model1.setProductvideo("");
-        model1.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
+        model1.setProductimage("https://androiddevelopmentnew.000webhostapp.com/homedocers.jpg");
         model1.setProducttitle("fsgsgsdgsdgsgfs");
         model1.setSharecount(1234);
         productlist.add(model1);
@@ -138,7 +138,7 @@ public class DetailPage extends AppCompatActivity {
         model2.setLikescount(2);
         model2.setProductvideo("");
         model2.setMoreimagescount("4");
-        model2.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
+        model2.setProductimage("https://androiddevelopmentnew.000webhostapp.com/travel.jpg");
         model2.setProducttitle("fsgsgsdgsdgsgfs");
         model2.setSharecount(1234);
         productlist.add(model2);
