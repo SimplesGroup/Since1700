@@ -115,7 +115,7 @@ public class DetailPage extends AppCompatActivity {
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
 
 
-ProductModel model=new ProductModel();
+        ProductModel model=new ProductModel();
         model.setId("1");
         model.setLikescount(1);
         model.setMoreimagescount("4");
@@ -142,7 +142,7 @@ ProductModel model=new ProductModel();
         model2.setProducttitle("fsgsgsdgsdgsgfs");
         model2.setSharecount(1234);
         productlist.add(model2);
-        ProductModel model3=new ProductModel();
+     /*   ProductModel model3=new ProductModel();
         model3.setId("4");
         model3.setLikescount(1);
         model3.setMoreimagescount("4");
@@ -159,7 +159,7 @@ ProductModel model=new ProductModel();
         model4.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
         model4.setProducttitle("fsgsgsdgsdgsgfs");
         model4.setSharecount(1234);
-        productlist.add(model4);
+        productlist.add(model4);*/
 
     // gallery.setLayoutManager(mLayoutManager);
 
