@@ -1,4 +1,4 @@
-package since.since1700.Fragment.EventsFragments;
+package since.since1700.Fragment.ShopFragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,13 +8,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -35,90 +42,123 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.CustomVolleyRequest;
-import since.since1700.Fragment.ShopFragments.ShopHomeFragment;
-import since.since1700.IntroSlider;
+import since.since1700.DetailPage;
 import since.since1700.OnLoadMoreListener;
 import since.since1700.R;
 
 /**
- * Created by Sandhiya on 9/28/2017.
+ * Created by Sandhiya on 9/21/2017.
  */
 
-public class EventUpcomingFragment extends Fragment {
-    private static final String TAG = String.valueOf(ShopHomeFragment.class);
+public class ShopJetsFragment extends Fragment {
+
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    ImageView filter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private UpcoimgAdapter upcomingadapter;
+    private CategoryAdapter categoryadapter;
+    List<CategoryModel> categorymodellist=new ArrayList<CategoryModel>();
     RequestQueue requestQueue;
-    private ArrayList<UpcomingModel> feedimageList = new ArrayList<UpcomingModel>();
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/eventlist.json";
+    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/jet.json";
     private boolean loading;
     protected Handler handler;
     ProgressDialog pdialog;
 
-
     @Nullable
-    public static EventUpcomingFragment newInstance() {
-        EventUpcomingFragment fragment = new EventUpcomingFragment();
+    public static ShopJetsFragment newInstance() {
+        ShopJetsFragment fragment = new ShopJetsFragment();
         return fragment;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
-        View view = inflater.inflate(R.layout.events_upcoming_fragment, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.shop_category_fragment, container, false);
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
-        mLayoutManager=new LinearLayoutManager(getActivity());
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(mLayoutManager);
-        upcomingadapter = new UpcoimgAdapter(getActivity(),feedimageList,recyclerView);
-        recyclerView.setAdapter(upcomingadapter);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
+        filter = (ImageView) getActivity().findViewById(R.id.filter);
+       /* filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Successssss", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getActivity(), NavigationDrawerActivity.class);
+                startActivity(i);
+            }
+        });*/
+      //  viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+      //  setupViewPager(viewPager);
         requestQueue= Volley.newRequestQueue(getActivity());
         handler = new Handler();
+       // tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+       // tabLayout.setupWithViewPager(viewPager);
 
         pdialog = new ProgressDialog(getActivity());
         pdialog.show();
         pdialog.setContentView(R.layout.custom_progressdialog);
         pdialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         GetData();
-
-      /*  homeadapter.setOnLoadMoreListener(new OnLoadMoreListener() {
-            @Override
-            public void onLoadMore() {
-                //add null , so the adapter will check view_type and show progress bar at bottom
-            //
-              //   feedimageList.add(null);
-              // homeadapter.notifyItemInserted(feedimageList.size() - 1);
-
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //   remove progress item
-                        feedimageList.remove(feedimageList.size() - 1);
-                        homeadapter.notifyItemRemoved(feedimageList.size());
-                        //add items one by one
-                        int start = feedimageList.size();
-
-                        Log.d("SIZEEEEEEE", String.valueOf(start));
-                        int end = start + 5;
-                      //  GetData();
-                        homeadapter.notifyItemInserted(feedimageList.size());
-                        for (int i = start + 1; i <= end; i++) {
-                            GetData();
-                            homeadapter.notifyItemInserted(feedimageList.size());
-                        }
-                        //homeadapter.setLoaded();
-                        //or you can add all at once but do not forget to call mAdapter.notifyDataSetChanged();
-                    }
-                }, 2000);
-
-            }
-        });*/
-
-
+        mLayoutManager=new LinearLayoutManager(getActivity());
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(mLayoutManager);
+        categoryadapter = new CategoryAdapter(getActivity(),categorymodellist,recyclerView);
+        recyclerView.setAdapter(categoryadapter);
         return view;
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
+        adapter.addFragment(new ShopJetsFragment(), "Featured");
+        adapter.addFragment(new ShopHomeFragment(), "Offer");
+        adapter.addFragment(new ShopJetsFragment(), "Cars");
+        adapter.addFragment(new ShopPopularFragment(), "Bike");
+        adapter.addFragment(new ShopOnSaleFragment(), "Jet");
+        adapter.addFragment(new ShopOnSaleFragment(), "Jewellery");
+
+
+
+        viewPager.setAdapter(adapter);
+    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+
+
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
+    private void GetData() {
+        //Adding the method to the queue by calling the method getDataFromServer
+        requestQueue.add(getDataFromTheServer(requestcount));
+        // getDataFromTheServer();
+        //Incrementing the request counter
+        requestcount++;
     }
 
     public void dissmissDialog() {
@@ -131,21 +171,13 @@ public class EventUpcomingFragment extends Fragment {
         }
 
     }
-
-    private void GetData() {
-        //Adding the method to the queue by calling the method getDataFromServer
-        requestQueue.add(getDataFromTheServer(requestcount));
-        // getDataFromTheServer();
-        //Incrementing the request counter
-        requestcount++;
-    }
     private JsonObjectRequest getDataFromTheServer(final int requestcount){
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, ITEMURL, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
                 if (response != null) {
-                    dissmissDialog();
+                  dissmissDialog();
                     ParseJsonFeed(response);
                 }
             }
@@ -167,20 +199,19 @@ public class EventUpcomingFragment extends Fragment {
 
             for (int i = 0; i < feedArray.length(); i++) {
                 JSONObject obj = (JSONObject) feedArray.get(i);
-                UpcomingModel model=new UpcomingModel();
+                CategoryModel model=new CategoryModel();
 
                 String image = obj.isNull("productimage") ? null : obj
                         .getString("productimage");
                 model.setFeedimage(image);
                 Log.e("JSON",model.getFeedimage().toString());
-                feedimageList.add(model);
+                categorymodellist.add(model);
             }
-            upcomingadapter.notifyDataSetChanged();
+            categoryadapter.notifyDataSetChanged();
         } catch (JSONException e) {
 
         }
     }
-
     static class LoadingViewHolder extends RecyclerView.ViewHolder {
         public ProgressBar progressBar;
 
@@ -189,11 +220,10 @@ public class EventUpcomingFragment extends Fragment {
             progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar1);
         }
     }
-
-    public class UpcoimgAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
         Context context;
-        List<UpcomingModel> feedimageList=new ArrayList<UpcomingModel>();
+        List<CategoryModel> categoryList=new ArrayList<CategoryModel>();
         private OnLoadMoreListener onLoadMoreListener;
         private final int VIEW_TYPE_ITEM = 1;
         private final int VIEW_TYPE_LOADING = 3;
@@ -203,8 +233,8 @@ public class EventUpcomingFragment extends Fragment {
         ImageLoader mImageLoader;
 
 
-        public UpcoimgAdapter(Context context, List<UpcomingModel> list, RecyclerView recyclerView) {
-            this.feedimageList = list;
+        public CategoryAdapter(Context context, List<CategoryModel> list, RecyclerView recyclerView) {
+            this.categoryList = list;
             this.context = context;
 
             if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
@@ -246,8 +276,8 @@ public class EventUpcomingFragment extends Fragment {
 
 
             if (viewType == VIEW_TYPE_ITEM) {
-                View view = LayoutInflater.from(getActivity()).inflate(R.layout.event_mainfeed_list, parent, false);
-                return new UpcoimgAdapter.MyViewHolder(view);
+                View view = LayoutInflater.from(getActivity()).inflate(R.layout.feed_category_item, parent, false);
+                return new CategoryAdapter.MyViewHolder(view);
             } else if (viewType == VIEW_TYPE_LOADING) {
                 View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_loading_item, parent, false);
                 return new LoadingViewHolder(view);
@@ -260,24 +290,21 @@ public class EventUpcomingFragment extends Fragment {
 
 
 
-            if (holder instanceof MyViewHolder) {
+            if (holder instanceof CategoryAdapter.MyViewHolder) {
 
-                final UpcomingModel model = feedimageList.get(position);
+                final CategoryModel model = categoryList.get(position);
                 if (mImageLoader == null)
                     mImageLoader = CustomVolleyRequest.getInstance(getActivity()).getImageLoader();
-                final MyViewHolder userViewHolder = (MyViewHolder) holder;
-                //((MyViewHolder) holder).feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
-                userViewHolder.feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
-                // ((MyViewHolder) holder).home= model;
+                final CategoryAdapter.MyViewHolder userViewHolder = (CategoryAdapter.MyViewHolder) holder;
 
+                userViewHolder.feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
                 userViewHolder.feedimage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(getActivity(),EventDetailPageActivity.class);
+                        Intent i = new Intent(getActivity(), DetailPage.class);
                         startActivity(i);
                     }
                 });
-
             }
             else {
                 ((ProgressViewHolder) holder).progressBar.setIndeterminate(true);
@@ -290,7 +317,7 @@ public class EventUpcomingFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return feedimageList.size();
+            return categoryList.size();
         }
 
         public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
@@ -298,7 +325,7 @@ public class EventUpcomingFragment extends Fragment {
         }
         @Override
         public int getItemViewType(int position) {
-            return feedimageList.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
+            return categoryList.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
         }
 
         public void setLoaded() {
@@ -313,7 +340,7 @@ public class EventUpcomingFragment extends Fragment {
 
             public MyViewHolder(View v) {
                 super(v);
-                feedimage = (NetworkImageView) v.findViewById(R.id.product_category_image);
+                feedimage = (NetworkImageView) v.findViewById(R.id.feedImage);
 
 
             }
@@ -329,16 +356,49 @@ public class EventUpcomingFragment extends Fragment {
         }
 
     }
-public class UpcomingModel{
 
-    String feedimage;
 
-    public String getFeedimage() {
-        return feedimage;
+
+
+
+    public  class CategoryModel {
+
+        String feedimage;
+        String postedby;
+        String name;
+        String product;
+
+        public String getPostedby() {
+            return postedby;
+        }
+
+        public void setPostedby(String postedby) {
+            this.postedby = postedby;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getProduct() {
+            return product;
+        }
+
+        public void setProduct(String product) {
+            this.product = product;
+        }
+
+        public String getFeedimage() {
+            return feedimage;
+        }
+
+        public void setFeedimage(String feedimage) {
+            this.feedimage = feedimage;
+        }
     }
 
-    public void setFeedimage(String feedimage) {
-        this.feedimage = feedimage;
-    }
-}
 }

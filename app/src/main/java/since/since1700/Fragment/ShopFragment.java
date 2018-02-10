@@ -15,8 +15,11 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Fragment.ShopFragments.ShopBikeFragment;
+import since.since1700.Fragment.ShopFragments.ShopCarFragment;
 import since.since1700.Fragment.ShopFragments.ShopCategoryFragment;
 import since.since1700.Fragment.ShopFragments.ShopHomeFragment;
+import since.since1700.Fragment.ShopFragments.ShopJetsFragment;
 import since.since1700.Fragment.ShopFragments.ShopOnSaleFragment;
 import since.since1700.Fragment.ShopFragments.ShopPopularFragment;
 import since.since1700.R;
@@ -57,9 +60,9 @@ public class ShopFragment extends Fragment {
 
         adapter.addFragment(new ShopCategoryFragment(), "Featured");
         adapter.addFragment(new ShopHomeFragment(), "Offer");
-        adapter.addFragment(new ShopCategoryFragment(), "Cars");
-        adapter.addFragment(new ShopCategoryFragment(), "Bike");
-        adapter.addFragment(new ShopCategoryFragment(), "Jet");
+        adapter.addFragment(new ShopCarFragment(), "Cars");
+        adapter.addFragment(new ShopBikeFragment(), "Bike");
+        adapter.addFragment(new ShopBikeFragment(), "Jet");
         adapter.addFragment(new ShopCategoryFragment(), "Jewellery");
 
         viewPager.setAdapter(adapter);
