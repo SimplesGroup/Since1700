@@ -145,7 +145,6 @@ GetData();
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
 
-
         }
 
         @Override
