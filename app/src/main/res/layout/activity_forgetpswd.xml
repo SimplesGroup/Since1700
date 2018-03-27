@@ -113,6 +113,39 @@
                     android:layout_marginRight="50dp"
                     android:background="#000000" />
 
+                <LinearLayout
+                    android:orientation="horizontal" android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="30dp"
+                    android:background="#ffffff">
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/lock"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="2dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Verification Code"
+                        android:id="@+id/edt_username"
+                        android:textSize="12dp"
+                        android:padding="0dp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="5dp"
+
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="#000000" />
 
 
 
