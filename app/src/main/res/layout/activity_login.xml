@@ -160,7 +160,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="0dp">
+
+                    <TextView
+                        android:id="@+id/frgtpswdor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="#ffffff"
+                        android:padding="5dp"
+                        android:text="or"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
+                    <Button
+                        android:id="@+id/btn_frgtpswd"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Forget Password ?"
+                        android:background="#00ffffff"
+                        android:textAllCaps="true"
+                        android:textColor="#000000" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp">
 
                     <View
                         android:layout_width="wrap_content"
@@ -320,6 +351,7 @@
                     android:layout_marginRight="50dp"
                     android:background="#000000" />
 
+
                 <LinearLayout
                     android:orientation="horizontal" android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -354,6 +386,69 @@
                     android:layout_marginRight="50dp"
                     android:background="#000000" />
 
+                <LinearLayout
+                    android:orientation="horizontal" android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="30dp"
+                    android:background="#ffffff">
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/email"
+                        android:layout_marginTop="10dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mobile Number"
+                        android:id="@+id/ed_mbl"
+                        android:textSize="12dp"
+                        android:padding="0dp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="5dp"
+
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="#000000" />
+                <LinearLayout
+                    android:orientation="horizontal" android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="30dp"
+                    android:background="#ffffff">
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/email"
+                        android:layout_marginTop="10dp"
+                        />
+                    <Spinner
+                        android:id="@+id/spinner_location"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="12dp"
+                  android:spinnerMode="dropdown"
+                        android:dropDownVerticalOffset="150dp"
+                        android:entries="@array/location" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="#000000" />
+
 
                 <EditText
                     android:id="@+id/edt_lgncode"
@@ -365,6 +460,7 @@
                     android:background="#ffffff"
                     android:padding="5dp"
                     android:textSize="12dp"
+
                     />
 
                 <View
@@ -384,14 +480,66 @@
                     android:layout_marginRight="50dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Create An account"
+                    android:text="Submit"
                     android:background="#64aeadad"
                     android:textAllCaps="true"
                     android:textColor="#000000"
                     />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp">
 
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="23dp"
+                        android:layout_toLeftOf="@+id/or"
+                        android:background="#000000" />
 
+                    <TextView
+                        android:id="@+id/or"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="12dp"
+                        android:background="#ffffff"
+                        android:padding="5dp"
+                        android:text="or"
+                        android:textColor="#000000"
+                        android:layout_alignRight="@id/or"
+                        android:textSize="15dp"
+                        android:layout_centerInParent="true"/>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_toRightOf="@+id/or"
+
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="23dp"
+                        android:layout_alignLeft="@+id/or"
+                        android:background="#000000" />
+                </RelativeLayout>
+                <Button
+                    android:id="@+id/btn_aplymem"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Apply for Membership"
+                    android:background="#64aeadad"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

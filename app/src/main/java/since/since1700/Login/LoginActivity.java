@@ -30,7 +30,7 @@ import since.since1700.R;
 public class LoginActivity extends AppCompatActivity {
 
     EditText username,emailsignin,passwordsignin,logincode,emailsignup,passwordsignup;
-    Button signin,signup,btnsignin,btnsignup;
+    Button signin,signup,btnsignin,btnsignup,btnapplyformembership,btnfrgtpswd;
     LinearLayout signinlayout,signuplayout;
     ImageButton gmail,fb;
 
@@ -45,7 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         signup = (Button) findViewById(R.id.signup);
         btnsignin = (Button)findViewById(R.id.btn_signin);
         btnsignup = (Button) findViewById(R.id.btn_signup);
-                signinlayout = (LinearLayout) findViewById(R.id.signin_layout);
+        btnapplyformembership = (Button) findViewById(R.id.btn_aplymem);
+        btnfrgtpswd = (Button) findViewById(R.id.btn_frgtpswd);
+        signinlayout = (LinearLayout) findViewById(R.id.signin_layout);
         signuplayout = (LinearLayout)findViewById(R.id.signup_layout);
 
         emailsignin = (EditText)findViewById(R.id.edt_email);
@@ -66,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         emailsignup.setHint("Email");
         passwordsignin.setHint("************");
         passwordsignup.setHint("************");
-        logincode.setHint("Your Login Code");
+        logincode.setHint("Membership Code");
 
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
@@ -77,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordsignin.setTypeface(opensansfont);
         passwordsignup.setTypeface(opensansfont);
         logincode.setTypeface(opensansfont);
+        btnfrgtpswd.setTypeface(opensansfont);
 
         signin.setBackgroundResource(R.drawable.bluebutton);
         signup.setBackgroundColor(00000000);
@@ -116,6 +119,23 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 validation();
                 Intent i = new Intent(LoginActivity.this,MembershipPage.class);
+                startActivity(i);
+            }
+        });
+
+        btnapplyformembership.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validation();
+                Intent i = new Intent(LoginActivity.this,MembershipActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnfrgtpswd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this,PasswordActivity.class);
                 startActivity(i);
             }
         });
@@ -194,7 +214,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (addresss.isEmpty()) {
-            logincode.setError("Enter Valid Login Code");
+            logincode.setError("Enter Valid Membership Code");
             valid = false;
         } else {
             logincode.setError(null);
