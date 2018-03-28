@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import since.since1700.ChooseyourInterest;
 import since.since1700.GoogleSignin;
 import since.since1700.MembershipPage;
 import since.since1700.R;
@@ -109,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 validation();
-                Intent i = new Intent(LoginActivity.this,LocationActivity.class);
+                Intent i = new Intent(LoginActivity.this,ChooseyourInterest.class);
                 startActivity(i);
             }
         });

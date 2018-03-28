@@ -126,7 +126,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@mipmap/email"
+                        android:src="@mipmap/phone"
                         android:layout_marginTop="10dp"
                         />
                     <EditText
@@ -158,7 +158,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@mipmap/email"
+                        android:src="@mipmap/location"
                         android:layout_marginTop="15dp"
                         />
                     <Spinner

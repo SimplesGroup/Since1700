@@ -123,7 +123,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@mipmap/lock"
+                        android:src="@mipmap/edit"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="2dp"
                         />
