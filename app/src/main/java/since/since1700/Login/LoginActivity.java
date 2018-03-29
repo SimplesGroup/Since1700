@@ -2,6 +2,7 @@ package since.since1700.Login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -81,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
         passwordsignup.setTypeface(opensansfont);
         logincode.setTypeface(opensansfont);
         btnfrgtpswd.setTypeface(opensansfont);
+
+        btnfrgtpswd.setTextColor(Color.RED);
 
         signin.setBackgroundResource(R.drawable.bluebutton);
         signup.setBackgroundColor(00000000);
