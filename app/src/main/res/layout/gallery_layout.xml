@@ -28,6 +28,7 @@
             android:id="@+id/btn_video"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:visibility="invisible"
             android:background="@drawable/videoimage"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
