@@ -14,7 +14,22 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import since.since1700.Fragment.Brands.Accessories_Frag_brands;
+import since.since1700.Fragment.Brands.Apparel_brands;
+import since.since1700.Fragment.Brands.Art_brands;
+import since.since1700.Fragment.Brands.Beauty_brands;
+import since.since1700.Fragment.Brands.Bikes_brands;
+import since.since1700.Fragment.Brands.Cars_brands;
+import since.since1700.Fragment.Brands.Decor_brands;
 import since.since1700.Fragment.Brands.Featured_brands;
+import since.since1700.Fragment.Brands.Footwear_brands;
+import since.since1700.Fragment.Brands.Gadgets_brands;
+import since.since1700.Fragment.Brands.Gourmet_brands;
+import since.since1700.Fragment.Brands.Homes_brands;
+import since.since1700.Fragment.Brands.JetsYachts_brands;
+import since.since1700.Fragment.Brands.Jewellery_brands;
+import since.since1700.Fragment.Brands.Travel_brands;
+import since.since1700.Fragment.Brands.Watches_brands;
 import since.since1700.R;
 
 /**
@@ -46,21 +61,21 @@ public class BrandsFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         FeedViewPagerAdapter adapter = new FeedViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new Featured_brands(), "Featured");
-        adapter.addFragment(new Featured_brands(), "Accessories");
-        adapter.addFragment(new Featured_brands(), "Apparel");
-        adapter.addFragment(new Featured_brands(), "Art");
-        adapter.addFragment(new Featured_brands(), "Beauty");
-        adapter.addFragment(new Featured_brands(), "Bikes");
-        adapter.addFragment(new Featured_brands(), "Cars");
-        adapter.addFragment(new Featured_brands(), "Decor");
-        adapter.addFragment(new Featured_brands(), "Footwear");
-        adapter.addFragment(new Featured_brands(), "Gadgets");
-        adapter.addFragment(new Featured_brands(), "Gourmet");
-        adapter.addFragment(new Featured_brands(), "Homes");
-        adapter.addFragment(new Featured_brands(), "Jets & Yachts");
-        adapter.addFragment(new Featured_brands(), "Jewellery");
-        adapter.addFragment(new Featured_brands(), "Travel");
-        adapter.addFragment(new Featured_brands(), "Watches");
+        adapter.addFragment(new Accessories_Frag_brands(), "Accessories");
+        adapter.addFragment(new Apparel_brands(), "Apparel");
+        adapter.addFragment(new Art_brands(), "Art");
+        adapter.addFragment(new Beauty_brands(), "Beauty");
+        adapter.addFragment(new Bikes_brands(), "Bikes");
+        adapter.addFragment(new Cars_brands(), "Cars");
+        adapter.addFragment(new Decor_brands(), "Decor");
+        adapter.addFragment(new Footwear_brands(), "Footwear");
+        adapter.addFragment(new Gadgets_brands(), "Gadgets");
+        adapter.addFragment(new Gourmet_brands(), "Gourmet");
+        adapter.addFragment(new Homes_brands(), "Homes");
+        adapter.addFragment(new JetsYachts_brands(), "Jets & Yachts");
+        adapter.addFragment(new Jewellery_brands(), "Jewellery");
+        adapter.addFragment(new Travel_brands(), "Travel");
+        adapter.addFragment(new Watches_brands(), "Watches");
         viewPager.setAdapter(adapter);
     }
 
@@ -92,6 +107,6 @@ public class BrandsFragment extends Fragment {
         @Override
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
-        }
+    }
     }
 }

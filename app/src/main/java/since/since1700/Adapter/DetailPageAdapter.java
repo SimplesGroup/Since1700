@@ -146,12 +146,7 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
          holder.videobutton.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                /*  holder.image.setVisibility(View.GONE);
-                 holder.video.setVisibility(View.VISIBLE);
-                 String uriPath = comment.getProductvideo();
-                 Uri uri = Uri.parse(uriPath);
-                 holder.video.setVideoURI(uri);
-                 holder.video.start();*/
+
              }
          });
 
@@ -160,13 +155,7 @@ public class DetailPageAdapter extends RecyclerView.Adapter<DetailPageAdapter.My
         }
 
 
-       /* MediaController mediaController = new MediaController(context);
-        String uriPath = "android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink;
-        Uri uri = Uri.parse(uriPath);
-        holder.video.setVideoURI(uri);
-        holder.video.setMediaController(mediaController);
-        holder.video.requestFocus();
-        holder.video.start();*/
+
 
     }
 

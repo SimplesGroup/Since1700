@@ -126,14 +126,14 @@ public class DetailPage extends AppCompatActivity {
       //  specification.setTypeface(opensansfontbold);
        // engine.setTypeface(opensansfontbold);
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
-
-
+String video="http://simpli-city.in/chainzbigseandrink.mp4";
 ProductModel model=new ProductModel();
         model.setId("1");
         model.setLikescount(1);
         model.setMoreimagescount("4");
         model.setProductimage("");
-        model.setProductvideo("android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink);
+        model.setProductvideo(video);
+        //model.setProductvideo("android.resource://"+"since.since1700"+"/"+ R.raw.chainzbigseandrink);
         model.setProducttitle("fsgsgsdgsdgsgfs");
         model.setSharecount(1234);
         productlist.add(model);

@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -59,7 +60,7 @@ public class Featured_brands extends Fragment {
     public static final String mypreference = "mypref";
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
+    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/brandslist.json";
 
     List<FeedProductModel> productlist=new ArrayList<FeedProductModel>();
     ProductAdapterFeed productAdapter;
@@ -92,7 +93,7 @@ public class Featured_brands extends Fragment {
         requestQueue= Volley.newRequestQueue(getActivity());
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
-        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getActivity(),3);
         recyclerView_products=(RecyclerView)view.findViewById(R.id.recycler_feed_view);
         recyclerView_products.setLayoutManager(layoutManager);
         Log.e("TAB","FEATURED");
@@ -108,7 +109,7 @@ public class Featured_brands extends Fragment {
 
     private void getData(){
         requestQueue.add(getDataFromTheServer(requestcount));
-        requestcount++;
+        //requestcount++;
     }
     JsonObjectRequest getDataFromTheServer(int requestcount){
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, ITEMURL, new Response.Listener<JSONObject>() {
@@ -165,7 +166,7 @@ public class Featured_brands extends Fragment {
         RecyclerView_OnClickListener.OnClickListener recyclerView_onClickListener;
         public Itemviewholder(View itemView) {
             super(itemView);
-            productimage = (NetworkImageView) itemView.findViewById(R.id.feedImage);
+            productimage = (NetworkImageView) itemView.findViewById(R.id.product_category_image);
             // hoverimage=(ImageView)itemView.findViewById(R.id.hoverimage);
            // productitle=(TextView)itemView.findViewById(R.id.product_category_name);
             // selectbutton=(ImageButton) itemView.findViewById(R.id.select_item_imagebutton);
@@ -259,7 +260,7 @@ public class Featured_brands extends Fragment {
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             RecyclerView.ViewHolder viewHolder = null;
             if (viewType == VIEW_TYPE_ITEM) {
-                View view = LayoutInflater.from(getActivity()).inflate(R.layout.feed_home_item, parent, false);
+                View view = LayoutInflater.from(getActivity()).inflate(R.layout.feed_item_chooseyourinterest, parent, false);
                 return  new Itemviewholder(view);
             } else if (viewType == VIEW_TYPE_LOADING) {
                 View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_loading_item, parent, false);

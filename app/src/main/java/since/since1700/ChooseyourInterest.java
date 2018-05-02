@@ -57,7 +57,7 @@ public class ChooseyourInterest extends AppCompatActivity {
 
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
+    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/catgorieslist.json";
 ProgressDialog pdialog;
     List<ItemModel>productlist=new ArrayList<ItemModel>();
     ProductAdapter productAdapter;
@@ -354,7 +354,7 @@ public  class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
             String fontPath = "fonts/OpenSans-Regular.ttf";
             final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
-             userViewHolder.productitle.setText(itemModel.getProductname());
+           //  userViewHolder.productitle.setText(itemModel.getProductname());
             userViewHolder.productitle.setTypeface(opensansfont);
             userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
 

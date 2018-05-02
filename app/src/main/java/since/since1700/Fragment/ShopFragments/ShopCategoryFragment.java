@@ -64,7 +64,7 @@ public class ShopCategoryFragment extends Fragment {
     List<CategoryModel> categorymodellist=new ArrayList<CategoryModel>();
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
+    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/brandslist.json";
     private boolean loading;
     protected Handler handler;
     ProgressDialog pdialog;
@@ -299,7 +299,7 @@ GetData();
                     mImageLoader = CustomVolleyRequest.getInstance(getActivity()).getImageLoader();
                 final CategoryAdapter.MyViewHolder userViewHolder = (CategoryAdapter.MyViewHolder) holder;
 
-                userViewHolder.feedimage.setImageUrl("http://simpli-city.in//gloclAPI//image//03072017193744_1878332239_gloc" + "l_posted_image.jpg",mImageLoader);
+                userViewHolder.feedimage.setImageUrl(model.getFeedimage(),mImageLoader);
                 userViewHolder.feedimage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
