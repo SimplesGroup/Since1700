@@ -194,7 +194,7 @@ public class LocationActivity extends AppCompatActivity {
 
 
 
-        next.setOnClickListener(new View.OnClickListener() {
+        next.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

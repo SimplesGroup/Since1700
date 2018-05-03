@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.DetailPage;
+import since.since1700.Fragment.FeedFragment;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.OnLoadMoreListener;
@@ -80,6 +81,11 @@ public class Featured extends Fragment {
         }
     }
     @Nullable
+    public static Featured newInstance() {
+        Featured fragment = new Featured();
+        return fragment;
+    }
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fee_child_feartured,container,false);
@@ -98,13 +104,13 @@ public class Featured extends Fragment {
         progressDialog.show();
         progressDialog.setContentView(R.layout.custom_progressdialog);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        sort = (Spinner)view.findViewById(R.id.spin_sort);
-        filter = (Spinner)view.findViewById(R.id.spin_filter);
+       // sort = (Spinner)view.findViewById(R.id.spin_sort);
+       // filter = (Spinner)view.findViewById(R.id.spin_filter);
         getData();
         productAdapter = new ProductAdapterFeed(productlist,recyclerView_products);
         recyclerView_products.setAdapter(productAdapter);
 
-        sort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+       /* sort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                  Log.e("TAB", String.valueOf(position));
@@ -126,7 +132,7 @@ public class Featured extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
         return view;
     }
 

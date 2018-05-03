@@ -59,10 +59,12 @@ import java.util.List;
 import since.since1700.Filter.ExpandableListAdapter;
 import since.since1700.Filter.ExpandableListDataPump;
 import since.since1700.Filter.FragmentDrawer;
+import since.since1700.Fragment.Brands.Featured_brands;
 import since.since1700.Fragment.BrandsFragment;
 import since.since1700.Fragment.ContactFragment;
 import since.since1700.Fragment.EventsFragment;
 import since.since1700.Fragment.FeedFragment;
+import since.since1700.Fragment.FeedFragments.Featured;
 import since.since1700.Fragment.ShopFragment;
 import since.since1700.Login.LoginActivity;
 import since.since1700.Profile.ProfileActivity;
@@ -445,7 +447,7 @@ String id;
             @Override
             public void onClick(View v) {
                 feed_btn.setImageResource(R.mipmap.feedwhite);
-               // feed_btn.setBackgroundResource(R.drawable.bluebutton);
+                feed_btn.setBackgroundResource(R.drawable.bluebutton);
                 brands_btn.setBackgroundResource(R.color.mytransparent);
                 brands_btn.setImageResource(R.mipmap.brands);
                 shop_btn.setBackgroundResource(R.color.mytransparent);
@@ -455,7 +457,7 @@ String id;
                contact_btn.setBackgroundResource(R.color.mytransparent);
                contact_btn.setImageResource(R.mipmap.contact);
                 Fragment selectedFragment = null;
-                selectedFragment = FeedFragment.newInstance();
+                selectedFragment = Featured.newInstance();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedFragment);
                 transaction.commit();
@@ -630,7 +632,7 @@ String id;
         }else {
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, FeedFragment.newInstance());
+            transaction.replace(R.id.frame_layout, Featured.newInstance());
             transaction.commit();
             if (colorcodes.length() == 0) {
 
@@ -671,7 +673,7 @@ if(id.equals("1")){
     contact_btn.setBackgroundResource(R.color.mytransparent);
     contact_btn.setImageResource(R.mipmap.contact);
     Fragment selectedFragment = null;
-    selectedFragment = FeedFragment.newInstance();
+    selectedFragment = Featured.newInstance();
     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
     transaction.replace(R.id.frame_layout, selectedFragment);
     transaction.commit();
