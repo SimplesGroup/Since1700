@@ -589,6 +589,9 @@ if(pos==0){
         return rotatedImg;
     }
 
+
+
+
     public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
         int width = image.getWidth();
         int height = image.getHeight();
