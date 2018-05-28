@@ -417,7 +417,7 @@ if(pos==0){
         adapter.addFragment(new Privileges(), "Privileges");
         adapter.addFragment(new Favourites(), "Cart");
         adapter.addFragment(new Rewards(), "Rewards");
-        adapter.addFragment(new Blog(), "Blog");
+       // adapter.addFragment(new Blog(), "Blog");
         viewPager.setAdapter(adapter);
 
     }

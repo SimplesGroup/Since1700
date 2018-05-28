@@ -38,7 +38,7 @@ import since.since1700.R;
  * Created by Kuppusamy on 10/5/2017.
  */
 
-public class DetailPage extends AppCompatActivity {
+public class DetailPageAccessories extends AppCompatActivity {
     SharedPreferences sharedpreferences;
 
     public static final String mypreference = "mypref";
@@ -80,13 +80,11 @@ public class DetailPage extends AppCompatActivity {
         back_imagebutton = (ImageButton) findViewById(R.id.back_button);
         String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
         final Typeface opensansfont = Typeface.createFromAsset(getAssets(), fontPath);
-        String image = "https://androiddevelopmentnew.000webhostapp.com/cars.png";
+        String image = "https://androiddevelopmentnew.000webhostapp.com/brand/hermes.jpg";
         follow_button.setTypeface(opensansfont);
-
-
-        Bundle pos = getIntent().getExtras();
-        final String team = pos.getString("POSITION");
-        Log.e("getposition",team);
+        Intent pos = getIntent();
+     //   final String team = pos.getStringExtra("POSITION");
+//        Log.e("getposition",team);
 
         if(team=="0"){
 
@@ -135,18 +133,17 @@ public class DetailPage extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
 
       ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Feedbrand(), "Feed");
-        adapter.addFragment(new ShopdetailBrand(), "Shop");
+        adapter.addFragment(new FeedbrandAccessories(), "Feed");
+        adapter.addFragment(new ShopdetailBrandAccessories(), "Shop");
 
         Bundle data = new Bundle();//create bundle instance
         data.putString("POSITION",team);
         new ShopdetailBrand().setArguments(data);
-//        Log.e("main",team);
-        Bundle bundle = new Bundle();
+
+        /*Bundle bundle = new Bundle();
         bundle.putString("POSITION", team);
         ShopdetailBrand fragment=new ShopdetailBrand();
-        fragment.setArguments(bundle);
-
+        fragment.setArguments(bundle);*/
         viewPager.setAdapter(adapter);
 
     }

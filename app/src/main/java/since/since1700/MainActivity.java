@@ -165,6 +165,7 @@ String id;
         closelayout2 = (LinearLayout) findViewById(R.id.close_layout2);
         logoutlayout = (LinearLayout) findViewById(R.id.logout_layout);
 
+        blog.setVisibility(View.GONE);
 
         relativelayout.setVisibility(View.VISIBLE);
         privilages.setOnClickListener(new View.OnClickListener() {
@@ -236,6 +237,7 @@ String id;
                 b.putString("pos", pos);
                 i.putExtras(b);
                 startActivity(i);
+
             }
         });
 

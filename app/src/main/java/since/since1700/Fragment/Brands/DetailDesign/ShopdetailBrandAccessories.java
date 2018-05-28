@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.CustomVolleyRequest;
-import since.since1700.Fragment.ShopFragments.ShopCategoryFragment;
 import since.since1700.OnLoadMoreListener;
 import since.since1700.R;
 
@@ -44,7 +43,7 @@ import since.since1700.R;
  * Created by Kuppusamy on 10/5/2017.
  */
 
-public class ShopdetailBrand extends Fragment {
+public class ShopdetailBrandAccessories extends Fragment {
     private ViewPager viewPager;
     ImageView filter;
     private RecyclerView recyclerView;
@@ -53,13 +52,13 @@ public class ShopdetailBrand extends Fragment {
     List<CategoryModel> categorymodellist=new ArrayList<CategoryModel>();
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/jeep.json";
+    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/accessories/armani.json";
     private boolean loading;
     protected Handler handler;
     ProgressDialog pdialog;
     @Nullable
-    public static ShopdetailBrand newInstance() {
-        ShopdetailBrand fragment = new ShopdetailBrand();
+    public static ShopdetailBrandAccessories newInstance() {
+        ShopdetailBrandAccessories fragment = new ShopdetailBrandAccessories();
         return fragment;
     }
     @Override
@@ -79,7 +78,7 @@ public class ShopdetailBrand extends Fragment {
         recyclerView.setAdapter(categoryadapter);
 
 //        String getArgument = getArguments().getString("POSITION");
-     //   Log.e("position",getArgument);
+       // Log.e("position",getArgument);
         return view;
     }
 

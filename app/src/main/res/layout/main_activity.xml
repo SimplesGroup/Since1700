@@ -227,7 +227,8 @@
                 android:layout_marginRight="10dp"
                 android:textAlignment="textEnd"
                 android:textColor="#fff"
-                android:textSize="18dp"/>
+                android:textSize="18dp"
+                 />
 
         </LinearLayout>
 
@@ -481,7 +482,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:text="About Us"
-                        android:background="#f9f5f5"
+                        android:background="#efeded"
                         android:padding="15dp"
                         android:textSize="15dp"
                         />
@@ -492,7 +493,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:text="Terms &amp; Conditions"
-                        android:background="#efeded"
+                        android:background="#f9f5f5"
                         android:textSize="15dp"
                         android:padding="15dp"
                         />

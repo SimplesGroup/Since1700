@@ -281,14 +281,14 @@ public class Featured_brands extends Fragment {
             loading = false;
         }
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
             if (holder instanceof Itemviewholder) {
                 if (mImageLoader == null)
                     mImageLoader = MySingleton.getInstance(getActivity()).getImageLoader();
 
                 final Itemviewholder userViewHolder = (Itemviewholder) holder;
                 FeedProductModel itemModel=productlist.get(position);
-                final int    pos = position;
+                final String    pos = String.valueOf(position);
 
                 String fontPath = "fonts/OpenSans-Regular.ttf";
                 final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
@@ -297,8 +297,13 @@ public class Featured_brands extends Fragment {
           userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+
+
+
         Intent next=new Intent(getActivity(), DetailPage.class);
         next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/RollsRoyce.jpg");
+        next.putExtra("POSITION",pos);
+        Log.e("Position",pos);
         startActivity(next);
       }
      });

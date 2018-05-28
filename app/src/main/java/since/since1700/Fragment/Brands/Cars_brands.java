@@ -55,12 +55,13 @@ public class Cars_brands extends Fragment {
 
     ProgressDialog progressDialog;
 
+
     SharedPreferences sharedpreferences;
     RecyclerView recyclerView_products;
     public static final String mypreference = "mypref";
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/car.json";
+    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/brandslist.json";
 
     List<FeedProductModel> productlist=new ArrayList<FeedProductModel>();
     ProductAdapterFeed productAdapter;

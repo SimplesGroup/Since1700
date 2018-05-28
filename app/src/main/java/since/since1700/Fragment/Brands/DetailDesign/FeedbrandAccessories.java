@@ -1,12 +1,6 @@
-package since.since1700.Fragment.FeedFragments;
+package since.since1700.Fragment.Brands.DetailDesign;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,12 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -41,8 +33,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import since.since1700.DetailPage;
-import since.since1700.Fragment.FeedFragment;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.OnLoadMoreListener;
@@ -50,104 +40,49 @@ import since.since1700.R;
 import since.since1700.RecyclerView_OnClickListener;
 
 /**
- * Created by Kuppusamy on 9/26/2017.
+ * Created by Kuppusamy on 10/5/2017.
  */
 
-public class Featured extends Fragment {
-    private boolean isFragmentLoaded=false;
+public class FeedbrandAccessories extends Fragment {
 
-    ProgressDialog progressDialog;
-    Spinner sort,filter;
-    SharedPreferences sharedpreferences;
-    RecyclerView recyclerView_products;
-    public static final String mypreference = "mypref";
-    RequestQueue requestQueue;
-    int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/productlist.json";
-
-    List<FeedProductModel> productlist=new ArrayList<FeedProductModel>();
-    ProductAdapterFeed productAdapter;
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //requestQueue = Volley.newRequestQueue(getActivity());
-    }
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(true);
-        if (isVisibleToUser && !isFragmentLoaded ) {
-            Log.e("TAB:","TamilALL");
-            isFragmentLoaded = true;
-        }else {
-
-        }
-    }
     @Nullable
-    public static Featured newInstance() {
-        Featured fragment = new Featured();
+    public static FeedbrandAccessories newInstance() {
+        FeedbrandAccessories fragment = new FeedbrandAccessories();
         return fragment;
     }
-    @Nullable
+    ImageLoader imageLoader;
+    RecyclerView recyclerView_products;
+    int requestcount = 1;
+    RequestQueue requestQueue;
+    String ITEMURL = "https://androiddevelopmentnew.000webhostapp.com/accessories/dior.json";
+
+    List<FeedProductModel> productlist = new ArrayList<FeedProductModel>();
+     ProductAdapterFeed productAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fee_child_feartured,container,false);
-
-        sharedpreferences = getActivity(). getSharedPreferences(mypreference,
-                Context.MODE_PRIVATE);
-        requestQueue= Volley.newRequestQueue(getActivity());
-        String fontPath = "fonts/PFBeauSansPro-Reg_0.otf";
-        final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
-        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
-        recyclerView_products=(RecyclerView)view.findViewById(R.id.recycler_feed_view);
+        View view=inflater.inflate(R.layout.brands_detail_feed_page,container,false);
+        requestQueue = Volley.newRequestQueue(getActivity());
+        imageLoader = MySingleton.getInstance(getActivity()).getImageLoader();
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView_products = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView_products.setLayoutManager(layoutManager);
-        Log.e("TAB","FEATURED");
-        Log.e("TAB", "1");
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.show();
-        progressDialog.setContentView(R.layout.custom_progressdialog);
-        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-       // sort = (Spinner)view.findViewById(R.id.spin_sort);
-       // filter = (Spinner)view.findViewById(R.id.spin_filter);
         getData();
-        productAdapter = new ProductAdapterFeed(productlist,recyclerView_products);
+        productAdapter = new ProductAdapterFeed(productlist, recyclerView_products);
         recyclerView_products.setAdapter(productAdapter);
-
-       /* sort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 Log.e("TAB", String.valueOf(position));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("TAB", String.valueOf(position));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
         return view;
     }
-
-    private void getData(){
+    private void getData() {
         requestQueue.add(getDataFromTheServer(requestcount));
         requestcount++;
     }
-    JsonObjectRequest getDataFromTheServer(int requestcount){
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, ITEMURL, new Response.Listener<JSONObject>() {
+
+    JsonObjectRequest getDataFromTheServer(int requestcount) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, ITEMURL, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("JSON ",response.toString());
+                Log.e("JSON ", response.toString());
                 if (response != null) {
-                    progressDialog.dismiss();
+                    // progressDialog.dismiss();
                     //  dissmissDialog();
                     ParseJsonFeed(response);
                 }
@@ -170,7 +105,7 @@ public class Featured extends Fragment {
 
             for (int i = 0; i < feedArray.length(); i++) {
                 JSONObject obj = (JSONObject) feedArray.get(i);
-                FeedProductModel model=new FeedProductModel();
+                FeedProductModel model = new FeedProductModel();
                 model.setId(obj.getString("id"));
                 String image = obj.isNull("productimage") ? null : obj
                         .getString("productimage");
@@ -185,24 +120,25 @@ public class Featured extends Fragment {
         } catch (JSONException e) {
 
         }
+
+
     }
 
 
-    static  class Itemviewholder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    static class Itemviewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageButton selectbutton;
         NetworkImageView productimage;
-        ImageView hoverimage ,likebutton;
-        Button share;
+        Button claim;
+        ImageView hoverimage;
         TextView productitle;
         RecyclerView_OnClickListener.OnClickListener recyclerView_onClickListener;
+
         public Itemviewholder(View itemView) {
             super(itemView);
-            productimage=(NetworkImageView)itemView.findViewById(R.id.product_category_image);
+            productimage = (NetworkImageView) itemView.findViewById(R.id.product_category_image);
             // hoverimage=(ImageView)itemView.findViewById(R.id.hoverimage);
-            likebutton=(ImageView)itemView.findViewById(R.id.likebutton);
-            share=(Button)itemView.findViewById(R.id.sharebutton);
-            productitle=(TextView)itemView.findViewById(R.id.product_category_name);
-            // selectbutton=(ImageButton) itemView.findViewById(R.id.select_item_imagebutton);
+            // productitle=(TextView)itemView.findViewById(R.id.product_category_name);
+          claim=(Button) itemView.findViewById(R.id.rsvp);
         }
 
         @Override
@@ -213,6 +149,7 @@ public class Featured extends Fragment {
 
             }
         }
+
         public void setClickListener(
                 RecyclerView_OnClickListener.OnClickListener onClickListener) {
             this.recyclerView_onClickListener = recyclerView_onClickListener;
@@ -293,7 +230,7 @@ public class Featured extends Fragment {
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             RecyclerView.ViewHolder viewHolder = null;
             if (viewType == VIEW_TYPE_ITEM) {
-                View view = LayoutInflater.from(getActivity()).inflate(R.layout.feed_item_mainfeed_list, parent, false);
+                View view = LayoutInflater.from(getActivity()).inflate(R.layout.brand_feed_mainfeed_list, parent, false);
                 return  new Itemviewholder(view);
             } else if (viewType == VIEW_TYPE_LOADING) {
                 View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_loading_item, parent, false);
@@ -304,7 +241,7 @@ public class Featured extends Fragment {
 
         @Override
         public int getItemViewType(int position) {
-            return                                                                                                                                                                productlist.get(position)==null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
+            return productlist.get(position)==null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
         }
         public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
             this.onLoadMoreListener = onLoadMoreListener;
@@ -325,37 +262,17 @@ public class Featured extends Fragment {
 
                 String fontPath = "fonts/OpenSans-Regular.ttf";
                 final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
-                userViewHolder.productitle.setText(itemModel.getProducttitle());
-                userViewHolder.likebutton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        userViewHolder.likebutton.setImageResource(R.mipmap.heartred);
-
-                    }
-                });
-
-                userViewHolder.share.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent sendIntent = new Intent();
-                        sendIntent.setAction(Intent.ACTION_SEND);
-                        sendIntent.putExtra(Intent.EXTRA_TEXT, "sharetitle"+ "\n" + "shareurl"+"\n"+"\n"+"\n"+"Receive instant updates by installing Simplicity for iPhone/iPad,Android and Windows 10(desktop & Mobile)(http://goo.gl/Sv3vfc)");
-                        sendIntent.setType("text/plain");
-                        startActivity(Intent.createChooser(sendIntent, "Share using"));
-                    }
-                });
-
-
-                userViewHolder.productitle.setTypeface(opensansfont);
+userViewHolder.claim.setVisibility(View.GONE);
                 userViewHolder.productimage.setImageUrl(itemModel.getProductimage(),mImageLoader);
-
-                userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
+                /*userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(getActivity(), DetailPage.class);
-                        startActivity(i);
+                        Intent next=new Intent(getActivity(), DetailPage.class);
+                        next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/cars.png");
+                        startActivity(next);
                     }
-                });
+                });*/
+
 
             }else {
                 if (holder instanceof LoadingViewHolder) {
@@ -369,6 +286,5 @@ public class Featured extends Fragment {
 
     }
 
-
-
 }
+

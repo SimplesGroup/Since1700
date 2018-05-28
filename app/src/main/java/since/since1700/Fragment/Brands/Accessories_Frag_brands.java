@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.Fragment.Brands.DetailDesign.DetailPage;
+import since.since1700.Fragment.Brands.DetailDesign.DetailPageAccessories;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.OnLoadMoreListener;
@@ -300,7 +301,7 @@ public class Accessories_Frag_brands extends Fragment {
                 userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent next=new Intent(getActivity(), DetailPage.class);
+                        Intent next=new Intent(getActivity(), DetailPageAccessories.class);
                         next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/cars.png");
                         startActivity(next);
                     }

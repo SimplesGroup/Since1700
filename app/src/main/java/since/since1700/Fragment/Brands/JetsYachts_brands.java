@@ -60,7 +60,7 @@ public class JetsYachts_brands extends Fragment {
     public static final String mypreference = "mypref";
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/jets.json";
+    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/jet.json";
 
     List<FeedProductModel> productlist=new ArrayList<FeedProductModel>();
     ProductAdapterFeed productAdapter;
