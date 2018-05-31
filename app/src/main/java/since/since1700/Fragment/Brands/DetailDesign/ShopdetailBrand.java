@@ -53,7 +53,7 @@ public class ShopdetailBrand extends Fragment {
     List<CategoryModel> categorymodellist=new ArrayList<CategoryModel>();
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/jeep.json";
+    String ITEMURL;
     private boolean loading;
     protected Handler handler;
     ProgressDialog pdialog;
@@ -78,8 +78,22 @@ public class ShopdetailBrand extends Fragment {
         categoryadapter = new CategoryAdapter(getActivity(),categorymodellist,recyclerView);
         recyclerView.setAdapter(categoryadapter);
 
-//        String getArgument = getArguments().getString("POSITION");
-     //   Log.e("position",getArgument);
+        Bundle pos = getActivity().getIntent().getExtras();
+        final String team = pos.getString("POSITION");
+        Log.e("getposition",team);
+
+       if(team =="2"){
+           Log.e("getposition",team);
+            ITEMURL="https://androiddevelopmentnew.000webhostapp.com/accessories/armani.json";
+        }
+        else if(team =="1"){
+           Log.e("getposition",team);
+            ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/burberry.json";
+        }
+       else {
+           Log.e("getposition",team);
+           ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/burberry.json";
+       }
         return view;
     }
 
@@ -103,6 +117,7 @@ public class ShopdetailBrand extends Fragment {
     }
     private JsonObjectRequest getDataFromTheServer(final int requestcount){
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, ITEMURL, new Response.Listener<JSONObject>() {
+
             @Override
             public void onResponse(JSONObject response) {
 
