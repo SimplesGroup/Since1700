@@ -70,6 +70,7 @@ public class Cars_brands extends Fragment {
         super.onCreate(savedInstanceState);
         //requestQueue = Volley.newRequestQueue(getActivity());
     }
+
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(true);
         if (isVisibleToUser && !isFragmentLoaded ) {
@@ -113,6 +114,7 @@ public class Cars_brands extends Fragment {
         requestQueue.add(getDataFromTheServer(requestcount));
         //requestcount++;
     }
+
     JsonObjectRequest getDataFromTheServer(int requestcount){
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, ITEMURL, new Response.Listener<JSONObject>() {
             @Override
@@ -148,6 +150,7 @@ public class Cars_brands extends Fragment {
                         .getString("productimage");
                 model.setProductimage(image);
                 model.setProducttitle(obj.getString("producttitle"));
+                model.setProducturl(obj.getString("producturl"));
                /* model.setLikescount(obj.getInt("likescount"));
                 model.setSharecount(obj.getInt("sharecount"));
                 model.setMoreimagescount(obj.getString("moreimagescount"));*/

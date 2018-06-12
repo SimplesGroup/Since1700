@@ -60,7 +60,7 @@ public class Featured_brands extends Fragment {
     public static final String mypreference = "mypref";
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/brandslist.json";
+    String ITEMURL="http://www.simples.in/since/AccessoriesJson/featuredbrandlist.json";
 
     List<FeedProductModel> productlist=new ArrayList<FeedProductModel>();
     ProductAdapterFeed productAdapter;
@@ -146,8 +146,8 @@ public class Featured_brands extends Fragment {
                         .getString("productimage");
                 model.setProductimage(image);
                 model.setProducttitle(obj.getString("producttitle"));
-               /* model.setLikescount(obj.getInt("likescount"));
-                model.setSharecount(obj.getInt("sharecount"));
+               model.setProducturl(obj.getString("producturl"));
+               /*  model.setSharecount(obj.getInt("sharecount"));
                 model.setMoreimagescount(obj.getString("moreimagescount"));*/
                 productlist.add(model);
             }
@@ -287,7 +287,7 @@ public class Featured_brands extends Fragment {
                     mImageLoader = MySingleton.getInstance(getActivity()).getImageLoader();
 
                 final Itemviewholder userViewHolder = (Itemviewholder) holder;
-                FeedProductModel itemModel=productlist.get(position);
+                final FeedProductModel itemModel=productlist.get(position);
                 final String    pos = String.valueOf(position);
 
                 String fontPath = "fonts/OpenSans-Regular.ttf";
@@ -297,18 +297,14 @@ public class Featured_brands extends Fragment {
           userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-
-
-
         Intent next=new Intent(getActivity(), DetailPage.class);
         next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/RollsRoyce.jpg");
         next.putExtra("POSITION",pos);
+        next.putExtra("URL",itemModel.getProducturl());
         Log.e("Position",pos);
         startActivity(next);
       }
      });
-
-
             }else {
                 if (holder instanceof LoadingViewHolder) {
                     LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;

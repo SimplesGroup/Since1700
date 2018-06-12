@@ -85,7 +85,7 @@ public class DetailPage extends AppCompatActivity {
 
 
         Bundle pos = getIntent().getExtras();
-        final String team = pos.getString("POSITION");
+        final String team = pos.getString("URL");
         Log.e("getposition",team);
 
         if(team=="0"){

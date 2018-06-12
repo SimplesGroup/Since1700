@@ -146,6 +146,7 @@ public class Gourmet_brands extends Fragment {
                         .getString("productimage");
                 model.setProductimage(image);
                 model.setProducttitle(obj.getString("producttitle"));
+
                /* model.setLikescount(obj.getInt("likescount"));
                 model.setSharecount(obj.getInt("sharecount"));
                 model.setMoreimagescount(obj.getString("moreimagescount"));*/

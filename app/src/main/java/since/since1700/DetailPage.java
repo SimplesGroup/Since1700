@@ -126,8 +126,8 @@ public class DetailPage extends AppCompatActivity {
       //  specification.setTypeface(opensansfontbold);
        // engine.setTypeface(opensansfontbold);
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
-String video="http://simpli-city.in/chainzbigseandrink.mp4";
-ProductModel model=new ProductModel();
+        String video="http://simpli-city.in/chainzbigseandrink.mp4";
+        ProductModel model=new ProductModel();
         model.setId("1");
         model.setLikescount(1);
         model.setMoreimagescount("4");
@@ -150,6 +150,9 @@ ProductModel model=new ProductModel();
         model2.setId("3");
         model2.setLikescount(2);
         model2.setProductvideo("");
+
+
+
         model2.setMoreimagescount("4");
         model2.setProductimage("http://simpli-city.in/vdfdhfv78lmdsvmg5todlsh4jffgskjb2947qnt/images/news/3TNFADemo1.jpg");
         model2.setProducttitle("fsgsgsdgsdgsgfs");
@@ -291,7 +294,8 @@ ProductModel model=new ProductModel();
             return producttitle;
         }
 
-        public void setProducttitle(String producttitle) {
+        public void setProducttitle(String producttitle)
+        {
             this.producttitle = producttitle;
         }
 

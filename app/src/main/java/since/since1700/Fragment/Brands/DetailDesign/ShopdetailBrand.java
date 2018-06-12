@@ -79,21 +79,12 @@ public class ShopdetailBrand extends Fragment {
         recyclerView.setAdapter(categoryadapter);
 
         Bundle pos = getActivity().getIntent().getExtras();
-        final String team = pos.getString("POSITION");
+        final String team = pos.getString("URL");
         Log.e("getposition",team);
+        ITEMURL = team;
+        Log.e("getpositionfeedsssss",ITEMURL);
+        GetData();
 
-       if(team =="2"){
-           Log.e("getposition",team);
-            ITEMURL="https://androiddevelopmentnew.000webhostapp.com/accessories/armani.json";
-        }
-        else if(team =="1"){
-           Log.e("getposition",team);
-            ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/burberry.json";
-        }
-       else {
-           Log.e("getposition",team);
-           ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/burberry.json";
-       }
         return view;
     }
 
@@ -194,6 +185,8 @@ public class ShopdetailBrand extends Fragment {
                             public void onScrolled(RecyclerView recyclerView,
                                                    int dx, int dy) {
                                 super.onScrolled(recyclerView, dx, dy);
+
+
 
                                 totalItemCount = linearLayoutManager.getItemCount();
                                 lastVisibleItem = linearLayoutManager

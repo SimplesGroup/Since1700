@@ -62,7 +62,7 @@ public class Accessories_Frag_brands extends Fragment {
     public static final String mypreference = "mypref";
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/accesories.json";
+    String ITEMURL="http://www.simples.in/since/AccessoriesJson/accessories.json";
 
     List<FeedProductModel> productlist=new ArrayList<FeedProductModel>();
     ProductAdapterFeed productAdapter;
@@ -150,6 +150,7 @@ public class Accessories_Frag_brands extends Fragment {
                         .getString("productimage");
                 model.setProductimage(image);
                 model.setProducttitle(obj.getString("producttitle"));
+                model.setProducturl(obj.getString("producturl"));
                /* model.setLikescount(obj.getInt("likescount"));
                 model.setSharecount(obj.getInt("sharecount"));
                 model.setMoreimagescount(obj.getString("moreimagescount"));*/
@@ -291,7 +292,7 @@ public class Accessories_Frag_brands extends Fragment {
                     mImageLoader = MySingleton.getInstance(getActivity()).getImageLoader();
 
                 final Featured_brands.Itemviewholder userViewHolder = (Featured_brands.Itemviewholder) holder;
-                FeedProductModel itemModel=productlist.get(position);
+                final FeedProductModel itemModel=productlist.get(position);
                 final int    pos = position;
 
                 String fontPath = "fonts/OpenSans-Regular.ttf";
@@ -301,8 +302,10 @@ public class Accessories_Frag_brands extends Fragment {
                 userViewHolder.productimage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent next=new Intent(getActivity(), DetailPageAccessories.class);
-                        next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/cars.png");
+                        Intent next=new Intent(getActivity(), DetailPage.class);
+                        next.putExtra("IMAGE","https://androiddevelopmentnew.000webhostapp.com/RollsRoyce.jpg");
+                        next.putExtra("POSITION",pos);
+                        next.putExtra("URL",itemModel.getProducturl());
                         startActivity(next);
                     }
                 });

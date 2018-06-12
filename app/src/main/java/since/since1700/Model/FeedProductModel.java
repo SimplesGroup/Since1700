@@ -5,8 +5,16 @@ package since.since1700.Model;
  */
 
 public class FeedProductModel {
-     String producttitle,productimage,id,moreimagescount;
+     String producttitle,productimage,id,moreimagescount,producturl;
     int likescount,sharecount;
+
+    public String getProducturl() {
+        return producturl;
+    }
+
+    public void setProducturl(String producturl) {
+        this.producturl = producturl;
+    }
 
     public String getProducttitle() {
         return producttitle;

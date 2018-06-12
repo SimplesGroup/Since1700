@@ -57,7 +57,7 @@ public class Feedbrand extends Fragment {
     RecyclerView recyclerView_products;
     int requestcount = 1;
     RequestQueue requestQueue;
-    String ITEMURL = "https://androiddevelopmentnew.000webhostapp.com/brand/burberry.json";
+   public  String ITEMURL;
 
     List<FeedProductModel> productlist = new ArrayList<FeedProductModel>();
      ProductAdapterFeed productAdapter;
@@ -69,25 +69,15 @@ public class Feedbrand extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView_products = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView_products.setLayoutManager(layoutManager);
-        getData();
+
         productAdapter = new ProductAdapterFeed(productlist, recyclerView_products);
         recyclerView_products.setAdapter(productAdapter);
         Bundle pos = getActivity().getIntent().getExtras();
-        final String team = pos.getString("POSITION");
-        Log.e("getpositionfeed",team);
+        final String team = pos.getString("URL");
 
-        if(team =="0"){
-            Log.e("getposition",team);
-            ITEMURL="https://androiddevelopmentnew.000webhostapp.com/accessories/armani.json";
-        }
-        else if(team =="1"){
-            Log.e("getposition",team);
-            ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/burberry.json";
-        }
-        else {
-            Log.e("getposition",team);
-            ITEMURL="https://androiddevelopmentnew.000webhostapp.com/brand/burberry.json";
-        }
+        ITEMURL = team;
+        Log.e("getpositionfeedsssss",ITEMURL);
+        getData();
         return view;
     }
     private void getData() {
