@@ -60,7 +60,7 @@ public class Featured_brands extends Fragment {
     public static final String mypreference = "mypref";
     RequestQueue requestQueue;
     int requestcount=1;
-    String ITEMURL="http://www.simples.in/since/AccessoriesJson/featuredbrandlist.json";
+    String ITEMURL="http://www.simples.in/since/CarsJson/car.json";
 
     List<FeedProductModel> productlist=new ArrayList<FeedProductModel>();
     ProductAdapterFeed productAdapter;
