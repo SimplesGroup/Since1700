@@ -316,8 +316,5 @@ public class Decor_brands extends Fragment {
 
 
     }
-
-
-
 }
 

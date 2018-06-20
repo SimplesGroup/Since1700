@@ -118,10 +118,7 @@ public class FeedbrandAccessories extends Fragment {
             }
             productAdapter.notifyDataSetChanged();
         } catch (JSONException e) {
-
         }
-
-
     }
 
 
