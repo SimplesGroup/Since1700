@@ -71,8 +71,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".DetailPage"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Fragment.Brands.DetailDesign.DetailPageAccessories"
-            android:screenOrientation="portrait"/>
         <activity android:name=".Search.SearchActivity"
             android:screenOrientation="portrait"/>
 

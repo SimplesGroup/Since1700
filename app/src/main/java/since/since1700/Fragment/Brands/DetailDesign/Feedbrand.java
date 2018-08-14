@@ -134,6 +134,7 @@ public class Feedbrand extends Fragment {
 
     static class Itemviewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageButton selectbutton;
+        ImageButton likebutton;;
         NetworkImageView productimage;
         Button claim;
         ImageView hoverimage;
@@ -142,6 +143,7 @@ public class Feedbrand extends Fragment {
 
         public Itemviewholder(View itemView) {
             super(itemView);
+            likebutton=(ImageButton) itemView.findViewById(R.id.likebutton);
             productimage = (NetworkImageView) itemView.findViewById(R.id.product_category_image);
             // hoverimage=(ImageView)itemView.findViewById(R.id.hoverimage);
             // productitle=(TextView)itemView.findViewById(R.id.product_category_name);
@@ -266,7 +268,13 @@ public class Feedbrand extends Fragment {
                 final Itemviewholder userViewHolder = (Itemviewholder) holder;
                 FeedProductModel itemModel=productlist.get(position);
                 final int    pos = position;
+                userViewHolder.likebutton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        userViewHolder.likebutton.setImageResource(R.mipmap.heartred);
 
+                    }
+                });
                 String fontPath = "fonts/OpenSans-Regular.ttf";
                 final Typeface opensansfont = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
 userViewHolder.claim.setVisibility(View.GONE);

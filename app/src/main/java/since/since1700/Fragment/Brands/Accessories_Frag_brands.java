@@ -32,6 +32,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,7 +41,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import since.since1700.Fragment.Brands.DetailDesign.DetailPage;
-import since.since1700.Fragment.Brands.DetailDesign.DetailPageAccessories;
 import since.since1700.Model.FeedProductModel;
 import since.since1700.MySingleton;
 import since.since1700.OnLoadMoreListener;
@@ -119,7 +119,7 @@ public class Accessories_Frag_brands extends Fragment {
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, ITEMURL, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("JSON ",response.toString());
+                Log.e("JSON ",response.toString( ));
                 if (response != null) {
                     progressDialog.dismiss();
                     //  dissmissDialog();
@@ -241,7 +241,7 @@ public class Accessories_Frag_brands extends Fragment {
                                 fab.setVisibility(View.GONE);
                             }*/
                                 if (!loading
-                                        && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
+                                         && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
                                     // End has been reached
                                     // Do something
                                     if (onLoadMoreListener != null) {
